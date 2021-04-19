@@ -15,7 +15,6 @@
 		621A67DF262C86A7009FE5EC /* TempFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67DE262C86A7009FE5EC /* TempFormatter.swift */; };
 		621A67E1262C86DE009FE5EC /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E0262C86DE009FE5EC /* Component.swift */; };
 		621A67E3262C884A009FE5EC /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E2262C884A009FE5EC /* ComponentView.swift */; };
-		621A67E5262C8AD9009FE5EC /* TempSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E4262C8AD9009FE5EC /* TempSlider.swift */; };
 		621A67E7262C8AE7009FE5EC /* PrefermentSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */; };
 		621A67E9262C8AF1009FE5EC /* FrictionSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +30,6 @@
 		621A67DE262C86A7009FE5EC /* TempFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFormatter.swift; sourceTree = "<group>"; };
 		621A67E0262C86DE009FE5EC /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		621A67E2262C884A009FE5EC /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
-		621A67E4262C8AD9009FE5EC /* TempSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSlider.swift; sourceTree = "<group>"; };
 		621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefermentSwitch.swift; sourceTree = "<group>"; };
 		621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +95,6 @@
 			children = (
 				621A67CC262C8568009FE5EC /* MainView.swift */,
 				621A67E2262C884A009FE5EC /* ComponentView.swift */,
-				621A67E4262C8AD9009FE5EC /* TempSlider.swift */,
 				621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */,
 				621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */,
 			);
@@ -185,7 +182,6 @@
 			files = (
 				621A67DF262C86A7009FE5EC /* TempFormatter.swift in Sources */,
 				621A67DD262C8691009FE5EC /* Temps.swift in Sources */,
-				621A67E5262C8AD9009FE5EC /* TempSlider.swift in Sources */,
 				621A67E7262C8AE7009FE5EC /* PrefermentSwitch.swift in Sources */,
 				621A67E3262C884A009FE5EC /* ComponentView.swift in Sources */,
 				621A67CD262C8568009FE5EC /* MainView.swift in Sources */,
@@ -321,7 +317,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DDT/Support/Preview Content\"";
-				DEVELOPMENT_TEAM = MG5SW9CY8D;
+				DEVELOPMENT_TEAM = PATM989L2B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -343,7 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DDT/Support/Preview Content\"";
-				DEVELOPMENT_TEAM = MG5SW9CY8D;
+				DEVELOPMENT_TEAM = PATM989L2B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

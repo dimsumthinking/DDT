@@ -4,18 +4,36 @@ struct ComponentView {
   let component: Component
   @Binding var currentType: Component?
   @EnvironmentObject private var temps: Temps
+  @State private var temperature: Double = 50.0
 }
 
 extension ComponentView: View {
   var body: some View {
-    HStack(spacing: 10) {
-      Text(component.name + " Temp")
-      Spacer()
-      Text(component.current(temps).wrappedValue.tempDisplay)
+    VStack {
+      HStack(spacing: 10) {
+        Text(component.name + " Temp")
+        Spacer()
+        Text(temperature.tempDisplay)
+      }
+      .padding()
+      
+      if currentType == component {
+        Slider(value: $temperature,
+               in: component.range) {edited in
+          if !edited {
+            temps.record(temperature, for: component)
+          }
+        }
+        .padding(.bottom)
+        .transition(.slide)
+      }
     }
     .contentShape(Rectangle())
     .onTapGesture {
-      currentType = component
+      if component != .water {
+        currentType = component
+      }
     }
+    
   }
 }

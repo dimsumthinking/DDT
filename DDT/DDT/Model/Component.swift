@@ -7,6 +7,7 @@ enum Component: String {
   case preferment
   case friction
   case actual
+  case water
 }
 
 extension Component {
@@ -22,19 +23,6 @@ extension Component {
     case .actual: return 60...100
     case .friction: return 0...40
     default: return 30...130
-    }
-  }
-}
-
-extension Component {
-  func current(_ temps: Temps) -> Binding<Double> {
-    switch self {
-    case .desired: return temps.$desired
-    case .ambient: return temps.$ambient
-    case .flour: return temps.$flour
-    case .preferment: return temps.$preferment
-    case .friction: return temps.$friction
-    default: return temps.$ambient
     }
   }
 }

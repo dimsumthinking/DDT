@@ -10,19 +10,19 @@ extension MainView: View {
     NavigationView {
       
       List {
-        Section {
+        Section(footer: PrefermentSwitch(hasPreferment: $temp.hasPreferment)) {
           HStack(spacing: 10) {
             Text("Water Temp")
             Spacer()
             Text(temp.water.tempDisplay)
           }
           .foregroundColor(.blue)
+          .contentShape(Rectangle())
+          .onTapGesture {
+            selection = nil
+          }
         }
-        Section(header:
-                  VStack {
-                    Text("Tap to select value to modify:")
-                    PrefermentSwitch(hasPreferment: $temp.hasPreferment)
-                  }) {
+        Section(header: Text("Tap to select value to modify:")) {
           ForEach(temp.activeTypes, id: \.self) {component in
             if temp.hasPreferment || component != .preferment {
               ComponentView(component: component,
@@ -36,15 +36,9 @@ extension MainView: View {
                         currentType: $selection)
           }
         }
-        
-        Section {
-          if let currentType = selection {
-            TempSlider(component: currentType)
-          }
-        }
       }
+    
       .listStyle(GroupedListStyle())
-      
       .navigationTitle("DDT Calculator")
     }
   }
