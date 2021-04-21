@@ -1,5 +1,7 @@
 import SwiftUI
 
+let baseTypes: [Component] = [.desired, .ambient, .flour]
+
 enum Component: String {
   case desired
   case ambient
@@ -8,6 +10,12 @@ enum Component: String {
   case friction
   case actual
   case water
+}
+
+extension Component: Identifiable {
+  var id: String {
+    rawValue
+  }
 }
 
 extension Component {

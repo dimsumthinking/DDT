@@ -1,9 +1,10 @@
 import SwiftUI
 
+
 class Temps: ObservableObject {
   @Published var hasPreferment = false
   @Published var autoFriction = false
-  @AppStorage("Desired") var desired = 78.0
+  @AppStorage("Desired") var desired = 76.0
   @AppStorage("Flour") var flour = 70.0
   @AppStorage("Preferment") var preferment = 70.0
   @AppStorage("Ambient") var ambient = 70.0
@@ -23,6 +24,7 @@ extension Temps {
     return Array(componentTypes)
   }
 }
+
 
 extension Temps {
   var frictionType: [Component] {
