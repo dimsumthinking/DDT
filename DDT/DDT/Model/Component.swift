@@ -19,10 +19,10 @@ extension Component {
 extension Component {
   var range: ClosedRange<Double> {
     switch self {
-    case .desired: return 70...90
-    case .actual: return 60...100
+    case .desired: return 72...80
+    case .actual: return 60...92
     case .friction: return 0...40
-    default: return 30...130
+    default: return 40...120
     }
   }
 }

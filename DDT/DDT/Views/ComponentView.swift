@@ -26,6 +26,7 @@ extension ComponentView: View {
         }
         .padding(.bottom)
         .transition(.slide)
+        .animation(.default)
       }
     }
     .contentShape(Rectangle())
