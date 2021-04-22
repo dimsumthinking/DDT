@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView {
-  @Binding var isShowingSettings: Bool
+    @Binding var isShowingSettings: Bool
 }
 
 extension SettingsView: View {
@@ -9,4 +9,3 @@ extension SettingsView: View {
         Text("Settings")
     }
 }
-
