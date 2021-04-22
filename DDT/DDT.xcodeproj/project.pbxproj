@@ -11,15 +11,13 @@
 		621A67CD262C8568009FE5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67CC262C8568009FE5EC /* MainView.swift */; };
 		621A67CF262C8569009FE5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67CE262C8569009FE5EC /* Assets.xcassets */; };
 		621A67D2262C8569009FE5EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67D1262C8569009FE5EC /* Preview Assets.xcassets */; };
-		621A67DD262C8691009FE5EC /* Temps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67DC262C8691009FE5EC /* Temps.swift */; };
-		621A67DF262C86A7009FE5EC /* TempFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67DE262C86A7009FE5EC /* TempFormatter.swift */; };
-		621A67E1262C86DE009FE5EC /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E0262C86DE009FE5EC /* Component.swift */; };
 		621A67E3262C884A009FE5EC /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E2262C884A009FE5EC /* ComponentView.swift */; };
 		621A67E7262C8AE7009FE5EC /* PrefermentSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */; };
 		621A67E9262C8AF1009FE5EC /* FrictionSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */; };
 		62444EDE2630943B00DCF7BA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EDD2630943B00DCF7BA /* SettingsView.swift */; };
-		62444EE0263094E300DCF7BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EDF263094E300DCF7BA /* Constants.swift */; };
+		62444EE0263094E300DCF7BA /* Temps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EDF263094E300DCF7BA /* Temps.swift */; };
 		62444EE22630999400DCF7BA /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EE12630999400DCF7BA /* HelpView.swift */; };
+		62444EE4263107FC00DCF7BA /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EE3263107FC00DCF7BA /* TempView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,15 +27,13 @@
 		621A67CE262C8569009FE5EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		621A67D1262C8569009FE5EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621A67D3262C8569009FE5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		621A67DC262C8691009FE5EC /* Temps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temps.swift; sourceTree = "<group>"; };
-		621A67DE262C86A7009FE5EC /* TempFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFormatter.swift; sourceTree = "<group>"; };
-		621A67E0262C86DE009FE5EC /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		621A67E2262C884A009FE5EC /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefermentSwitch.swift; sourceTree = "<group>"; };
 		621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionSwitch.swift; sourceTree = "<group>"; };
 		62444EDD2630943B00DCF7BA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		62444EDF263094E300DCF7BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		62444EDF263094E300DCF7BA /* Temps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temps.swift; sourceTree = "<group>"; };
 		62444EE12630999400DCF7BA /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		62444EE3263107FC00DCF7BA /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +101,7 @@
 				621A67E8262C8AF1009FE5EC /* FrictionSwitch.swift */,
 				62444EDD2630943B00DCF7BA /* SettingsView.swift */,
 				62444EE12630999400DCF7BA /* HelpView.swift */,
+				62444EE3263107FC00DCF7BA /* TempView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,10 +109,7 @@
 		621A67DB262C85A4009FE5EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				621A67DC262C8691009FE5EC /* Temps.swift */,
-				621A67DE262C86A7009FE5EC /* TempFormatter.swift */,
-				621A67E0262C86DE009FE5EC /* Component.swift */,
-				62444EDF263094E300DCF7BA /* Constants.swift */,
+				62444EDF263094E300DCF7BA /* Temps.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,17 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				621A67DF262C86A7009FE5EC /* TempFormatter.swift in Sources */,
-				621A67DD262C8691009FE5EC /* Temps.swift in Sources */,
 				621A67E7262C8AE7009FE5EC /* PrefermentSwitch.swift in Sources */,
 				62444EDE2630943B00DCF7BA /* SettingsView.swift in Sources */,
 				621A67E3262C884A009FE5EC /* ComponentView.swift in Sources */,
 				62444EE22630999400DCF7BA /* HelpView.swift in Sources */,
-				62444EE0263094E300DCF7BA /* Constants.swift in Sources */,
+				62444EE4263107FC00DCF7BA /* TempView.swift in Sources */,
+				62444EE0263094E300DCF7BA /* Temps.swift in Sources */,
 				621A67CD262C8568009FE5EC /* MainView.swift in Sources */,
 				621A67E9262C8AF1009FE5EC /* FrictionSwitch.swift in Sources */,
 				621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */,
-				621A67E1262C86DE009FE5EC /* Component.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
