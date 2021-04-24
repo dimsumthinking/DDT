@@ -26,10 +26,8 @@ extension HelpView: View {
                 friction factor, measure the temperature
                 of the final dough as it comes off the mixer. \n
                 If the actual temperature differs from the
-                desired dough temperature, use the settings
-                to either directly adjust the friction factor
-                or to record the actual temperature and let
-                the app calculate the friction factor for you.
+                desired dough temperature, use the slider in
+                the Settings to adjust the friction factor.
                 """)
                     .padding()
                 Button("Dismiss") {

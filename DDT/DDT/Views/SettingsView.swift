@@ -5,6 +5,7 @@ struct SettingsView {
   @Binding var friction: Double
   @State private var isShowingFrictionHelp = false
   @Binding var isCelsius: Bool
+  let convertTempScale: () -> Void
 }
 
 extension SettingsView: View {
@@ -20,6 +21,7 @@ extension SettingsView: View {
           Spacer()
           Button {
             isCelsius = false
+            convertTempScale()
           } label: {
             Text("Fahrenheit")
               .foregroundColor(isCelsius ? .secondary : .red)
@@ -27,6 +29,7 @@ extension SettingsView: View {
           Spacer()
           Button {
             isCelsius = true
+            convertTempScale()
           } label: {
             Text("Celsius")
               .foregroundColor(isCelsius ? .red : .secondary)

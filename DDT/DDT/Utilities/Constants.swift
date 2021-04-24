@@ -9,7 +9,7 @@ func defaultRange(inCelsius: Bool) -> ClosedRange<Double> {
 }
 
 func frictionRange(inCelsius: Bool) -> ClosedRange<Double> {
-  inCelsius ? -17.78 ... 4.44 : 0 ... 40
+  inCelsius ? 0 ... 22.22 : 0 ... 40
 }
 
 func actualRange(inCelsius: Bool) -> ClosedRange<Double> {
@@ -22,4 +22,28 @@ func defaultTemp(inCelsius: Bool = false) -> Double {
 
 func defaultFriction(inCelsius: Bool = false) -> Double {
   inCelsius ? -6.67 : 20
+}
+
+func tempScaleConversion(of temp: Double, toCelsius: Bool) -> Double {
+  toCelsius ? fToC(temp) : cToF(temp)
+}
+
+func affineTempScaleConversion(of temp: Double, toCelsius: Bool) -> Double {
+  toCelsius ? affineFToC(temp) : affineCToF(temp)
+}
+
+private func fToC(_ tempInF: Double) -> Double {
+  (tempInF - 32) * 5 / 9
+}
+
+private func cToF(_ tempInC: Double) -> Double {
+  tempInC  * 9 / 5 + 32
+}
+
+private func affineFToC(_ tempInF: Double) -> Double {
+  tempInF * 5 / 9
+}
+
+private func affineCToF(_ tempInC: Double) -> Double {
+  tempInC  * 9 / 5
 }

@@ -36,7 +36,7 @@ extension MainView: View {
                         range: desiredRange(inCelsius: isCelsius))
         }
       }
-      .navigationBarTitle("DDT Calculator")
+      .navigationBarTitle("DDT Calculator º\(isCelsius ? "C" : "F")")
       .navigationBarItems(trailing: PrefermentSwitch(hasPreferment: $hasPreferment))
       .toolbar {
         ToolbarItemGroup(placement: .bottomBar) {
@@ -52,7 +52,8 @@ extension MainView: View {
     .sheet(isPresented: $isShowingSettings) {
       SettingsView(isShowingSettings: $isShowingSettings,
                    friction: $friction,
-                   isCelsius: $isCelsius)
+                   isCelsius: $isCelsius,
+                   convertTempScale: convertTempScale)
     }
     .sheet(isPresented: $isShowingHelp) {
       HelpView(isShowingHelp: $isShowingHelp)
@@ -67,5 +68,15 @@ extension MainView {
     } else {
       return desired * 3 - flour - ambient - friction
     }
+  }
+}
+
+extension MainView {
+  func convertTempScale() {
+    desired = tempScaleConversion(of: desired, toCelsius: isCelsius)
+    flour = tempScaleConversion(of: flour, toCelsius: isCelsius)
+    ambient = tempScaleConversion(of: ambient, toCelsius: isCelsius)
+    preferment = tempScaleConversion(of: preferment, toCelsius: isCelsius)
+    friction = affineTempScaleConversion(of: friction, toCelsius: isCelsius)
   }
 }
