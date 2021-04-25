@@ -25,14 +25,14 @@ extension MainView: View {
                       range: desiredRange(inCelsius: isCelsius))
         ComponentView(name: "Ambient",
                       temp: $ambient,
-                      range: desiredRange(inCelsius: isCelsius))
+                      range: actualRange(inCelsius: isCelsius))
         ComponentView(name: "Flour",
                       temp: $flour,
-                      range: desiredRange(inCelsius: isCelsius))
+                      range: actualRange(inCelsius: isCelsius))
         if hasPreferment {
           ComponentView(name: "Preferment",
                         temp: $preferment,
-                        range: desiredRange(inCelsius: isCelsius))
+                        range: actualRange(inCelsius: isCelsius))
         }
       }
       .navigationBarTitle("DDT Calculator º\(isCelsius ? "C" : "F")")
