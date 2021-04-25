@@ -6,7 +6,7 @@ struct PrefermentSwitch {
 
 extension PrefermentSwitch: View {
     var body: some View {
-        Toggle("Has Preferment",
+        Toggle("Preferment",
                isOn: $hasPreferment)
     }
 }

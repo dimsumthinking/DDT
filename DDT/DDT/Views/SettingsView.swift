@@ -11,7 +11,7 @@ struct SettingsView {
 extension SettingsView: View {
   var body: some View {
     ScrollView {
-    VStack(spacing: 20) {
+    VStack {
         Text("Settings").font(.title).padding()
       VStack(spacing: 20) {
         HStack {
