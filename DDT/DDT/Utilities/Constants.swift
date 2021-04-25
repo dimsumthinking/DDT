@@ -4,16 +4,12 @@ func desiredRange(inCelsius: Bool) -> ClosedRange<Double> {
   inCelsius ? 22.22 ... 26.67 : 72 ... 80
 }
 
-func defaultRange(inCelsius: Bool) -> ClosedRange<Double> {
-  inCelsius ? 50 ... 43.33 : 72 ... 80
-}
-
 func frictionRange(inCelsius: Bool) -> ClosedRange<Double> {
   inCelsius ? 0 ... 22.22 : 0 ... 40
 }
 
-func actualRange(inCelsius: Bool) -> ClosedRange<Double> {
-  inCelsius ? 15.56 ... 33.33 : 60 ... 92
+func defaultRange(inCelsius: Bool) -> ClosedRange<Double> {
+  inCelsius ? 7.22 ... 43.33 : 45 ... 110
 }
 
 func defaultTemp(inCelsius: Bool = false) -> Double {
