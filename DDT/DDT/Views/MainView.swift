@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct MainView {
-  @State private var isShowingSettings = false
-  @State private var isShowingHelp = false
+  @State private var toolbarType: ToolbarType?
   @State private var hasPreferment = false
   @AppStorage("Desired") var desired = defaultTemp()
   @AppStorage("Flour") var flour = defaultTemp()
@@ -40,23 +39,26 @@ extension MainView: View {
       .navigationBarItems(trailing: PrefermentSwitch(hasPreferment: $hasPreferment))
       .toolbar {
         ToolbarItemGroup(placement: .bottomBar) {
-          Button {self.isShowingHelp.toggle()}
+          Button {self.toolbarType = .help}
             label: {Image(systemName: "info.circle")}
           Spacer()
-          Button {self.isShowingSettings.toggle()}
+          Button {self.toolbarType = .settings}
             label: {Image(systemName: "gear")}
         }
       }
+
     }
     .navigationViewStyle(StackNavigationViewStyle())
-    .sheet(isPresented: $isShowingSettings) {
-      SettingsView(isShowingSettings: $isShowingSettings,
-                   friction: $friction,
-                   isCelsius: $isCelsius,
-                   convertTempScale: convertTempScale)
-    }
-    .sheet(isPresented: $isShowingHelp) {
-      HelpView(isShowingHelp: $isShowingHelp)
+    .sheet(item: $toolbarType) {toolbarType in
+      switch toolbarType {
+      case .help:
+        HelpView(toolbarType: $toolbarType)
+      case .settings:
+        SettingsView(toolbarType: $toolbarType,
+                     friction: $friction,
+                     isCelsius: $isCelsius,
+                     convertTempScale: convertTempScale)
+      }
     }
   }
 }

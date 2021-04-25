@@ -21,7 +21,11 @@ func defaultTemp(inCelsius: Bool = false) -> Double {
 }
 
 func defaultFriction(inCelsius: Bool = false) -> Double {
-  inCelsius ? -6.67 : 20
+  inCelsius ? 13.33 : 24
+}
+
+func defaultHandFriction(inCelsius: Bool = false) -> Double {
+  inCelsius ? 1 : 2
 }
 
 func tempScaleConversion(of temp: Double, toCelsius: Bool) -> Double {
