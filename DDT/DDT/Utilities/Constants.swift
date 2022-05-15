@@ -1,7 +1,7 @@
 import SwiftUI
 
 func desiredRange(inCelsius: Bool) -> ClosedRange<Double> {
-  inCelsius ? 22.22 ... 26.67 : 72 ... 80
+  inCelsius ? 21.11 ... 32.22 : 70 ... 90
 }
 
 func frictionRange(inCelsius: Bool) -> ClosedRange<Double> {
@@ -9,7 +9,7 @@ func frictionRange(inCelsius: Bool) -> ClosedRange<Double> {
 }
 
 func defaultRange(inCelsius: Bool) -> ClosedRange<Double> {
-  inCelsius ? 7.22 ... 43.33 : 45 ... 110
+  inCelsius ? 4.44 ... 48.89 : 40 ... 120
 }
 
 func defaultTemp(inCelsius: Bool = false) -> Double {

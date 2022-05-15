@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainView {
   @State private var toolbarType: ToolbarType?
-  @State private var hasPreferment = false
+  @AppStorage("HasPreferment") var hasPreferment = false
   @AppStorage("Desired") var desired = defaultTemp()
   @AppStorage("Flour") var flour = defaultTemp()
   @AppStorage("Preferment") var preferment = defaultTemp()
