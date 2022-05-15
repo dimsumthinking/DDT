@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MainView {
+struct ClassicView {
   @State private var toolbarType: ToolbarType?
   @AppStorage("HasPreferment") var hasPreferment = false
   @AppStorage("Desired") var desired = defaultTemp()
@@ -11,7 +11,7 @@ struct MainView {
   @AppStorage("TemperatureScale") var isCelsius = false
 }
 
-extension MainView: View {
+extension ClassicView: View {
   var body: some View {
     NavigationView {
       List {
@@ -63,7 +63,7 @@ extension MainView: View {
   }
 }
 
-extension MainView {
+extension ClassicView {
   var water: Double {
     if hasPreferment {
       return desired * 4 - flour - ambient - friction - preferment
@@ -73,7 +73,7 @@ extension MainView {
   }
 }
 
-extension MainView {
+extension ClassicView {
   func convertTempScale() {
     desired = tempScaleConversion(of: desired, toCelsius: isCelsius)
     flour = tempScaleConversion(of: flour, toCelsius: isCelsius)
