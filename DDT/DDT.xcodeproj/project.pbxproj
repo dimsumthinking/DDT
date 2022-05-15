@@ -110,7 +110,6 @@
 				621A67C9262C8568009FE5EC /* DDT */,
 				62E48FE1283142F400136CF2 /* MixModel */,
 				621A67C8262C8568009FE5EC /* Products */,
-				6299ACAD28313A2A00379EC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,13 +182,6 @@
 				6299ACA8283136A400379EC8 /* MainView.swift */,
 			);
 			path = Launch;
-			sourceTree = "<group>";
-		};
-		6299ACAD28313A2A00379EC8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		62E48FE1283142F400136CF2 /* MixModel */ = {
