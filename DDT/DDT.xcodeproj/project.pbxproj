@@ -25,18 +25,10 @@
 		62E48FEB2831430100136CF2 /* Mix+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FE82831430100136CF2 /* Mix+CoreDataProperties.swift */; };
 		62E48FEC2831430100136CF2 /* Mix+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FE72831430100136CF2 /* Mix+CoreDataClass.swift */; };
 		62E48FF02831430800136CF2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FEF2831430800136CF2 /* PersistenceController.swift */; };
-		62E48FF1283143A600136CF2 /* libMixModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E48FE0283142F400136CF2 /* libMixModel.a */; };
+		62E48FF528316DB300136CF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FF428316DB300136CF2 /* Status.swift */; };
+		62E490072832BA3300136CF2 /* HelperViews in Frameworks */ = {isa = PBXBuildFile; productRef = 62E490062832BA3300136CF2 /* HelperViews */; };
+		62E490092832BA3800136CF2 /* Modes in Frameworks */ = {isa = PBXBuildFile; productRef = 62E490082832BA3800136CF2 /* Modes */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		62E48FF2283143A600136CF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 621A67BF262C8568009FE5EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 62E48FDF283142F400136CF2;
-			remoteInfo = MixModel;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		62E48FD4283141FF00136CF2 /* Embed Frameworks */ = {
@@ -83,6 +75,9 @@
 		62E48FE92831430100136CF2 /* MixInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixInitializer.swift; sourceTree = "<group>"; };
 		62E48FEE2831430700136CF2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		62E48FEF2831430800136CF2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		62E48FF428316DB300136CF2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		62E490032832BA0D00136CF2 /* HelperViews */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HelperViews; sourceTree = "<group>"; };
+		62E490042832BA1900136CF2 /* Modes */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E48FF1283143A600136CF2 /* libMixModel.a in Frameworks */,
+				62E490072832BA3300136CF2 /* HelperViews in Frameworks */,
+				62E490092832BA3800136CF2 /* Modes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,9 +103,11 @@
 		621A67BE262C8568009FE5EC = {
 			isa = PBXGroup;
 			children = (
+				62E490022832BA0D00136CF2 /* Packages */,
 				621A67C9262C8568009FE5EC /* DDT */,
 				62E48FE1283142F400136CF2 /* MixModel */,
 				621A67C8262C8568009FE5EC /* Products */,
+				62E490052832BA3300136CF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +146,7 @@
 				621A67D3262C8569009FE5EC /* Info.plist */,
 				621A67D0262C8569009FE5EC /* Preview Content */,
 				6299ACA22831292C00379EC8 /* World.swift */,
+				62E48FF428316DB300136CF2 /* Status.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -187,13 +186,29 @@
 		62E48FE1283142F400136CF2 /* MixModel */ = {
 			isa = PBXGroup;
 			children = (
-				62E48FE72831430100136CF2 /* Mix+CoreDataClass.swift */,
 				62E48FED2831430700136CF2 /* Model.xcdatamodeld */,
+				62E48FE72831430100136CF2 /* Mix+CoreDataClass.swift */,
 				62E48FEF2831430800136CF2 /* PersistenceController.swift */,
 				62E48FE82831430100136CF2 /* Mix+CoreDataProperties.swift */,
 				62E48FE92831430100136CF2 /* MixInitializer.swift */,
 			);
 			path = MixModel;
+			sourceTree = "<group>";
+		};
+		62E490022832BA0D00136CF2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				62E490032832BA0D00136CF2 /* HelperViews */,
+				62E490042832BA1900136CF2 /* Modes */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		62E490052832BA3300136CF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,10 +226,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				62E48FF3283143A600136CF2 /* PBXTargetDependency */,
 			);
 			name = DDT;
 			packageProductDependencies = (
+				62E490062832BA3300136CF2 /* HelperViews */,
+				62E490082832BA3800136CF2 /* Modes */,
 			);
 			productName = DDT;
 			productReference = 621A67C7262C8568009FE5EC /* DDT.app */;
@@ -303,6 +319,7 @@
 				6299ACA32831292C00379EC8 /* World.swift in Sources */,
 				62444EE0263094E300DCF7BA /* Constants.swift in Sources */,
 				621A67CD262C8568009FE5EC /* ClassicView.swift in Sources */,
+				62E48FF528316DB300136CF2 /* Status.swift in Sources */,
 				621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,14 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		62E48FF3283143A600136CF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 62E48FDF283142F400136CF2 /* MixModel */;
-			targetProxy = 62E48FF2283143A600136CF2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		621A67D4262C8569009FE5EC /* Debug */ = {
@@ -550,6 +559,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62E490062832BA3300136CF2 /* HelperViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HelperViews;
+		};
+		62E490082832BA3800136CF2 /* Modes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Modes;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		62E48FED2831430700136CF2 /* Model.xcdatamodeld */ = {

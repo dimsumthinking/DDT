@@ -49,17 +49,17 @@ extension ClassicView: View {
 
     }
     .navigationViewStyle(StackNavigationViewStyle())
-    .sheet(item: $toolbarType) {toolbarType in
-      switch toolbarType {
-      case .help:
-        HelpView(toolbarType: $toolbarType)
-      case .settings:
-        SettingsView(toolbarType: $toolbarType,
-                     friction: $friction,
-                     isCelsius: $isCelsius,
-                     convertTempScale: convertTempScale)
-      }
-    }
+//    .sheet(item: $toolbarType) {toolbarType in
+//      switch toolbarType {
+//      case .help:
+//        HelpView(toolbarType: $toolbarType)
+//      case .settings:
+//        SettingsView(toolbarType: $toolbarType,
+//                     friction: $friction,
+//                     isCelsius: $isCelsius,
+//                     convertTempScale: convertTempScale)
+//      }
+//    }
   }
 }
 

@@ -1,13 +1,17 @@
 import SwiftUI
-import MixModel
+//import MixModel
 
 @main
-struct DDTApp: App {
+struct DDTApp {
+}
+
+extension DDTApp: App {
   var body: some Scene {
     WindowGroup {
       MainView()
-        .environment(\.managedObjectContext,
-                     sharedViewContext)
+//        .environmentObject(Status())
+//        .environment(\.managedObjectContext,
+//                     sharedViewContext)
     }
   }
 }
