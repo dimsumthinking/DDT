@@ -12,7 +12,7 @@ extension Mode {
 }
 
 extension Mode {
-  func screen(_ index: Int) -> Mode {
+  static func screen(_ index: Int) -> Mode {
     Mode(rawValue: index) ?? .singleBake
   }
 }

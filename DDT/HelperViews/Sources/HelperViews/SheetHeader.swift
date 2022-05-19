@@ -14,7 +14,8 @@ extension SheetHeader: View {
       Text(text)
         .font(.largeTitle)
       Spacer()
-    }  }
+    }
+  }
 }
 
 struct SheetHeader_Previews: PreviewProvider {

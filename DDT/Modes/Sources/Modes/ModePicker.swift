@@ -2,10 +2,10 @@ import SwiftUI
 import HelperViews
 
 public struct ModePicker {
-  private let dismissPicker: () -> Void
+  private let dismiss: () -> Void
   @AppStorage("Mode") private var mode: Mode = .singleBake
-  public init(dismissPicker: @escaping () -> Void) {
-    self.dismissPicker = dismissPicker
+  public init(dismiss: @escaping () -> Void) {
+    self.dismiss = dismiss
   }
 }
 
@@ -22,13 +22,13 @@ extension ModePicker: View {
       }
       .padding()
       ButtonInAList(text: "Dismiss",
-                    action: dismissPicker)
+                    action: dismiss)
     }
   }
 }
 
 struct ModePicker_Previews: PreviewProvider {
   static var previews: some View {
-    ModePicker(dismissPicker: {})
+    ModePicker(dismiss: {})
   }
 }

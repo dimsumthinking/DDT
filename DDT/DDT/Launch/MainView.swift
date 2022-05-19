@@ -1,5 +1,6 @@
 import SwiftUI
 import Modes
+import Utilities
 
 struct MainView {
   @AppStorage("Mode") private var mode: Mode = .singleBake
@@ -9,30 +10,46 @@ struct MainView {
 extension MainView: View {
   var body: some View {
     NavigationView {
-      Text("Placeholder")
-        .toolbar {
-          ToolbarItemGroup(placement: .navigationBarLeading) {
-            Button {toolbarType = .modes}
-          label: {Image(systemName: "plus.forwardslash.minus")}
-          }
-          //          .toolbar {
-          //            ToolbarItemGroup(placement: .bottomBar) {
-          //              Button {self.toolbarType = .help}
-          //                label: {Image(systemName: "info.circle")}
-          //              Spacer()
-          //              Button {self.toolbarType = .settings}
-          //                label: {Image(systemName: "gear")}
-          //            }
+      Group {
+        switch mode {
+        case .singleBake:
+          ClassicView()
+//          SingleBakeView()
+        default:
+          Text("Placeholder")
         }
-        .sheet(item: $toolbarType) {toolbarType in
-          switch toolbarType {
-          case .modes:
-            ModePicker(dismissPicker: dismissSheet)
-          default:
-            Text("Temp")
+      }
+      .navigationTitle(mode.description)
+      .navigationBarTitleDisplayMode(.inline)
+//      .navigationViewStyle(.stack)
+      .toolbar {
+        ToolbarItemGroup(placement: .navigationBarLeading) {
+          Button {toolbarType = .modes}
+        label: {Image(systemName: "plus.forwardslash.minus")}
         }
+      }
+      .toolbar {
+        ToolbarItemGroup(placement: .bottomBar) {
+          Button {toolbarType = .help}
+        label: {Image(systemName: "info.circle")}
+          Spacer()
+          Button {toolbarType = .settings}
+        label: {Image(systemName: "gear")}
         }
+      }
+      .sheet(item: $toolbarType) {toolbarType in
+        switch toolbarType {
+        case .modes:
+          ModePicker(dismiss: dismissSheet)
+        case .help:
+          HelpView(dismiss: dismissSheet)
+        case .settings:
+          SettingsView(dismiss: dismissSheet)
+        }
+      }
     }
+    .navigationViewStyle(.stack)
+
   }
 }
 

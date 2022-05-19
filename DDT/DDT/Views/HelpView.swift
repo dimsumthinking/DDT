@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HelpView {
-  @Binding var toolbarType: ToolbarType?
+  let dismiss: () -> Void
 }
 
 extension HelpView: View {
@@ -31,7 +31,7 @@ extension HelpView: View {
                 """)
                     .padding()
                 Button("Dismiss") {
-                  self.toolbarType = nil
+                  dismiss()
                 }
                 .padding()
             }

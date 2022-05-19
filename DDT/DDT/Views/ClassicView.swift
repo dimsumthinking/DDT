@@ -1,14 +1,15 @@
 import SwiftUI
+import Utilities
+import HelperViews
 
 struct ClassicView {
-  @State private var toolbarType: ToolbarType?
   @AppStorage("HasPreferment") var hasPreferment = false
-  @AppStorage("Desired") var desired = defaultTemp()
-  @AppStorage("Flour") var flour = defaultTemp()
-  @AppStorage("Preferment") var preferment = defaultTemp()
-  @AppStorage("Ambient") var ambient = defaultTemp()
-  @AppStorage("Friction") var friction = defaultFriction()
-  @AppStorage("TemperatureScale") var isCelsius = false
+  @AppStorage("Desired") var desired = defaultTemp
+  @AppStorage("Flour") var flour = defaultTemp
+  @AppStorage("Preferment") var preferment = defaultTemp
+  @AppStorage("Ambient") var ambient = defaultTemp
+  @AppStorage("Friction") var friction = defaultMixerFrictionTemp
+  @EnvironmentObject private var appStatus: AppStatus
 }
 
 extension ClassicView: View {
@@ -17,35 +18,33 @@ extension ClassicView: View {
       List {
         TempView(name: "Water",
                  temp: water)
-          .foregroundColor(.blue)
-          .font(.title)
-          .padding()
+
         ComponentView(name: "Desired",
-                      temp: $desired,
-                      range: desiredRange(inCelsius: isCelsius))
+                      range: desiredRange,
+                      temp: $desired)
         ComponentView(name: "Ambient",
-                      temp: $ambient,
-                      range: defaultRange(inCelsius: isCelsius))
+                      range: defaultRange,
+                      temp: $ambient)
         ComponentView(name: "Flour",
-                      temp: $flour,
-                      range: defaultRange(inCelsius: isCelsius))
+                      range: defaultRange,
+                      temp: $flour)
         if hasPreferment {
           ComponentView(name: "Preferment",
-                        temp: $preferment,
-                        range: defaultRange(inCelsius: isCelsius))
+                        range: defaultRange,
+                        temp: $preferment)
         }
       }
-      .navigationBarTitle("DDT Calculator º\(isCelsius ? "C" : "F")")
+      .navigationBarTitle("DDT Calculator \(appStatus.temperatureScaleIndicator)")
       .navigationBarItems(trailing: PrefermentSwitch(hasPreferment: $hasPreferment))
-      .toolbar {
-        ToolbarItemGroup(placement: .bottomBar) {
-          Button {self.toolbarType = .help}
-            label: {Image(systemName: "info.circle")}
-          Spacer()
-          Button {self.toolbarType = .settings}
-            label: {Image(systemName: "gear")}
-        }
-      }
+//      .toolbar {
+//        ToolbarItemGroup(placement: .bottomBar) {
+//          Button {self.toolbarType = .help}
+//            label: {Image(systemName: "info.circle")}
+//          Spacer()
+//          Button {self.toolbarType = .settings}
+//            label: {Image(systemName: "gear")}
+//        }
+//      }
 
     }
     .navigationViewStyle(StackNavigationViewStyle())
@@ -65,20 +64,17 @@ extension ClassicView: View {
 
 extension ClassicView {
   var water: Double {
-    if hasPreferment {
-      return desired * 4 - flour - ambient - friction - preferment
-    } else {
-      return desired * 3 - flour - ambient - friction
-    }
+//    if hasPreferment {
+//      return desired * 4 - flour - ambient - friction - preferment
+//    } else {
+//      return desired * 3 - flour - ambient - friction
+//    }
+//  }
+    waterTempFrom(ddt: desired,
+                  flourTemp: flour,
+                  ambientTemp: ambient,
+                  prefermentTemp: hasPreferment ? preferment : nil,
+                  frictionTemp: friction)
   }
 }
 
-extension ClassicView {
-  func convertTempScale() {
-    desired = tempScaleConversion(of: desired, toCelsius: isCelsius)
-    flour = tempScaleConversion(of: flour, toCelsius: isCelsius)
-    ambient = tempScaleConversion(of: ambient, toCelsius: isCelsius)
-    preferment = tempScaleConversion(of: preferment, toCelsius: isCelsius)
-    friction = affineTempScaleConversion(of: friction, toCelsius: isCelsius)
-  }
-}

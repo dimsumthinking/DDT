@@ -14,11 +14,12 @@ let package = Package(
             targets: ["HelperViews"]),
     ],
     dependencies: [
+      .package(path:"../Utilities")
     ],
     targets: [
         .target(
             name: "HelperViews",
-            dependencies: []),
+            dependencies: ["Utilities"]),
         .testTarget(
             name: "HelperViewsTests",
             dependencies: ["HelperViews"]),
