@@ -1,6 +1,6 @@
 import SwiftUI
 import Modes
-import Utilities
+import AppInfo
 
 struct MainView {
   @AppStorage("Mode") private var mode: Mode = .singleBake
@@ -21,11 +21,10 @@ extension MainView: View {
       }
       .navigationTitle(mode.description)
       .navigationBarTitleDisplayMode(.inline)
-//      .navigationViewStyle(.stack)
       .toolbar {
         ToolbarItemGroup(placement: .navigationBarLeading) {
           Button {toolbarType = .modes}
-        label: {Image(systemName: "plus.forwardslash.minus")}
+        label: {Image(systemName: "line.3.horizontal")}
         }
       }
       .toolbar {
@@ -62,5 +61,6 @@ extension MainView {
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     MainView()
+      .environmentObject(AppStatus(isCelsius: true))
   }
 }

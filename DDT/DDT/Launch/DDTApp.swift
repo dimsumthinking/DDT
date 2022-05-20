@@ -1,5 +1,6 @@
 import SwiftUI
-import Utilities
+import AppInfo
+import Components
 //import MixModel
 
 @main
@@ -12,6 +13,7 @@ extension DDTApp: App {
     WindowGroup {
       MainView()
         .environmentObject(AppStatus(isCelsius: isCelsius))
+        .environmentObject(ComponentValues())
       //        .environmentObject(Status())
       //        .environment(\.managedObjectContext,
       //                     sharedViewContext)

@@ -1,5 +1,5 @@
 import SwiftUI
-import Utilities
+import AppInfo
 
 public struct TempView {
   private let name: String
@@ -16,12 +16,19 @@ public struct TempView {
 extension TempView: View {
   public var body: some View {
     HStack(spacing: 10) {
-      Text(name + " Temp")
+      Text(name)
       Spacer()
       Text(temp.tempDisplay(appStatus.isCelsius))
     }
-    .foregroundColor(.blue)
-    .font(.title)
-    .padding()
+    .padding(.horizontal)
+  }
+}
+
+struct TempView_Previews: PreviewProvider {
+  static var previews: some View {
+    TempView(name: "Water",
+             temp: 50)
+    .environmentObject(AppStatus())
+    
   }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62026BBC28383D2F007A94AC /* AppInfo in Frameworks */ = {isa = PBXBuildFile; productRef = 62026BBB28383D2F007A94AC /* AppInfo */; };
+		62026BBE28383D35007A94AC /* Components in Frameworks */ = {isa = PBXBuildFile; productRef = 62026BBD28383D35007A94AC /* Components */; };
+		62026BC028383D3C007A94AC /* Modes in Frameworks */ = {isa = PBXBuildFile; productRef = 62026BBF28383D3C007A94AC /* Modes */; };
 		621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67CA262C8568009FE5EC /* DDTApp.swift */; };
 		621A67CD262C8568009FE5EC /* ClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67CC262C8568009FE5EC /* ClassicView.swift */; };
 		621A67CF262C8569009FE5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67CE262C8569009FE5EC /* Assets.xcassets */; };
@@ -21,8 +24,6 @@
 		62E48FEC2831430100136CF2 /* Mix+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FE72831430100136CF2 /* Mix+CoreDataClass.swift */; };
 		62E48FF02831430800136CF2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FEF2831430800136CF2 /* PersistenceController.swift */; };
 		62E48FF528316DB300136CF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FF428316DB300136CF2 /* Status.swift */; };
-		62E490072832BA3300136CF2 /* HelperViews in Frameworks */ = {isa = PBXBuildFile; productRef = 62E490062832BA3300136CF2 /* HelperViews */; };
-		62E490092832BA3800136CF2 /* Modes in Frameworks */ = {isa = PBXBuildFile; productRef = 62E490082832BA3800136CF2 /* Modes */; };
 		62E4900C2832C2B600136CF2 /* SingleBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E4900B2832C2B600136CF2 /* SingleBakeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62026BB728383A42007A94AC /* AppInfo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppInfo; sourceTree = "<group>"; };
+		62026BB828383A54007A94AC /* Components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Components; sourceTree = "<group>"; };
+		62026BBA28383A7B007A94AC /* Modes */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modes; sourceTree = "<group>"; };
 		621A67C7262C8568009FE5EC /* DDT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621A67CA262C8568009FE5EC /* DDTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDTApp.swift; sourceTree = "<group>"; };
 		621A67CC262C8568009FE5EC /* ClassicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicView.swift; sourceTree = "<group>"; };
@@ -58,7 +62,6 @@
 		621A67E6262C8AE7009FE5EC /* PrefermentSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefermentSwitch.swift; sourceTree = "<group>"; };
 		62444EDD2630943B00DCF7BA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		62444EE12630999400DCF7BA /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		6265FE9D2833BEB100538BE1 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		62E48FE0283142F400136CF2 /* libMixModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMixModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,8 +71,6 @@
 		62E48FEE2831430700136CF2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		62E48FEF2831430800136CF2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		62E48FF428316DB300136CF2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		62E490032832BA0D00136CF2 /* HelperViews */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HelperViews; sourceTree = "<group>"; };
-		62E490042832BA1900136CF2 /* Modes */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modes; sourceTree = "<group>"; };
 		62E4900B2832C2B600136CF2 /* SingleBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBakeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E490072832BA3300136CF2 /* HelperViews in Frameworks */,
-				62E490092832BA3800136CF2 /* Modes in Frameworks */,
+				62026BC028383D3C007A94AC /* Modes in Frameworks */,
+				62026BBE28383D35007A94AC /* Components in Frameworks */,
+				62026BBC28383D2F007A94AC /* AppInfo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,9 +189,9 @@
 		62E490022832BA0D00136CF2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				62E490032832BA0D00136CF2 /* HelperViews */,
-				62E490042832BA1900136CF2 /* Modes */,
-				6265FE9D2833BEB100538BE1 /* Utilities */,
+				62026BB728383A42007A94AC /* AppInfo */,
+				62026BB828383A54007A94AC /* Components */,
+				62026BBA28383A7B007A94AC /* Modes */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -227,8 +229,9 @@
 			);
 			name = DDT;
 			packageProductDependencies = (
-				62E490062832BA3300136CF2 /* HelperViews */,
-				62E490082832BA3800136CF2 /* Modes */,
+				62026BBB28383D2F007A94AC /* AppInfo */,
+				62026BBD28383D35007A94AC /* Components */,
+				62026BBF28383D3C007A94AC /* Modes */,
 			);
 			productName = DDT;
 			productReference = 621A67C7262C8568009FE5EC /* DDT.app */;
@@ -555,11 +558,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		62E490062832BA3300136CF2 /* HelperViews */ = {
+		62026BBB28383D2F007A94AC /* AppInfo */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HelperViews;
+			productName = AppInfo;
 		};
-		62E490082832BA3800136CF2 /* Modes */ = {
+		62026BBD28383D35007A94AC /* Components */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Components;
+		};
+		62026BBF28383D3C007A94AC /* Modes */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Modes;
 		};
