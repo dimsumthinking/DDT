@@ -1,5 +1,6 @@
 import SwiftUI
 import Modes
+import SingleBake
 import AppInfo
 
 struct MainView {
@@ -13,8 +14,7 @@ extension MainView: View {
       Group {
         switch mode {
         case .singleBake:
-          ClassicView()
-//          SingleBakeView()
+          SingleBakeView()
         default:
           Text("Placeholder")
         }

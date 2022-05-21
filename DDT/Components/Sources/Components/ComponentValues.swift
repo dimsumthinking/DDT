@@ -1,15 +1,22 @@
 import Foundation
-
-public var componentValues = ComponentValues()
+import SwiftUI
 
 public class ComponentValues: ObservableObject {
   @Published var ddt = defaultComponentsTemp
   @Published var flour = defaultComponentsTemp
   @Published var preferment = defaultComponentsTemp
   @Published var ambient = defaultComponentsTemp
-  @Published var friction = defaultMixerFrictionTemp
-  @Published private var hasPreferment = true
+  @AppStorage("FrictionCoefficient") var friction = defaultMixerFrictionTemp
+  @AppStorage("HasPreferment") public var hasPreferment = true
+  
   public init() {}
+}
+
+extension ComponentValues {
+  public func setPreferment(_ hasPreferment: Bool) {
+    self.hasPreferment = hasPreferment
+    preferment += 0.00001 // to force a publish
+  }
 }
 
 extension ComponentValues {

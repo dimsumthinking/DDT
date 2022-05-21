@@ -3,16 +3,14 @@ import HelperViews
 
 public struct ComponentView {
   private let type: ComponentType
-  @State private var temp: Double
-  @EnvironmentObject private var componentValues: ComponentValues
+  @Binding private var temp: Double
   
-  public init(_ type: ComponentType) {
+  public init(for type: ComponentType,
+              temp: Binding<Double>) {
     self.type = type
-    self.temp = type.defaultTemp
+    self._temp = temp
   }
-  
 }
-
 
 extension ComponentView: View {
   public var body: some View {
@@ -23,9 +21,8 @@ extension ComponentView: View {
       Slider(value: $temp,
              in: type.range)
     }
-    .onChange(of: temp) { newValue in
-      type.setValue(temp, in: componentValues)
-      print(newValue.description)
+    .onAppear {
+      temp = type.defaultTemp
     }
   }
 }
@@ -34,7 +31,9 @@ import AppInfo
 
 struct ComponentView_Previews: PreviewProvider {
   static var previews: some View {
-    ComponentView(.flour)
+    ComponentView(for: .flour,
+                  temp: .constant(70))
       .environmentObject(AppStatus())
+      .environmentObject(ComponentValues())
   }
 }

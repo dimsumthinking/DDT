@@ -6,8 +6,7 @@ public enum Mode: Int, CaseIterable, Hashable, Equatable {
 
 extension Mode {
   static var allScreens: [Mode] {
-    print(Mode.allCases)
-   return Mode.allCases
+    Mode.allCases
   }
 }
 

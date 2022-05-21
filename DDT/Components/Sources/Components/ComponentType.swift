@@ -39,7 +39,7 @@ extension ComponentType {
 }
 
 extension ComponentType {
-  func setValue(_ value: Double, in componentValues: ComponentValues)  {
+  public func setValue(_ value: Double, in componentValues: ComponentValues)  {
     switch self {
     case .ddt:
       componentValues.ddt = value
