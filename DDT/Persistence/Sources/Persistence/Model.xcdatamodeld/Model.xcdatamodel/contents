@@ -4,11 +4,10 @@
         <attribute name="desiredDoughTemperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="frictionCoefficient" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="hasPreferment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isFahrenheit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isFrictionUpdatable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastUsed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Mix" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Mix" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>
