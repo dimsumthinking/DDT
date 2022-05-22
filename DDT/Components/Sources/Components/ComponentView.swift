@@ -4,6 +4,7 @@ import HelperViews
 public struct ComponentView {
   private let type: ComponentType
   @Binding private var temp: Double
+  @EnvironmentObject private var componentValues: ComponentValues
   
   public init(for type: ComponentType,
               temp: Binding<Double>) {
@@ -22,7 +23,7 @@ extension ComponentView: View {
              in: type.range)
     }
     .onAppear {
-      temp = type.defaultTemp
+      temp = type == .friction ? componentValues.friction : type.defaultTemp
     }
   }
 }

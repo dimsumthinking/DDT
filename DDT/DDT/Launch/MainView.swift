@@ -1,60 +1,24 @@
 import SwiftUI
-import Modes
 import SingleBake
 import AppInfo
 
 struct MainView {
-  @AppStorage("Mode") private var mode: Mode = .singleBake
-  @State private var toolbarType: ToolbarType?
 }
 
 extension MainView: View {
   var body: some View {
-    NavigationView {
-      Group {
-        switch mode {
-        case .singleBake:
-          SingleBakeView()
-        default:
-          Text("Placeholder")
+    TabView {
+      SingleBakeView()
+        .tabItem {
+          Label("Single Bake",
+                systemImage: "slider.horizontal.3")
         }
-      }
-      .navigationTitle(mode.description)
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItemGroup(placement: .navigationBarLeading) {
-          Button {toolbarType = .modes}
-        label: {Image(systemName: "line.3.horizontal")}
+      Text("Placeholder for multiple")
+        .tabItem {
+          Label("Production",
+                systemImage: "list.bullet.rectangle")
         }
-      }
-      .toolbar {
-        ToolbarItemGroup(placement: .bottomBar) {
-          Button {toolbarType = .help}
-        label: {Image(systemName: "info.circle")}
-          Spacer()
-          Button {toolbarType = .settings}
-        label: {Image(systemName: "gear")}
-        }
-      }
-      .sheet(item: $toolbarType) {toolbarType in
-        switch toolbarType {
-        case .modes:
-          ModePicker(dismiss: dismissSheet)
-        case .help:
-          HelpView(dismiss: dismissSheet)
-        case .settings:
-          SettingsView(dismiss: dismissSheet)
-        }
-      }
     }
-    .navigationViewStyle(.stack)
-
-  }
-}
-
-extension MainView {
-  private func dismissSheet() {
-    toolbarType = nil
   }
 }
 

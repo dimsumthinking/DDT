@@ -1,7 +1,7 @@
 import SwiftUI
 import AppInfo
 import Components
-//import MixModel
+import Persistence
 
 @main
 struct DDTApp {
@@ -14,9 +14,7 @@ extension DDTApp: App {
       MainView()
         .environmentObject(AppStatus(isCelsius: isCelsius))
         .environmentObject(ComponentValues())
-      //        .environmentObject(Status())
-      //        .environment(\.managedObjectContext,
-      //                     sharedViewContext)
+        .environment(\.managedObjectContext, sharedViewContext)
     }
   }
 }

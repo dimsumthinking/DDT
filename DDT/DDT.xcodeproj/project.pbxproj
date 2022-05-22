@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62026BC028383D3C007A94AC /* Modes in Frameworks */ = {isa = PBXBuildFile; productRef = 62026BBF28383D3C007A94AC /* Modes */; };
 		620EDBE0283943F500576ABF /* SingleBake in Frameworks */ = {isa = PBXBuildFile; productRef = 620EDBDF283943F500576ABF /* SingleBake */; };
 		621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67CA262C8568009FE5EC /* DDTApp.swift */; };
 		621A67CF262C8569009FE5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67CE262C8569009FE5EC /* Assets.xcassets */; };
 		621A67D2262C8569009FE5EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67D1262C8569009FE5EC /* Preview Assets.xcassets */; };
-		62444EDE2630943B00DCF7BA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EDD2630943B00DCF7BA /* SettingsView.swift */; };
-		62444EE22630999400DCF7BA /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62444EE12630999400DCF7BA /* HelpView.swift */; };
 		6299ACA32831292C00379EC8 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA22831292C00379EC8 /* World.swift */; };
 		6299ACA9283136A400379EC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA8283136A400379EC8 /* MainView.swift */; };
 		62CCF22B2839B8880084EA7B /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = 62CCF22A2839B8880084EA7B /* Persistence */; };
@@ -34,15 +31,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		62026BBA28383A7B007A94AC /* Modes */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modes; sourceTree = "<group>"; };
 		620EDBDE283943DF00576ABF /* SingleBake */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SingleBake; sourceTree = "<group>"; };
 		621A67C7262C8568009FE5EC /* DDT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		621A67CA262C8568009FE5EC /* DDTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDTApp.swift; sourceTree = "<group>"; };
 		621A67CE262C8569009FE5EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		621A67D1262C8569009FE5EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621A67D3262C8569009FE5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		62444EDD2630943B00DCF7BA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		62444EE12630999400DCF7BA /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		62CCF2292839B8730084EA7B /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
@@ -55,7 +49,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CCF22B2839B8880084EA7B /* Persistence in Frameworks */,
-				62026BC028383D3C007A94AC /* Modes in Frameworks */,
 				620EDBE0283943F500576ABF /* SingleBake in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +108,6 @@
 		621A67DA262C8598009FE5EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				62444EDD2630943B00DCF7BA /* SettingsView.swift */,
-				62444EE12630999400DCF7BA /* HelpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,7 +131,6 @@
 		62E490022832BA0D00136CF2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				62026BBA28383A7B007A94AC /* Modes */,
 				620EDBDE283943DF00576ABF /* SingleBake */,
 				62CCF2292839B8730084EA7B /* Persistence */,
 			);
@@ -172,7 +162,6 @@
 			);
 			name = DDT;
 			packageProductDependencies = (
-				62026BBF28383D3C007A94AC /* Modes */,
 				620EDBDF283943F500576ABF /* SingleBake */,
 				62CCF22A2839B8880084EA7B /* Persistence */,
 			);
@@ -232,8 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6299ACA9283136A400379EC8 /* MainView.swift in Sources */,
-				62444EDE2630943B00DCF7BA /* SettingsView.swift in Sources */,
-				62444EE22630999400DCF7BA /* HelpView.swift in Sources */,
 				6299ACA32831292C00379EC8 /* World.swift in Sources */,
 				62E48FF528316DB300136CF2 /* Status.swift in Sources */,
 				621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */,
@@ -429,10 +416,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		62026BBF28383D3C007A94AC /* Modes */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Modes;
-		};
 		620EDBDF283943F500576ABF /* SingleBake */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SingleBake;

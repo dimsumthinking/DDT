@@ -2,10 +2,10 @@ var defaultComponentsTemp: Double {
   76
 }
 
-var defaultMixerFrictionTemp: Double {
+public var defaultMixerFrictionTemp: Double {
   24
 }
 
-var defaultHandFrictionTemp: Double {
+public var defaultHandFrictionTemp: Double {
   2
 }

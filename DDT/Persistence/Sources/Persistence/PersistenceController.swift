@@ -1,7 +1,7 @@
 import CoreData
 
 fileprivate let sharedContainer = PersistenceController().container
-let sharedViewContext = sharedContainer.viewContext
+public let sharedViewContext = sharedContainer.viewContext
 func newBackgroundContext() -> NSManagedObjectContext {
   sharedContainer.newBackgroundContext()
 }

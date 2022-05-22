@@ -1,6 +1,6 @@
 import AppInfo
 public enum ComponentType: String {
-  case ddt = "DDT"
+  case ddt
   case flour
   case ambient
   case preferment
@@ -9,7 +9,10 @@ public enum ComponentType: String {
 
 extension ComponentType: CustomStringConvertible {
   public var description: String {
-    rawValue.uppercased()
+    switch self {
+    case .ddt: return rawValue.uppercased()
+    default: return rawValue.capitalized
+    }
   }
 }
 

@@ -10,7 +10,7 @@ struct AdjustableComponentView {
 extension AdjustableComponentView: View {
   var body: some View {
     ComponentView(for: type,
-                 temp: $temp)
+                 temp:  $temp)
     .onChange(of: temp) { newValue in
       type.setValue(temp, in: componentValues)
     }
