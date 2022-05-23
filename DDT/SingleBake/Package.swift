@@ -15,11 +15,12 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Components"),
+      .package(path: "../Persistence")
     ],
     targets: [
         .target(
             name: "SingleBake",
-            dependencies: ["Components"]),
+            dependencies: ["Components", "Persistence"]),
         .testTarget(
             name: "SingleBakeTests",
             dependencies: ["SingleBake"]),

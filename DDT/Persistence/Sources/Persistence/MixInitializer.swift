@@ -9,21 +9,54 @@ extension Mix {
        context: NSManagedObjectContext) {
     self.init(context: context)
     self.name = name
-    self.desiredDoughTemperature = initTemp(temp: desiredDoughTemperature,
+    self.desiredDoughTemperature = initDDT(temp: desiredDoughTemperature,
                                             isCelsius: isCelsius)
-    self.frictionCoefficient = initTemp(temp: frictionCoefficient,
+    self.frictionCoefficient = initFriction(temp: frictionCoefficient,
                                         isCelsius: isCelsius)
     self.hasPreferment = hasPreferment
     self.lastUsed = Date()
-    print("Created \(name)")
-    try? context.save()
+    do {try context.save()}
+    catch {print("Unable to create \(name)")}
   }
 }
 
 extension Mix {
-  private func initTemp(temp: Double,
-                        isCelsius: Bool) -> Double {
+  public func updateDate() {
+    self.lastUsed = Date()
+    do {try managedObjectContext?.save()}
+    catch {print("Unable to update  \(name)")}
+  }
+  
+  public func update(name: String? = nil,
+                     desiredDoughTemperature: Double? = nil,
+                     frictionCoefficient: Double? = nil,
+                     isCelsius: Bool) {
+    if let name = name {self.name = name}
+    if let desiredDoughTemperature = desiredDoughTemperature {
+      self.desiredDoughTemperature = initDDT(temp: desiredDoughTemperature, isCelsius: isCelsius)
+    }
+    if let frictionCoefficient = frictionCoefficient {
+      self.frictionCoefficient = initFriction(temp: frictionCoefficient, isCelsius: isCelsius)
+    }
+    updateDate()
+  }
+  
+  public func update(frictionCoefficient: Double,
+                     isCelsius: Bool) {
+    self.frictionCoefficient = initFriction(temp: frictionCoefficient, isCelsius: isCelsius)
+    updateDate()
+  }
+}
+
+extension Mix { //Temps are stored in F
+  private func initDDT(temp: Double,
+                       isCelsius: Bool) -> Double {
     return isCelsius ? temp * 9 / 5 + 32 : temp
+  }
+  
+  private func initFriction(temp: Double,
+                            isCelsius: Bool) -> Double {
+    return isCelsius ? temp * 9 / 5  : temp
   }
 }
 

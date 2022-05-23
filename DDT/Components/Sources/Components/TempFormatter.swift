@@ -16,8 +16,16 @@ extension Double {
   private var toCelsius: Double {
     (self - 32) * 5 / 9
   }
+  
+  private var affineToCelsius: Double {
+    self * 5 / 9
+  }
 
   public func tempDisplay(_ inCelsius: Bool = false) -> String {
     (inCelsius ? self.toCelsius : self).tempFormatted
+  }
+  
+  public func affineTempDisplay(_ inCelsius: Bool = false) -> String {
+    (inCelsius ? self.affineToCelsius : self).tempFormatted
   }
 }

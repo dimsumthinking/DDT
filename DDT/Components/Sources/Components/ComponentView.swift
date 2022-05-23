@@ -17,7 +17,8 @@ extension ComponentView: View {
   public var body: some View {
     VStack {
       TempView(name: type.description,
-               temp: temp)
+               temp: temp,
+               isFriction: type == .friction)
       .padding(.top)
       Slider(value: $temp,
              in: type.range)

@@ -4,12 +4,15 @@ import AppInfo
 public struct TempView {
   private let name: String
   private let temp: Double
+  private let isFriction: Bool
   @EnvironmentObject private var appStatus: AppStatus
   
   public init(name: String,
-              temp: Double) {
+              temp: Double,
+              isFriction: Bool = false) {
     self.name = name
     self.temp = temp
+    self.isFriction = isFriction
   }
 }
 
@@ -18,7 +21,7 @@ extension TempView: View {
     HStack(spacing: 10) {
       Text(name)
       Spacer()
-      Text(temp.tempDisplay(appStatus.isCelsius))
+      Text(isFriction ? temp.affineTempDisplay(appStatus.isCelsius) : temp.tempDisplay(appStatus.isCelsius))
     }
     .padding(.horizontal)
   }

@@ -1,5 +1,6 @@
 import SwiftUI
 import SingleBake
+import Production
 import AppInfo
 
 struct MainView {
@@ -13,7 +14,7 @@ extension MainView: View {
           Label("Single Bake",
                 systemImage: "slider.horizontal.3")
         }
-      Text("Placeholder for multiple")
+      MixListView()
         .tabItem {
           Label("Production",
                 systemImage: "list.bullet.rectangle")
