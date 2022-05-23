@@ -14,12 +14,13 @@ let package = Package(
       targets: ["Components"]),
   ],
   dependencies: [
-    .package(path: "../HelperViews")
+    .package(path: "../HelperViews"),
+    .package(path: "../Persistence")
   ],
   targets: [
     .target(
       name: "Components",
-      dependencies: ["HelperViews"]),
+      dependencies: ["HelperViews", "Persistence"]),
     .testTarget(
       name: "ComponentsTests",
       dependencies: ["Components"]),

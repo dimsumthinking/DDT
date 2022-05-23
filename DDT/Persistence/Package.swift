@@ -18,7 +18,8 @@ let package = Package(
     targets: [
         .target(
             name: "Persistence",
-            dependencies: []),
+            dependencies: [],
+            resources: [.process("Model.xcdatamodeld")]),
         .testTarget(
             name: "PersistenceTests",
             dependencies: ["Persistence"]),

@@ -11,17 +11,16 @@ import CoreData
 
 
 extension Mix {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Mix> {
-        return NSFetchRequest<Mix>(entityName: "Mix")
-    }
-
-    @NSManaged public var name: String
-    @NSManaged public var desiredDoughTemperature: Double
-    @NSManaged public var isFahrenheit: Bool
-    @NSManaged public var hasPreferment: Bool
-    @NSManaged public var frictionCoefficient: Double
-    @NSManaged public var isFrictionUpdatable: Bool
+  
+  @nonobjc public class func fetchRequest() -> NSFetchRequest<Mix> {
+    return NSFetchRequest<Mix>(entityName: "Mix")
+  }
+  
+  @NSManaged public var name: String
+  @NSManaged public var desiredDoughTemperature: Double
+  @NSManaged public var hasPreferment: Bool
+  @NSManaged public var frictionCoefficient: Double
+  @NSManaged public var lastUsed: Date
 }
 
 extension Mix: Identifiable {}
@@ -32,26 +31,26 @@ extension Mix: Identifiable {}
 //  }
 //}
 
-extension Mix {
-  var ddtInF: Double {
-    desiredDoughTemperature
-  }
-  var ddtInC: Double {
-    desiredDoughTemperature.toC
-  }
-  var ffInF: Double {
-    frictionCoefficient
-  }
-  var ffInC: Double {
-    frictionCoefficient.toC
-  }
-  func nameEquals(_ string: String) -> Bool {
-    string == name
-  }
-}
-
-extension Double {
-  fileprivate var toC: Double {
-    (self - 32) * 5/9
-  }
-}
+//extension Mix {
+//  var ddtInF: Double {
+//    desiredDoughTemperature
+//  }
+//  var ddtInC: Double {
+//    desiredDoughTemperature.toC
+//  }
+//  var ffInF: Double {
+//    frictionCoefficient
+//  }
+//  var ffInC: Double {
+//    frictionCoefficient.toC
+//  }
+//  func nameEquals(_ string: String) -> Bool {
+//    string == name
+//  }
+//}
+//
+//extension Double {
+//  fileprivate var toC: Double {
+//    (self - 32) * 5/9
+//  }
+//}

@@ -6,6 +6,7 @@ public struct SingleBakeView {
   @EnvironmentObject private var appStatus: AppStatus
   @State var isAddingMix: Bool = false
   @State private var isShowingSettings: Bool = false
+//  @EnvironmentObject private var componentValues: ComponentValues
   public init(){}
 }
 
@@ -13,6 +14,7 @@ extension SingleBakeView: View {
   public var body: some View {
     NavigationView {
       ComponentsList()
+      #if os(iOS)
         .toolbar {
           ToolbarItemGroup(placement: .navigationBarLeading) {
             Button {
@@ -39,6 +41,7 @@ extension SingleBakeView: View {
         .sheet(isPresented: $isShowingSettings) {
           SettingsView(isShowingSettings: $isShowingSettings)
         }
+      #endif
     }
   }
 }

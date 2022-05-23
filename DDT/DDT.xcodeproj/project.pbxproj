@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		620EDBE0283943F500576ABF /* SingleBake in Frameworks */ = {isa = PBXBuildFile; productRef = 620EDBDF283943F500576ABF /* SingleBake */; };
 		621A67CB262C8568009FE5EC /* DDTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A67CA262C8568009FE5EC /* DDTApp.swift */; };
 		621A67CF262C8569009FE5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67CE262C8569009FE5EC /* Assets.xcassets */; };
 		621A67D2262C8569009FE5EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67D1262C8569009FE5EC /* Preview Assets.xcassets */; };
+		62274E45283BD07C009F63AE /* SingleBake in Frameworks */ = {isa = PBXBuildFile; productRef = 62274E44283BD07C009F63AE /* SingleBake */; };
 		6299ACA32831292C00379EC8 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA22831292C00379EC8 /* World.swift */; };
 		6299ACA9283136A400379EC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA8283136A400379EC8 /* MainView.swift */; };
 		62CCF22B2839B8880084EA7B /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = 62CCF22A2839B8880084EA7B /* Persistence */; };
@@ -49,7 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CCF22B2839B8880084EA7B /* Persistence in Frameworks */,
-				620EDBE0283943F500576ABF /* SingleBake in Frameworks */,
+				62274E45283BD07C009F63AE /* SingleBake in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +162,8 @@
 			);
 			name = DDT;
 			packageProductDependencies = (
-				620EDBDF283943F500576ABF /* SingleBake */,
 				62CCF22A2839B8880084EA7B /* Persistence */,
+				62274E44283BD07C009F63AE /* SingleBake */,
 			);
 			productName = DDT;
 			productReference = 621A67C7262C8568009FE5EC /* DDT.app */;
@@ -416,7 +416,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		620EDBDF283943F500576ABF /* SingleBake */ = {
+		62274E44283BD07C009F63AE /* SingleBake */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SingleBake;
 		};

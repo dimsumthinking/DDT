@@ -2,11 +2,11 @@ import Foundation
 import SwiftUI
 
 public class ComponentValues: ObservableObject {
-  @Published var ddt = defaultComponentsTemp
+  @Published public internal(set) var ddt = defaultComponentsTemp
   @Published var flour = defaultComponentsTemp
   @Published var preferment = defaultComponentsTemp
   @Published var ambient = defaultComponentsTemp
-  @AppStorage("FrictionCoefficient") var friction = defaultMixerFrictionTemp
+  @AppStorage("FrictionCoefficient") public internal(set) var friction = defaultMixerFrictionTemp
   @AppStorage("HasPreferment") public var hasPreferment = true
   
   public init() {}

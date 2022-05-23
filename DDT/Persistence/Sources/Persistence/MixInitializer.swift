@@ -1,20 +1,29 @@
 import CoreData
 
 extension Mix {
-  convenience init(name: String,
+  public convenience init(name: String,
        desiredDoughTemperature: Double,
        frictionCoefficient: Double,
-       isFahrenheit: Bool,
        hasPreferment: Bool,
-       isFrictionUpdatable: Bool,
-       context: NSManagedObjectContext = sharedViewContext) {
+       isCelsius: Bool,
+       context: NSManagedObjectContext) {
     self.init(context: context)
-    self.desiredDoughTemperature = desiredDoughTemperature
-    self.frictionCoefficient = frictionCoefficient
-    self.isFahrenheit = isFahrenheit
+    self.name = name
+    self.desiredDoughTemperature = initTemp(temp: desiredDoughTemperature,
+                                            isCelsius: isCelsius)
+    self.frictionCoefficient = initTemp(temp: frictionCoefficient,
+                                        isCelsius: isCelsius)
     self.hasPreferment = hasPreferment
-    self.isFrictionUpdatable = isFrictionUpdatable
+    self.lastUsed = Date()
+    print("Created \(name)")
     try? context.save()
+  }
+}
+
+extension Mix {
+  private func initTemp(temp: Double,
+                        isCelsius: Bool) -> Double {
+    return isCelsius ? temp * 9 / 5 + 32 : temp
   }
 }
 

@@ -1,15 +1,18 @@
 import SwiftUI
 
-struct NameEntryView {
+public struct NameEntryView {
   @Binding var name: String
+  public init(name: Binding<String>) {
+    self._name = name
+  }
 }
 
 extension NameEntryView: View {
-  var body: some View {
+  public var body: some View {
     TextField("Name of Mix",
               text: $name)
     .multilineTextAlignment(.center)
-    .padding()
+//    .padding()
   }
 }
 
