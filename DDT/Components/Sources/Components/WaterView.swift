@@ -16,7 +16,6 @@ import AppInfo
 struct WaterView_Previews: PreviewProvider {
   static var previews: some View {
     WaterView()
-    .environmentObject(AppStatus())
     .environmentObject(ComponentValues())
   }
 }

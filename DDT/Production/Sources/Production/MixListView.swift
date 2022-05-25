@@ -23,16 +23,6 @@ extension MixListView: View {
           } label: {
             MixListItemView(mix: mix)
               .contentShape(Rectangle())
-              .swipeActions {
-                Button(role: .destructive,
-                       action: {}){
-                  Image(systemName: "trash")
-                }
-                Button(action: {}){
-                  Image(systemName: "pencil")
-                }
-                .tint(.orange)
-              }
           }
         }
         .onDelete { indexSet in

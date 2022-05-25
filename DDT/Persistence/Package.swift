@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Persistence",
     platforms: [
-      .iOS("15.4"), .macOS("12.3")
+      .iOS("15.5"), .macOS("12.4")
     ],
     products: [
         .library(

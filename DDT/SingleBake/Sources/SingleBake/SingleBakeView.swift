@@ -6,7 +6,6 @@ public struct SingleBakeView {
   @EnvironmentObject private var appStatus: AppStatus
   @State var isAddingMix: Bool = false
   @State private var isShowingSettings: Bool = false
-//  @EnvironmentObject private var componentValues: ComponentValues
   public init(){}
 }
 
@@ -34,7 +33,7 @@ extension SingleBakeView: View {
           }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Temps \(appStatus.temperatureScaleIndicator)")
+        .navigationTitle("DDT Calculator")
         .sheet(isPresented: $isAddingMix) {
           AddCurrentMixView(isAddingMix: $isAddingMix)
         }

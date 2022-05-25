@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SingleBake",
     platforms: [
-      .iOS("15.4"), .macOS("12.3")
+      .iOS("15.5"), .macOS("12.4")
     ],
     products: [
         .library(
@@ -15,12 +15,14 @@ let package = Package(
     ],
     dependencies: [
       .package(path: "../Components"),
-      .package(path: "../Persistence")
+      .package(path: "../Persistence"),
+      .package(path: "../AppInfo"),
+      .package(path: "../HelperViews")
     ],
     targets: [
         .target(
             name: "SingleBake",
-            dependencies: ["Components", "Persistence"]),
+            dependencies: ["Components", "Persistence", "AppInfo", "HelperViews"]),
         .testTarget(
             name: "SingleBakeTests",
             dependencies: ["SingleBake"]),

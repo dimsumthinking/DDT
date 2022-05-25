@@ -29,7 +29,9 @@ extension AppStatus {
     showFrictionTuning.toggle()
     return showFrictionTuning
   }
-  
+}
+ 
+extension AppStatus {
   public var temperatureScaleIndicator: String {
     isCelsius ? "ºC" : "ºF"
   }

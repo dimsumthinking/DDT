@@ -20,13 +20,11 @@ extension AdjustableComponentView: View {
   }
 }
 
-import AppInfo
 
 struct AdjustableComponentView_Previews: PreviewProvider {
   static var previews: some View {
     AdjustableComponentView(type: .flour)
       .environmentObject(ComponentValues())
-      .environmentObject(AppStatus())
   }
 }
 

@@ -24,20 +24,6 @@ extension Mix {
     catch {print("Unable to update  \(name)")}
   }
   
-  public func update(name: String? = nil,
-                     desiredDoughTemperature: Double? = nil,
-                     frictionCoefficient: Double? = nil,
-                     isCelsius: Bool) {
-    if let name = name {self.name = name}
-    if let desiredDoughTemperature = desiredDoughTemperature {
-      self.desiredDoughTemperature = desiredDoughTemperature
-    }
-    if let frictionCoefficient = frictionCoefficient {
-      self.frictionCoefficient = frictionCoefficient
-    }
-    updateDate()
-  }
-  
   public func update(frictionCoefficient: Double) {
     self.frictionCoefficient = frictionCoefficient
     updateDate()

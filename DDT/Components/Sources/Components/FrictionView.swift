@@ -8,8 +8,6 @@ public struct FrictionView {
   public init(){}
 }
 
-//TODO: Init temp to = friction?
-
 extension FrictionView: View {
   public var body: some View {
     VStack(spacing: 20) {
@@ -43,6 +41,7 @@ extension FrictionView: View {
 struct FrictionView_Previews: PreviewProvider {
   static var previews: some View {
     FrictionView()
+      .environmentObject(ComponentValues())
   }
 }
 

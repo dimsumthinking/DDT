@@ -1,5 +1,4 @@
 import SwiftUI
-import HelperViews
 
 public struct ComponentView {
   private let type: ComponentType
@@ -29,13 +28,11 @@ extension ComponentView: View {
   }
 }
 
-import AppInfo
 
 struct ComponentView_Previews: PreviewProvider {
   static var previews: some View {
     ComponentView(for: .flour,
                   temp: .constant(70))
-      .environmentObject(AppStatus())
       .environmentObject(ComponentValues())
   }
 }

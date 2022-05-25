@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "Production",
   platforms: [
-    .iOS("15.4"), .macOS("12.3")
+    .iOS("15.5"), .macOS("12.4")
   ],
   products: [
     .library(
@@ -16,12 +16,13 @@ let package = Package(
   dependencies: [
     .package(path: "../Persistence"),
     .package(path: "../AppInfo"),
-    .package(path: "../Components")
+    .package(path: "../Components"),
+    .package(path: "../HelperViews")
   ],
   targets: [
     .target(
       name: "Production",
-      dependencies: ["Persistence", "AppInfo", "Components"]),
+      dependencies: ["Persistence", "AppInfo", "Components", "HelperViews"]),
     .testTarget(
       name: "ProductionTests",
       dependencies: ["Production"]),

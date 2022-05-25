@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "HelperViews",
     platforms: [
-      .iOS("15.4"), .macOS("12.3")
+      .iOS("15.5"), .macOS("12.4")
     ],
     products: [
         .library(
@@ -14,12 +14,11 @@ let package = Package(
             targets: ["HelperViews"]),
     ],
     dependencies: [
-      .package(path:"../AppInfo")
     ],
     targets: [
         .target(
             name: "HelperViews",
-            dependencies: ["AppInfo"]),
+            dependencies: []),
         .testTarget(
             name: "HelperViewsTests",
             dependencies: ["HelperViews"]),

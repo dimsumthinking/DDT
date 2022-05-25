@@ -14,7 +14,6 @@
 		6244080F283C08C200C300D1 /* Production in Frameworks */ = {isa = PBXBuildFile; productRef = 6244080E283C08C200C300D1 /* Production */; };
 		6299ACA32831292C00379EC8 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA22831292C00379EC8 /* World.swift */; };
 		6299ACA9283136A400379EC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA8283136A400379EC8 /* MainView.swift */; };
-		62CCF22B2839B8880084EA7B /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = 62CCF22A2839B8880084EA7B /* Persistence */; };
 		62E48FF528316DB300136CF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FF428316DB300136CF2 /* Status.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		6244080D283C08A700C300D1 /* Production */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Production; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		62CCF2292839B8730084EA7B /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		62E48FF428316DB300136CF2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62CCF22B2839B8880084EA7B /* Persistence in Frameworks */,
 				62274E45283BD07C009F63AE /* SingleBake in Frameworks */,
 				6244080F283C08C200C300D1 /* Production in Frameworks */,
 			);
@@ -81,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				6299ACAA283136AD00379EC8 /* Launch */,
-				621A67DB262C85A4009FE5EC /* Utilities */,
-				621A67DA262C8598009FE5EC /* Views */,
 				621A67D9262C8576009FE5EC /* Support */,
 			);
 			path = DDT;
@@ -108,20 +103,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		621A67DA262C8598009FE5EC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		621A67DB262C85A4009FE5EC /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		6299ACAA283136AD00379EC8 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				620EDBDE283943DF00576ABF /* SingleBake */,
-				62CCF2292839B8730084EA7B /* Persistence */,
 				6244080D283C08A700C300D1 /* Production */,
 			);
 			name = Packages;
@@ -166,7 +146,6 @@
 			);
 			name = DDT;
 			packageProductDependencies = (
-				62CCF22A2839B8880084EA7B /* Persistence */,
 				62274E44283BD07C009F63AE /* SingleBake */,
 				6244080E283C08C200C300D1 /* Production */,
 			);
@@ -286,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -341,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -361,7 +340,7 @@
 				DEVELOPMENT_TEAM = MG5SW9CY8D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +363,7 @@
 				DEVELOPMENT_TEAM = MG5SW9CY8D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,10 +407,6 @@
 		6244080E283C08C200C300D1 /* Production */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Production;
-		};
-		62CCF22A2839B8880084EA7B /* Persistence */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Persistence;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

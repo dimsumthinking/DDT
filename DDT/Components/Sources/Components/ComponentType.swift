@@ -1,4 +1,5 @@
 import AppInfo
+
 public enum ComponentType: String {
   case ddt
   case flour

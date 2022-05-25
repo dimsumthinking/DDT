@@ -1,11 +1,6 @@
 //
 //  Mix+CoreDataProperties.swift
 //  DDT
-//
-//  Created by Daniel Steinberg on 5/15/22.
-//
-//
-
 import Foundation
 import CoreData
 
@@ -24,33 +19,3 @@ extension Mix {
 }
 
 extension Mix: Identifiable {}
-
-//extension Mix: Equatable {
-//  static func ==(lhs: Mix, rhs: Mix) -> Bool {
-//    lhs.name = rhs.name
-//  }
-//}
-
-//extension Mix {
-//  var ddtInF: Double {
-//    desiredDoughTemperature
-//  }
-//  var ddtInC: Double {
-//    desiredDoughTemperature.toC
-//  }
-//  var ffInF: Double {
-//    frictionCoefficient
-//  }
-//  var ffInC: Double {
-//    frictionCoefficient.toC
-//  }
-//  func nameEquals(_ string: String) -> Bool {
-//    string == name
-//  }
-//}
-//
-//extension Double {
-//  fileprivate var toC: Double {
-//    (self - 32) * 5/9
-//  }
-//}
