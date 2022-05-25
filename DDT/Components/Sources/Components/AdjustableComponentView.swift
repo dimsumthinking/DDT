@@ -1,14 +1,17 @@
 import SwiftUI
-import Components
 
-struct AdjustableComponentView {
+public struct AdjustableComponentView {
   let type: ComponentType
   @State private var temp: Double = 0
   @EnvironmentObject private var componentValues: ComponentValues
+  
+  public init(type: ComponentType) {
+    self.type = type
+  }
 }
 
 extension AdjustableComponentView: View {
-  var body: some View {
+  public var body: some View {
     ComponentView(for: type,
                  temp:  $temp)
     .onChange(of: temp) { newValue in

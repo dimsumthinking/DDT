@@ -1,44 +1,45 @@
 import SwiftUI
+import Persistence
 import Components
 import HelperViews
-import Persistence
 import AppInfo
 
-struct AddCurrentMixView {
-  @Binding var isAddingMix: Bool
+struct NewMixView {
   @State private var name: String = ""
-  @EnvironmentObject private var componentValues: ComponentValues
-  @EnvironmentObject private var appStatus: AppStatus
+  @State private var ddt: Double = defaultComponentsTemp
+  @State private var friction: Double = defaultMixerFrictionTemp
+  @State private var hasPreferment: Bool = true
+  @Binding var isCreatingMix: Bool
   @FetchRequest(entity: Mix.entity(),
                 sortDescriptors: [NSSortDescriptor(key: "name",
                                                    ascending: true)])
   private var mixes: FetchedResults<Mix>
+  
 }
 
-extension AddCurrentMixView: View {
+extension NewMixView: View {
   var body: some View {
     List {
       Section {
         NameEntryView(name: $name)
-        if nameExists && isAddingMix {
+        if nameExists {
           HStack {
             Spacer()
             Text("This mix name already exists")
               .font(.caption)
-              .foregroundColor(.red)
+              .foregroundColor(.red )
             Spacer()
           }
         }
       }
       Section {
-        TempView(name: ComponentType.ddt.description,
-                 temp: componentValues.ddt)
-        TempView(name: ComponentType.friction.description,
-                 temp: componentValues.friction)
-        .padding(.vertical, 6)
-        CheckView(name: "Preferment", isChecked:  componentValues.hasPreferment)
+        ComponentView(for: .ddt,
+                      temp: $ddt)
+        ComponentView(for: .friction,
+                      temp: $friction)
+        Toggle("Has preferment:", isOn: $hasPreferment)
+          .padding(.vertical)
       }
-      .font(.title2)
       HStack {
         Spacer()
         Button("Dismiss", role: .cancel, action: dismiss)
@@ -51,16 +52,16 @@ extension AddCurrentMixView: View {
   }
 }
 
-extension AddCurrentMixView {
+extension NewMixView {
   private func dismiss() {
-    isAddingMix = false
+    isCreatingMix = false
   }
   private func save() {
     dismiss()
     _ = Mix(name: name,
-            desiredDoughTemperature: componentValues.ddt,
-            frictionCoefficient: componentValues.friction,
-            hasPreferment: componentValues.hasPreferment,
+            desiredDoughTemperature: ddt,
+            frictionCoefficient: friction,
+            hasPreferment: hasPreferment,
             context: newBackgroundContext()
     )
   }
@@ -69,8 +70,8 @@ extension AddCurrentMixView {
   }
 }
 
-//struct AddCurrentMixView_Previews: PreviewProvider {
+//struct NewMixView_Previews: PreviewProvider {
 //  static var previews: some View {
-//    AddCurrentMixView(isAddingMix: .constant(true))
+//    NewMixView()
 //  }
 //}

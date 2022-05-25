@@ -30,6 +30,10 @@ extension HelpView: View {
                 the Settings to adjust the friction factor.
                 """)
                     .padding()
+              Text("""
+                      To tune the friction factor, measure the actual dough temperature and raise or lower the friction factor by the difference between the actual dough temperature and the desired dough temperature.\n\n
+                      Use the buttons below to start with 24ºF/13ºC for machine mixing or 2ºF/1ºC for hand mixing.
+                      """)
                 Button("Dismiss") {
                   dismiss()
                 }

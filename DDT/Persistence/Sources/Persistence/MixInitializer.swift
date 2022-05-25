@@ -5,14 +5,11 @@ extension Mix {
        desiredDoughTemperature: Double,
        frictionCoefficient: Double,
        hasPreferment: Bool,
-       isCelsius: Bool,
        context: NSManagedObjectContext) {
     self.init(context: context)
     self.name = name
-    self.desiredDoughTemperature = initDDT(temp: desiredDoughTemperature,
-                                            isCelsius: isCelsius)
-    self.frictionCoefficient = initFriction(temp: frictionCoefficient,
-                                        isCelsius: isCelsius)
+    self.desiredDoughTemperature = desiredDoughTemperature
+    self.frictionCoefficient = frictionCoefficient
     self.hasPreferment = hasPreferment
     self.lastUsed = Date()
     do {try context.save()}
@@ -33,30 +30,16 @@ extension Mix {
                      isCelsius: Bool) {
     if let name = name {self.name = name}
     if let desiredDoughTemperature = desiredDoughTemperature {
-      self.desiredDoughTemperature = initDDT(temp: desiredDoughTemperature, isCelsius: isCelsius)
+      self.desiredDoughTemperature = desiredDoughTemperature
     }
     if let frictionCoefficient = frictionCoefficient {
-      self.frictionCoefficient = initFriction(temp: frictionCoefficient, isCelsius: isCelsius)
+      self.frictionCoefficient = frictionCoefficient
     }
     updateDate()
   }
   
-  public func update(frictionCoefficient: Double,
-                     isCelsius: Bool) {
-    self.frictionCoefficient = initFriction(temp: frictionCoefficient, isCelsius: isCelsius)
+  public func update(frictionCoefficient: Double) {
+    self.frictionCoefficient = frictionCoefficient
     updateDate()
   }
 }
-
-extension Mix { //Temps are stored in F
-  private func initDDT(temp: Double,
-                       isCelsius: Bool) -> Double {
-    return isCelsius ? temp * 9 / 5 + 32 : temp
-  }
-  
-  private func initFriction(temp: Double,
-                            isCelsius: Bool) -> Double {
-    return isCelsius ? temp * 9 / 5  : temp
-  }
-}
-

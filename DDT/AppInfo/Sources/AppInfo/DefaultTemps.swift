@@ -1,4 +1,4 @@
-var defaultComponentsTemp: Double {
+public var defaultComponentsTemp: Double {
   76
 }
 
@@ -8,4 +8,8 @@ public var defaultMixerFrictionTemp: Double {
 
 public var defaultHandFrictionTemp: Double {
   2
+}
+
+public var defaultErrorFrictionTemp: Double {
+  -100
 }

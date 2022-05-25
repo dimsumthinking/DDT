@@ -14,12 +14,14 @@ let package = Package(
       targets: ["Production"]),
   ],
   dependencies: [
-    .package(path: "../Persistence")
+    .package(path: "../Persistence"),
+    .package(path: "../AppInfo"),
+    .package(path: "../Components")
   ],
   targets: [
     .target(
       name: "Production",
-      dependencies: ["Persistence"]),
+      dependencies: ["Persistence", "AppInfo", "Components"]),
     .testTarget(
       name: "ProductionTests",
       dependencies: ["Production"]),
