@@ -47,6 +47,7 @@ extension MixListView: View {
       }
       #endif
     }
+    .navigationViewStyle(.stack)
   }
 }
 

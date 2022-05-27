@@ -69,8 +69,10 @@ extension AddCurrentMixView {
   }
 }
 
-//struct AddCurrentMixView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    AddCurrentMixView(isAddingMix: .constant(true))
-//  }
-//}
+struct AddCurrentMixView_Previews: PreviewProvider {
+  static var previews: some View {
+    AddCurrentMixView(isAddingMix: .constant(true))
+      .environmentObject(AppStatus(isCelsius: true))
+      .environmentObject(ComponentValues())
+  }
+}

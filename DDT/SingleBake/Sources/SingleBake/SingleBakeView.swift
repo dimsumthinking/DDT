@@ -4,8 +4,9 @@ import HelperViews
 
 public struct SingleBakeView {
   @EnvironmentObject private var appStatus: AppStatus
-  @State var isAddingMix: Bool = false
+  @State private var isAddingMix: Bool = false
   @State private var isShowingSettings: Bool = false
+  @State private var isShowingHelp: Bool = false
   public init(){}
 }
 
@@ -38,10 +39,16 @@ extension SingleBakeView: View {
           AddCurrentMixView(isAddingMix: $isAddingMix)
         }
         .sheet(isPresented: $isShowingSettings) {
-          SettingsView(isShowingSettings: $isShowingSettings)
+          SettingsView(isShowingSettings: $isShowingSettings,
+          isShowingHelp: $isShowingHelp)
+        }
+        .sheet(isPresented: $isShowingHelp) {
+          HelpView(isShowingSettings: $isShowingSettings,
+                   isShowingHelp: $isShowingHelp)
         }
       #endif
     }
+    .navigationViewStyle(.stack)
   }
 }
 

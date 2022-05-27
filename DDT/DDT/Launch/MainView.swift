@@ -2,6 +2,7 @@ import SwiftUI
 import SingleBake
 import Production
 import AppInfo
+import HelperViews
 
 struct MainView {
 }
@@ -11,21 +12,22 @@ extension MainView: View {
     TabView {
       SingleBakeView()
         .tabItem {
-          Label("Single Bake",
-                systemImage: "slider.horizontal.3")
+          LabelForTabType(.singleBake)
         }
       MixListView()
         .tabItem {
-          Label("Production",
-                systemImage: "list.bullet.rectangle")
+          LabelForTabType(.production)
         }
     }
   }
 }
 
+import Components
+
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     MainView()
       .environmentObject(AppStatus(isCelsius: true))
+      .environmentObject(ComponentValues())
   }
 }

@@ -34,6 +34,7 @@ extension ComponentsList: View {
 struct ComponentsList_Previews: PreviewProvider {
   static var previews: some View {
     ComponentsList(hasPreferment: true)
+      .environmentObject(AppStatus(isCelsius: true))
       .environmentObject(ComponentValues())
   }
 }

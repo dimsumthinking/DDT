@@ -10,6 +10,7 @@ struct SettingsView {
   @AppStorage("showFrictionTuning") private var showFrictionTuning: Bool = true
   @EnvironmentObject private var appStatus: AppStatus
   @EnvironmentObject private var componentValues: ComponentValues
+  @Binding var isShowingHelp: Bool
 }
 
 extension SettingsView: View {
@@ -36,10 +37,20 @@ extension SettingsView: View {
                        onText: "Visible",
                        offText: "Hidden",
                        toggleResult: $showFrictionTuning)
-      
+      HStack {
+        Spacer()
+      Button("Show Info",
+                    action: {
+        isShowingSettings = false
+        isShowingHelp = true
+      })
+      Spacer()
       Button(action: {isShowingSettings = false}) {
         Text("Dismiss")
       }
+        Spacer()
+    }
+      .padding(.top)
     }
     .padding()
     }
