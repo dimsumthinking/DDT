@@ -5,7 +5,7 @@ import Persistence
 import AppInfo
 
 struct AddCurrentMixView {
-  @Binding var isAddingMix: Bool
+  @Binding var singleBakeDisplayedSheet: SingleBakeDisplayedSheet?
   @State private var name: String = ""
   @EnvironmentObject private var componentValues: ComponentValues
   @EnvironmentObject private var appStatus: AppStatus
@@ -20,7 +20,7 @@ extension AddCurrentMixView: View {
     List {
       Section {
         NameEntryView(name: $name)
-        if nameExists && isAddingMix {
+        if nameExists && singleBakeDisplayedSheet == .addMix {
           HStack {
             Spacer()
             Text("This mix name already exists")
@@ -53,7 +53,7 @@ extension AddCurrentMixView: View {
 
 extension AddCurrentMixView {
   private func dismiss() {
-    isAddingMix = false
+    singleBakeDisplayedSheet = nil
   }
   private func save() {
     dismiss()
@@ -71,7 +71,7 @@ extension AddCurrentMixView {
 
 struct AddCurrentMixView_Previews: PreviewProvider {
   static var previews: some View {
-    AddCurrentMixView(isAddingMix: .constant(true))
+    AddCurrentMixView(singleBakeDisplayedSheet: .constant(.addMix))
       .environmentObject(AppStatus(isCelsius: true))
       .environmentObject(ComponentValues())
   }

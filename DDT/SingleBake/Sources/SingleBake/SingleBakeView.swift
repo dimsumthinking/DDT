@@ -7,6 +7,7 @@ public struct SingleBakeView {
   @State private var isAddingMix: Bool = false
   @State private var isShowingSettings: Bool = false
   @State private var isShowingHelp: Bool = false
+  @State private var singleBakeDisplayedSheet: SingleBakeDisplayedSheet? = nil
   public init(){}
 }
 
@@ -14,12 +15,11 @@ extension SingleBakeView: View {
   public var body: some View {
     NavigationView {
       ComponentsList()
-      #if os(iOS)
+#if os(iOS)
         .toolbar {
           ToolbarItemGroup(placement: .navigationBarLeading) {
             Button {
-              isAddingMix = false
-              isShowingSettings = true
+              singleBakeDisplayedSheet = .settings
             }
           label: {Image(systemName: "gear")}
           }
@@ -27,26 +27,27 @@ extension SingleBakeView: View {
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
             Button {
-              isShowingSettings = false
-              isAddingMix = true
+              singleBakeDisplayedSheet = .addMix
             }
           label: {Image(systemName: "plus")}
           }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("DDT Calculator")
-        .sheet(isPresented: $isAddingMix) {
-          AddCurrentMixView(isAddingMix: $isAddingMix)
+        .sheet(item: $singleBakeDisplayedSheet) {item in
+            switch singleBakeDisplayedSheet {
+            case .settings:
+              SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
+            case .help:
+              HelpView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
+            case .addMix:
+              AddCurrentMixView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
+            case nil:
+              SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
+              //TODO: This is a swiftui bug  - nil should be unreachable
+          }
         }
-        .sheet(isPresented: $isShowingSettings) {
-          SettingsView(isShowingSettings: $isShowingSettings,
-          isShowingHelp: $isShowingHelp)
-        }
-        .sheet(isPresented: $isShowingHelp) {
-          HelpView(isShowingSettings: $isShowingSettings,
-                   isShowingHelp: $isShowingHelp)
-        }
-      #endif
+#endif
     }
     .navigationViewStyle(.stack)
   }

@@ -4,13 +4,12 @@ import Components
 import HelperViews
 
 struct SettingsView {
-  @Binding var isShowingSettings: Bool
   @AppStorage("isCelsius") private var isCelsius: Bool = false
   @AppStorage("showFrictionSingleBake") private var showFrictionSingleBake: Bool = false
   @AppStorage("showFrictionTuning") private var showFrictionTuning: Bool = true
   @EnvironmentObject private var appStatus: AppStatus
   @EnvironmentObject private var componentValues: ComponentValues
-  @Binding var isShowingHelp: Bool
+  @Binding var singleBakeDisplayedSheet: SingleBakeDisplayedSheet?
 }
 
 extension SettingsView: View {
@@ -41,11 +40,12 @@ extension SettingsView: View {
         Spacer()
       Button("Show Info",
                     action: {
-        isShowingSettings = false
-        isShowingHelp = true
+        singleBakeDisplayedSheet = .help
       })
       Spacer()
-      Button(action: {isShowingSettings = false}) {
+      Button(action: {
+        singleBakeDisplayedSheet = nil
+      }) {
         Text("Dismiss")
       }
         Spacer()
