@@ -30,7 +30,7 @@ Measure your water at this temperature to achieve your desired dough temperature
 """),
   HelpScreenItem(type: .friction, heading: "Friction", body:
   """
-To set the friction factor when creating a new mix, use the buttons to start with 24ºF/13ºC for machine mixing or 2ºF/1ºC for hand mixing.
+To set the friction factor when creating a new mix, start with 24ºF/13ºC for machine mixing or 2ºF/1ºC for hand mixing.
 
 To tune the friction factor in Single Bake mode, measure the actual dough temperature and raise or lower the friction factor by the difference between the actual dough temperature and the desired dough temperature.
 

@@ -5,6 +5,7 @@ public struct FrictionView {
   @State private var temp: Double = 0
   @AppStorage("FrictionCoefficient") var friction = defaultMixerFrictionTemp
   @EnvironmentObject private var componentValues: ComponentValues
+  @EnvironmentObject private var appStatus: AppStatus
   public init(){}
 }
 
@@ -17,21 +18,8 @@ extension FrictionView: View {
     .onChange(of: temp) {temp in
       friction = temp
     }
-    HStack {
-      Spacer()
-      Button {
-        temp = defaultHandFrictionTemp
-      } label: {
-        Text("Hand Mix")
-      }
-      Spacer()
-      Button {
-        temp = defaultMixerFrictionTemp
-      } label: {
-        Text("Machine Mix")
-      }
-      Spacer()
-    }
+      Text("Start with \(appStatus.defaultHandMix)\(appStatus.temperatureScaleIndicator) for hand mixing")
+           Text("and \(appStatus.defaultMachineMix)\(appStatus.temperatureScaleIndicator) for machine mixing")
     .padding(.bottom)
     }
   }

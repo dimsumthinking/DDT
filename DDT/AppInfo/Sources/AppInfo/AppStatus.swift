@@ -35,4 +35,10 @@ extension AppStatus {
   public var temperatureScaleIndicator: String {
     isCelsius ? "ºC" : "ºF"
   }
+  public var defaultHandMix: String {
+    isCelsius ? "1" : "2"
+  }
+  public var defaultMachineMix: String {
+    isCelsius ? "13" : "24"
+  }
 }

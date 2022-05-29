@@ -44,7 +44,7 @@ extension SingleBakeView: View {
               AddCurrentMixView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
             case nil:
               SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
-              //TODO: This is a swiftui bug  - nil should be unreachable
+              //TODO: I believe this is a swiftui bug  - nil should be unreachable inside of .sheet(item:)
           }
         }
 #endif
