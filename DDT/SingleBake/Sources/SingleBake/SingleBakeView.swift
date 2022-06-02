@@ -35,16 +35,13 @@ extension SingleBakeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("DDT Calculator")
         .sheet(item: $singleBakeDisplayedSheet) {item in
-            switch singleBakeDisplayedSheet {
+            switch item {
             case .settings:
               SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
             case .help:
               HelpView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
             case .addMix:
               AddCurrentMixView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
-            case nil:
-              SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
-              //TODO: I believe this is a swiftui bug  - nil should be unreachable inside of .sheet(item:)
           }
         }
 #endif
