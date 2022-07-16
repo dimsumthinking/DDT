@@ -1,6 +1,7 @@
 import SwiftUI
 import Components
 import AppInfo
+import ComponentViews
 
 struct ComponentsList {
   @AppStorage("HasPreferment") var hasPreferment = false

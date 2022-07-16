@@ -1,9 +1,10 @@
 import SwiftUI
 import AppInfo
-
+import Components
+//TODO: Replace hard coded 24
 public struct FrictionView {
   @State private var temp: Double = 0
-  @AppStorage("FrictionCoefficient") var friction = defaultMixerFrictionTemp
+  @AppStorage("FrictionCoefficient") var friction: Double = 24
   @EnvironmentObject private var componentValues: ComponentValues
   @EnvironmentObject private var appStatus: AppStatus
   public init(){}
@@ -18,8 +19,8 @@ extension FrictionView: View {
     .onChange(of: temp) {temp in
       friction = temp
     }
-      Text("Start with \(appStatus.defaultHandMix)\(appStatus.temperatureScaleIndicator) for hand mixing")
-           Text("and \(appStatus.defaultMachineMix)\(appStatus.temperatureScaleIndicator) for machine mixing")
+      Text("Start with \(2.tempDisplay(appStatus.isCelsius)) for hand mixing")
+      Text("and \(24.tempDisplay(appStatus.isCelsius)) for machine mixing")
     .padding(.bottom)
     }
   }

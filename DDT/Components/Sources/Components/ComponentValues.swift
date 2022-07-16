@@ -2,12 +2,14 @@ import Foundation
 import SwiftUI
 import AppInfo
 
+
+//TODO: Eliminate this class
 public class ComponentValues: ObservableObject {
-  @Published public var ddt = defaultComponentsTemp
-  @Published var flour = defaultComponentsTemp
-  @Published var preferment = defaultComponentsTemp
-  @Published var ambient = defaultComponentsTemp
-  @AppStorage("FrictionCoefficient") public var friction = defaultMixerFrictionTemp
+  @Published public var ddt: Double = Component.ddt.defaultTemp
+  @Published var flour: Double = Component.flour.defaultTemp
+  @Published var preferment: Double = Component.preferment.defaultTemp
+  @Published var ambient: Double = Component.ambient.defaultTemp
+  @AppStorage("FrictionCoefficient") public var friction: Double = Component.friction.defaultTemp
   @AppStorage("HasPreferment") public var hasPreferment = true
   
   public init() {}
@@ -21,7 +23,7 @@ extension ComponentValues {
 }
 
 extension ComponentValues {
-  var water: Double {
+  public var water: Double {
     if hasPreferment {
       return ddt * 4 - flour - ambient - friction - preferment
     } else {

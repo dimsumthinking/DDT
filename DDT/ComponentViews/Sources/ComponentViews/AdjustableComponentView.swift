@@ -1,11 +1,12 @@
 import SwiftUI
+import Components
 
 public struct AdjustableComponentView {
-  let type: ComponentType
+  let type: Component
   @State private var temp: Double = 0
   @EnvironmentObject private var componentValues: ComponentValues
   
-  public init(type: ComponentType) {
+  public init(type: Component) {
     self.type = type
   }
 }

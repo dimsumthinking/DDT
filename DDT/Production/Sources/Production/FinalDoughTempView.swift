@@ -3,6 +3,7 @@ import Components
 import HelperViews
 import Persistence
 import AppInfo
+import ComponentViews
 
 
 struct FinalDoughTempView {
@@ -12,6 +13,7 @@ struct FinalDoughTempView {
   @Binding var finalDoughTemp: Double
 }
 
+//TODO: Replace hard-coded final dough range 40 ...120 and hard coded temp
 extension FinalDoughTempView: View {
   var body: some View {
     VStack {
@@ -20,7 +22,7 @@ extension FinalDoughTempView: View {
                isFriction: false)
       .padding(.top)
       Slider(value: $finalDoughTemp,
-             in: defaultFinalRange){isActive in
+             in: 40 ... 120){isActive in
         if !isActive {
           mix.update(frictionCoefficient: adjustedFriction)
         }
@@ -32,7 +34,7 @@ extension FinalDoughTempView: View {
       
     }
     .onAppear {
-      finalDoughTemp = defaultComponentsTemp
+      finalDoughTemp = Component.ddt.defaultTemp
     }
   }
 }
@@ -54,7 +56,7 @@ extension FinalDoughTempView {
 
 struct FinalDoughTempView_Previews: PreviewProvider {
   static var previews: some View {
-    FinalDoughTempView(ddt: 76,
+    FinalDoughTempView(ddt: Component.ddt.defaultTemp,
                        friction: 20,
                        mix: Mix(name: "Test",
                                 desiredDoughTemperature: 80,

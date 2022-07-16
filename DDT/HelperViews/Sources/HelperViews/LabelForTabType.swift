@@ -1,5 +1,4 @@
 import SwiftUI
-import AppInfo
 
 public struct LabelForTabType {
   private let type: TabType
@@ -17,6 +16,12 @@ extension LabelForTabType: View {
 
 struct LabelForTabType_Previews: PreviewProvider {
   static var previews: some View {
-    LabelForTabType(.friction)
+    TabView {
+      Text("Placeholder")
+        .tabItem {
+          LabelForTabType(.friction)
+        }
+    }
+    
   }
 }

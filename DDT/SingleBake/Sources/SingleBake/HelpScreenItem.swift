@@ -1,5 +1,5 @@
 import Foundation
-import AppInfo
+import HelperViews
 
 struct HelpScreenItem {
   let type: TabType

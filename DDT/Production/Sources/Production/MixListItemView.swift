@@ -13,9 +13,9 @@ extension MixListItemView: View {
       Text(mix.name)
         .font(.headline)
       HStack {
-        Text("DDT: \(mix.desiredDoughTemperature.tempDisplay(appStatus.isCelsius)) \(appStatus.temperatureScaleIndicator)")
+        Text("DDT: \(mix.desiredDoughTemperature.tempDisplay(appStatus.isCelsius))")
         Spacer()
-        Text("Fr: \(mix.frictionCoefficient.affineTempDisplay(appStatus.isCelsius)) \(appStatus.temperatureScaleIndicator)")
+        Text("Fr: \(mix.frictionCoefficient.affineTempDisplay(appStatus.isCelsius))")
         Spacer()
         HStack {
           Text("PF:")

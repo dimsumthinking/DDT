@@ -23,3 +23,12 @@ extension TabType {
     }
   }
 }
+
+import SwiftUI
+
+extension TabType {
+  public var label: some View {
+    Label(description,
+          image: systemImageName)
+  }
+}

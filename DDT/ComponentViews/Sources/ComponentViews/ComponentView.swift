@@ -1,11 +1,12 @@
 import SwiftUI
+import Components
 
 public struct ComponentView {
-  private let type: ComponentType
+  private let type: Component
   @Binding private var temp: Double
   @EnvironmentObject private var componentValues: ComponentValues
   
-  public init(for type: ComponentType,
+  public init(for type: Component,
               temp: Binding<Double>) {
     self.type = type
     self._temp = temp

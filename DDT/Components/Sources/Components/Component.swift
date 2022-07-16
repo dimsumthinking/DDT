@@ -1,6 +1,6 @@
 import AppInfo
 
-public enum ComponentType: String {
+public enum Component: String {
   case ddt
   case flour
   case ambient
@@ -8,7 +8,7 @@ public enum ComponentType: String {
   case friction
 }
 
-extension ComponentType: CustomStringConvertible {
+extension Component: CustomStringConvertible {
   public var description: String {
     switch self {
     case .ddt: return rawValue.uppercased()
@@ -18,31 +18,31 @@ extension ComponentType: CustomStringConvertible {
 }
 
 
-extension ComponentType {
-  var range: ClosedRange<Double> {
+extension Component {
+  public var range: ClosedRange<Double> {
     switch self {
     case .ddt:
-      return desiredRange
+      return 70 ... 90
     case .friction:
-      return frictionRange
+      return 0 ... 40
     default:
-      return defaultRange
+      return 40 ... 120
     }
   }
 }
 
-extension ComponentType {
-  var defaultTemp: Double {
+extension Component {
+  public var defaultTemp: Double {
     switch self {
     case .friction:
-      return defaultMixerFrictionTemp
+      return 24
     default:
-      return defaultComponentsTemp
+      return 76
     }
   }
 }
 
-extension ComponentType {
+extension Component {
   public func setValue(_ value: Double, in componentValues: ComponentValues)  {
     switch self {
     case .ddt:

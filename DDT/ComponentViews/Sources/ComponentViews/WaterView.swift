@@ -1,4 +1,5 @@
 import SwiftUI
+import Components
 
 public struct WaterView {
   @EnvironmentObject private var componentValues: ComponentValues

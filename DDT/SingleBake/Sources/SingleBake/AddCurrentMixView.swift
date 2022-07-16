@@ -3,6 +3,7 @@ import Components
 import HelperViews
 import Persistence
 import AppInfo
+import ComponentViews
 
 struct AddCurrentMixView {
   @Binding var singleBakeDisplayedSheet: SingleBakeDisplayedSheet?
@@ -31,9 +32,9 @@ extension AddCurrentMixView: View {
         }
       }
       Section {
-        TempView(name: ComponentType.ddt.description,
+        TempView(name: Component.ddt.description,
                  temp: componentValues.ddt)
-        TempView(name: ComponentType.friction.description,
+        TempView(name: Component.friction.description,
                  temp: componentValues.friction)
         .padding(.vertical, 6)
         CheckView(name: "Preferment", isChecked:  componentValues.hasPreferment)

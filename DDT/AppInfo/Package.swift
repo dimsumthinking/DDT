@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "AppInfo",
-    platforms: [
-      .iOS("15.5"), .macOS("12.4")
-    ],
-    products: [
-        .library(
-            name: "AppInfo",
-            targets: ["AppInfo"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "AppInfo",
-            dependencies: []),
-        .testTarget(
-            name: "AppInfoTests",
-            dependencies: ["AppInfo"]),
-    ]
+  name: "AppInfo",
+  platforms: [
+    .iOS("16.0"), .macOS("13.0")
+  ],
+  products: [
+    .library(
+      name: "AppInfo",
+      targets: ["AppInfo"]),
+  ],
+  dependencies: [
+  ],
+  targets: [
+    .target(
+      name: "AppInfo",
+      dependencies: []),
+    .testTarget(
+      name: "AppInfoTests",
+      dependencies: ["AppInfo"]),
+  ]
 )

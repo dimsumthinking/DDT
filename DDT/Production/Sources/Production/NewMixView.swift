@@ -3,11 +3,13 @@ import Persistence
 import Components
 import HelperViews
 import AppInfo
+import ComponentViews
+
 
 struct NewMixView {
   @State private var name: String = ""
-  @State private var ddt: Double = defaultComponentsTemp
-  @State private var friction: Double = defaultMixerFrictionTemp
+  @State private var ddt: Double = Component.ddt.defaultTemp
+  @State private var friction: Double = Component.friction.defaultTemp
   @State private var hasPreferment: Bool = true
   @Binding var isCreatingMix: Bool
   @FetchRequest(entity: Mix.entity(),

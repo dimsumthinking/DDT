@@ -3,12 +3,14 @@ import Persistence
 import Components
 import HelperViews
 import AppInfo
+import ComponentViews
+
 
 struct MixView {
   @ObservedObject var mix: Mix
   @EnvironmentObject private var componentValues: ComponentValues
   @EnvironmentObject private var appStatus: AppStatus
-  @State private var finalDoughTemp: Double = defaultComponentsTemp
+  @State private var finalDoughTemp: Double = Component.friction.defaultTemp
 }
 
 extension MixView: View {
@@ -18,7 +20,7 @@ extension MixView: View {
         WaterView()
       }
       Section {
-        TempView(name: ComponentType.ddt.description,
+        TempView(name: Component.ddt.description,
                  temp: componentValues.ddt)
         AdjustableComponentView(type: .ambient)
         AdjustableComponentView(type: .flour)
