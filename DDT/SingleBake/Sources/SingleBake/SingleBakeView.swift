@@ -7,7 +7,8 @@ public struct SingleBakeView {
   @State private var isAddingMix: Bool = false
   @State private var isShowingSettings: Bool = false
   @State private var isShowingHelp: Bool = false
-  @State private var singleBakeDisplayedSheet: SingleBakeDisplayedSheet? = nil
+  @State private var isShowingCorF: Bool = false
+  @AppStorage("isCelsius") private var isCelsius: Bool = false
   public init(){}
 }
 
@@ -17,31 +18,31 @@ extension SingleBakeView: View {
       ComponentsList()
 #if os(iOS)
         .toolbar {
-          ToolbarItemGroup(placement: .navigationBarLeading) {
-            Button {
-              singleBakeDisplayedSheet = .settings
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button("ºC / ºF") {
+              isShowingCorF = true
             }
-          label: {Image(systemName: "gear")}
           }
-        }
-        .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
             Button {
-              singleBakeDisplayedSheet = .addMix
             }
           label: {Image(systemName: "plus")}
           }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("DDT Calculator")
-        .sheet(item: $singleBakeDisplayedSheet) {item in
-            switch item {
-            case .settings:
-              SettingsView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
-            case .help:
-              HelpView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
-            case .addMix:
-              AddCurrentMixView(singleBakeDisplayedSheet: $singleBakeDisplayedSheet)
+        .alert("Temperature Scale",
+               isPresented: $isShowingCorF) {
+          Button("Celsius") {
+            isCelsius = true
+            isShowingCorF = false
+          }
+          Button("Fahrenheit") {
+            isCelsius = false
+            isShowingCorF = false
+          }
+          Button("Cancel") {
+            isShowingCorF = false
           }
         }
 #endif

@@ -6,6 +6,7 @@ public enum Component: String {
   case ambient
   case preferment
   case friction
+  case water
 }
 
 extension Component: CustomStringConvertible {
@@ -42,19 +43,21 @@ extension Component {
   }
 }
 
-extension Component {
-  public func setValue(_ value: Double, in componentValues: ComponentValues)  {
-    switch self {
-    case .ddt:
-      componentValues.ddt = value
-    case .flour:
-      componentValues.flour = value
-    case .ambient:
-      componentValues.ambient = value
-    case .preferment:
-      componentValues.preferment = value
-    case .friction:
-      componentValues.friction = value
-    }
-  }
-}
+//extension Component {
+//  public func setValue(_ value: Double, in componentValues: ComponentValues)  {
+//    switch self {
+//    case .ddt:
+//      componentValues.ddt = value
+//    case .flour:
+//      componentValues.flour = value
+//    case .ambient:
+//      componentValues.ambient = value
+//    case .preferment:
+//      componentValues.preferment = value
+//    case .friction:
+//      componentValues.friction = value
+//    case .water:
+//      return
+//    }
+//  }
+//}

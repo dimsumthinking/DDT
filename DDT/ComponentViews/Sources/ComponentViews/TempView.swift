@@ -21,7 +21,7 @@ extension TempView: View {
     HStack(spacing: 10) {
       Text(name)
       Spacer()
-      Text(isFriction ? temp.affineTempDisplay(appStatus.isCelsius) : temp.tempDisplay(appStatus.isCelsius)) 
+      Text(isFriction ? temp.affineTemperatureDisplay(appStatus.isCelsius) : temp.temperatureDisplay(appStatus.isCelsius)) 
     }
     .padding(.horizontal)
   }

@@ -35,10 +35,10 @@ extension NewMixView: View {
         }
       }
       Section {
-        ComponentView(for: .ddt,
-                      temp: $ddt)
-        ComponentView(for: .friction,
-                      temp: $friction)
+        ComponentView(.ddt,
+                      temperature: $ddt)
+        ComponentView(.friction,
+                      temperature: $friction)
         Toggle("Has preferment:", isOn: $hasPreferment)
           .padding(.vertical)
       }

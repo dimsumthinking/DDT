@@ -6,7 +6,6 @@ import AppInfo
 import ComponentViews
 
 struct AddCurrentMixView {
-  @Binding var singleBakeDisplayedSheet: SingleBakeDisplayedSheet?
   @State private var name: String = ""
   @EnvironmentObject private var componentValues: ComponentValues
   @EnvironmentObject private var appStatus: AppStatus
@@ -21,7 +20,7 @@ extension AddCurrentMixView: View {
     List {
       Section {
         NameEntryView(name: $name)
-        if nameExists && singleBakeDisplayedSheet == .addMix {
+        if nameExists {
           HStack {
             Spacer()
             Text("This mix name already exists")
@@ -54,7 +53,7 @@ extension AddCurrentMixView: View {
 
 extension AddCurrentMixView {
   private func dismiss() {
-    singleBakeDisplayedSheet = nil
+  
   }
   private func save() {
     dismiss()
@@ -72,7 +71,7 @@ extension AddCurrentMixView {
 
 struct AddCurrentMixView_Previews: PreviewProvider {
   static var previews: some View {
-    AddCurrentMixView(singleBakeDisplayedSheet: .constant(.addMix))
+    AddCurrentMixView()
       .environmentObject(AppStatus(isCelsius: true))
       .environmentObject(ComponentValues())
   }

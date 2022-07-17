@@ -1,41 +1,60 @@
 import SwiftUI
 import Components
-import AppInfo
-import ComponentViews
 
 struct ComponentsList {
-  @AppStorage("HasPreferment") var hasPreferment = false
-  @EnvironmentObject private var appStatus: AppStatus
+  @State private var hasPreferment = false
+  @State private var canAdjustFriction = false
+  @StateObject private var temperatures = ComponentTemperatures()
 }
 
 extension ComponentsList: View {
   var body: some View {
     List {
       Section {
-        WaterView()
+        TemperatureDisplay(temperatures.waterTemperature(hasPreferment: hasPreferment),
+                           for: .water)
       }
       Section {
-        AdjustableComponentView(type: .ddt)
-        AdjustableComponentView(type: .ambient)
-        AdjustableComponentView(type: .flour)
+        if canAdjustFriction {
+          ComponentView(.friction,
+                        temperature: $temperatures.friction)
+          .listRowSeparator(.hidden)
+        } else {
+          TemperatureDisplay(temperatures.friction,
+                             for: .friction)
+          .listRowSeparator(.hidden)
+        }
+        Button(canAdjustFriction ? "Stop Adjusting Friction" : "Adjust Friction") {
+          self.canAdjustFriction.toggle()
+        }
+      }
+      Section {
+        ComponentView(.ddt,
+                      temperature: $temperatures.ddt)
+        ComponentView(.ambient,
+                      temperature: $temperatures.ambient)
+        ComponentView(.flour,
+                      temperature: $temperatures.flour)
         if hasPreferment {
-          AdjustableComponentView(type: .preferment)
+          ComponentView(.preferment,
+                        temperature: $temperatures.preferment)
+        }
+        Button(hasPreferment ? "Remove Preferment" : "Include Preferment") {
+          self.hasPreferment.toggle()
         }
       }
-      PrefermentToggleButton(hasPreferment: $hasPreferment)
-      if appStatus.showFrictionSingleBake {
-        Section {
-          FrictionView()
-        }
-      }
+
     }
+    .animation(.default,
+               value: hasPreferment)
+    .animation(.default,
+               value: canAdjustFriction)
+    .buttonStyle(ListButtonStyle())
   }
 }
 
 struct ComponentsList_Previews: PreviewProvider {
   static var previews: some View {
-    ComponentsList(hasPreferment: true)
-      .environmentObject(AppStatus(isCelsius: true))
-      .environmentObject(ComponentValues())
+    ComponentsList()
   }
 }

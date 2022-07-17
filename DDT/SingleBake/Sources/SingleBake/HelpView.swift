@@ -3,7 +3,6 @@ import HelperViews
 import AppInfo
 
 struct HelpView {
-  @Binding var singleBakeDisplayedSheet: SingleBakeDisplayedSheet?
 }
 
 extension HelpView: View {
@@ -30,7 +29,7 @@ extension HelpView: View {
        
         
         Button("Dismiss") {
-          singleBakeDisplayedSheet = .settings
+          
         }
         .padding()
       
