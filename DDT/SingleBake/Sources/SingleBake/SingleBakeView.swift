@@ -1,21 +1,24 @@
 import SwiftUI
 import AppInfo
 import HelperViews
+import MixAddition
+import Components
 
 public struct SingleBakeView {
   @EnvironmentObject private var appStatus: AppStatus
   @State private var isAddingMix: Bool = false
-  @State private var isShowingSettings: Bool = false
-  @State private var isShowingHelp: Bool = false
   @State private var isShowingCorF: Bool = false
   @AppStorage("isCelsius") private var isCelsius: Bool = false
+  @StateObject private var temperatures = ComponentTemperatures()
+  @State private var hasPreferment = false
   public init(){}
 }
 
 extension SingleBakeView: View {
   public var body: some View {
     NavigationView {
-      ComponentsList()
+      ComponentsList(hasPreferment: $hasPreferment,
+                     temperatures: temperatures)
 #if os(iOS)
         .toolbar {
           ToolbarItem(placement: .navigationBarLeading) {
@@ -25,6 +28,7 @@ extension SingleBakeView: View {
           }
           ToolbarItem(placement: .navigationBarTrailing) {
             Button {
+              isAddingMix = true
             }
           label: {Image(systemName: "plus")}
           }
@@ -45,9 +49,18 @@ extension SingleBakeView: View {
             isShowingCorF = false
           }
         }
+               .sheet(isPresented: $isAddingMix) {
+                 NewMixView(ddt: temperatures.ddt,
+                            friction: temperatures.friction,
+                            hasPreferment: hasPreferment, isShowingSheet: $isAddingMix)
+               }
 #endif
     }
     .navigationViewStyle(.stack)
+    .tabItem {
+      Label("Single Bake",
+            systemImage: "slider.horizontal.3")
+    }
   }
 }
 

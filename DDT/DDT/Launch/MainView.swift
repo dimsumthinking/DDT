@@ -11,13 +11,7 @@ extension MainView: View {
   var body: some View {
     TabView {
       SingleBakeView()
-        .tabItem {
-          LabelForTabType(.singleBake)
-        }
       MixListView()
-        .tabItem {
-          LabelForTabType(.production)
-        }
     }
   }
 }

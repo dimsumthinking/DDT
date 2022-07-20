@@ -2,9 +2,9 @@ import SwiftUI
 import Components
 
 struct ComponentsList {
-  @State private var hasPreferment = false
+  @Binding var hasPreferment: Bool
   @State private var canAdjustFriction = false
-  @StateObject private var temperatures = ComponentTemperatures()
+  @ObservedObject var temperatures: ComponentTemperatures
 }
 
 extension ComponentsList: View {
@@ -55,6 +55,7 @@ extension ComponentsList: View {
 
 struct ComponentsList_Previews: PreviewProvider {
   static var previews: some View {
-    ComponentsList()
+    ComponentsList(hasPreferment: .constant(false),
+                   temperatures: ComponentTemperatures())
   }
 }

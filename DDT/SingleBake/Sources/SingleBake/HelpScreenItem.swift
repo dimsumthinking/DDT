@@ -2,7 +2,6 @@ import Foundation
 import HelperViews
 
 struct HelpScreenItem {
-  let type: TabType
   let heading: String
   let body: String
 }
@@ -14,7 +13,7 @@ extension HelpScreenItem: Identifiable {
 }
 
 let helpScreens: [HelpScreenItem] = [
-  HelpScreenItem(type: .singleBake, heading: "Single Bake", body:
+  HelpScreenItem( heading: "Single Bake", body:
 """
 Enter the Desired Dough Temperature.
 
@@ -28,7 +27,7 @@ The Water temperature is updated with each change.
 
 Measure your water at this temperature to achieve your desired dough temperature. This simple change will improve your bread.
 """),
-  HelpScreenItem(type: .friction, heading: "Friction", body:
+  HelpScreenItem( heading: "Friction", body:
   """
 To set the friction factor when creating a new mix, start with 24ºF/13ºC for machine mixing or 2ºF/1ºC for hand mixing.
 
@@ -36,7 +35,7 @@ To tune the friction factor in Single Bake mode, measure the actual dough temper
 
 In Production mode this adjustment will be made for you if you enter the final dough temperature that you measure after the mix is complete.
 """),
-  HelpScreenItem(type: .production, heading: "Production Bake", body:
+  HelpScreenItem( heading: "Production Bake", body:
   """
 You can save mixes from the Single Bake tab or create new mixes in the Production tab using the '+' button.
 

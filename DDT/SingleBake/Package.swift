@@ -18,12 +18,13 @@ let package = Package(
       .package(path: "../Persistence"),
       .package(path: "../AppInfo"),
       .package(path: "../HelperViews"),
-      .package(path: "../ComponentViews")
+      .package(path: "../ComponentViews"),
+      .package(path: "../MixAddition")
     ],
     targets: [
         .target(
             name: "SingleBake",
-            dependencies: ["Components", "Persistence", "AppInfo", "HelperViews", "ComponentViews"]),
+            dependencies: ["Components", "Persistence", "AppInfo", "HelperViews", "ComponentViews", "MixAddition"]),
         .testTarget(
             name: "SingleBakeTests",
             dependencies: ["SingleBake"]),

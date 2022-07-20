@@ -48,6 +48,10 @@ extension MixListView: View {
       #endif
     }
     .navigationViewStyle(.stack)
+    .tabItem {
+      Label("Production",
+      systemImage: "list.bullet.rectangle")
+    }
   }
 }
 

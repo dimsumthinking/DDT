@@ -19,3 +19,11 @@ extension Mix {
 }
 
 extension Mix: Identifiable {}
+
+extension Mix {
+  public static func matches(_ name: String) -> Bool {
+    guard let mixes = try? newBackgroundContext()
+      .fetch(NSFetchRequest<Mix>(entityName: "Mix")) else {return false}
+    return mixes.map{mix in mix.name.lowercased()}.contains(name.lowercased())
+  }
+}
