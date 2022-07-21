@@ -14,12 +14,11 @@ let package = Package(
       targets: ["Components"]),
   ],
   dependencies: [
-    .package(path: "../AppInfo")
   ],
   targets: [
     .target(
       name: "Components",
-      dependencies: ["AppInfo"]),
+      dependencies: []),
     .testTarget(
       name: "ComponentsTests",
       dependencies: ["Components"]),

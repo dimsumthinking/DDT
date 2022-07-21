@@ -1,10 +1,9 @@
 import SwiftUI
 import Persistence
-import AppInfo
+import Components
 
 struct MixListItemView {
   @ObservedObject var mix: Mix
-  @EnvironmentObject private var appStatus: AppStatus
 }
 
 extension MixListItemView: View {
@@ -12,16 +11,28 @@ extension MixListItemView: View {
     VStack(alignment: .leading, spacing: 20) {
       Text(mix.name)
         .font(.headline)
-      HStack {
-        Text("DDT: \(mix.desiredDoughTemperature.temperatureDisplay(appStatus.isCelsius))")
-        Spacer()
-        Text("Fr: \(mix.frictionCoefficient.affineTemperatureDisplay(appStatus.isCelsius))")
-        Spacer()
+      VStack {
+        TemperatureDisplay(mix.desiredDoughTemperature,
+                           for: .ddt)
+        TemperatureDisplay(mix.frictionCoefficient,
+                           for: .friction)
         HStack {
-          Text("PF:")
-        Image(systemName: mix.hasPreferment ? "checkmark.circle" : "xmark.circle")
+          Text("Preferment")
+          Spacer()
+          Image(systemName: mix.hasPreferment ? "checkmark.circle" : "xmark.circle")
         }
       }
+      .padding(.horizontal)
+//      HStack {
+//        Text("DDT: \(mix.desiredDoughTemperature.temperatureDisplay(appStatus.isCelsius))")
+//        Spacer()
+//        Text("Fr: \(mix.frictionCoefficient.affineTemperatureDisplay(appStatus.isCelsius))")
+//        Spacer()
+//        HStack {
+//          Text("PF:")
+//        Image(systemName: mix.hasPreferment ? "checkmark.circle" : "xmark.circle")
+//        }
+//      }
       .foregroundColor(.secondary)
     }
     .padding(.vertical)

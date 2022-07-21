@@ -9,7 +9,7 @@ struct AdjustableNewMixComponents {
 
 extension AdjustableNewMixComponents: View {
   var body: some View {
-    List {
+    Section {
       ComponentView(.ddt,
                     temperature: $ddt)
       ComponentView(.friction,

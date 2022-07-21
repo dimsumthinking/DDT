@@ -1,5 +1,4 @@
 import Foundation
-import HelperViews
 
 struct HelpScreenItem {
   let heading: String

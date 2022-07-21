@@ -15,15 +15,13 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "../Persistence"),
-    .package(path: "../AppInfo"),
     .package(path: "../Components"),
-    .package(path: "../HelperViews"),
-    .package(path: "../ComponentViews")
+    .package(path: "../MixAddition")
   ],
   targets: [
     .target(
       name: "Production",
-      dependencies: ["Persistence", "AppInfo", "Components", "HelperViews", "ComponentViews"]),
+      dependencies: ["Persistence", "Components", "MixAddition"]),
     .testTarget(
       name: "ProductionTests",
       dependencies: ["Production"]),

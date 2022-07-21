@@ -1,5 +1,3 @@
-import AppInfo
-
 public enum Component: String {
   case ddt
   case flour
@@ -7,12 +5,14 @@ public enum Component: String {
   case preferment
   case friction
   case water
+  case final
 }
 
 extension Component: CustomStringConvertible {
   public var description: String {
     switch self {
     case .ddt: return rawValue.uppercased()
+    case .final: return "Final Dough"
     default: return rawValue.capitalized
     }
   }

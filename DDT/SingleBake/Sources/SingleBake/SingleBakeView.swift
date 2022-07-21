@@ -1,11 +1,9 @@
 import SwiftUI
-import AppInfo
-import HelperViews
 import MixAddition
 import Components
 
 public struct SingleBakeView {
-  @EnvironmentObject private var appStatus: AppStatus
+//  @EnvironmentObject private var appStatus: AppStatus
   @State private var isAddingMix: Bool = false
   @State private var isShowingCorF: Bool = false
   @AppStorage("isCelsius") private var isCelsius: Bool = false
@@ -69,7 +67,7 @@ extension SingleBakeView: View {
 struct SingleBakeView_Previews: PreviewProvider {
   static var previews: some View {
     SingleBakeView()
-      .environmentObject(AppStatus())
+//      .environmentObject(AppStatus())
     //      .environmentObject(ComponentValues())
   }
 }

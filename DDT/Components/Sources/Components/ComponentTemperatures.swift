@@ -8,6 +8,11 @@ public class ComponentTemperatures: ObservableObject {
   @Published public var friction: Double = Component.friction.defaultTemp
   
   public init() {}
+  public init(ddt: Double,
+              friction: Double) {
+    self.ddt = ddt
+    self.friction = friction
+  }
 }
 
 extension ComponentTemperatures {

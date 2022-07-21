@@ -1,9 +1,6 @@
 import SwiftUI
 import Components
-import HelperViews
 import Persistence
-import AppInfo
-import ComponentViews
 
 
 struct FinalDoughTempView {
@@ -17,9 +14,8 @@ struct FinalDoughTempView {
 extension FinalDoughTempView: View {
   var body: some View {
     VStack {
-      TempView(name: "Final Dough Temp",
-               temp: finalDoughTemp,
-               isFriction: false)
+      ComponentView(.final,
+                    temperature: $finalDoughTemp)
       .padding(.top)
       Slider(value: $finalDoughTemp,
              in: 40 ... 120){isActive in
@@ -28,9 +24,6 @@ extension FinalDoughTempView: View {
         }
       }
       .padding(.bottom)
-      TempView(name: "Adjusted Friction",
-               temp: adjustedFriction,
-               isFriction: false)
       
     }
     .onAppear {

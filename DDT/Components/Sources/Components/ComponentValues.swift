@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import AppInfo
 
 
 //TODO: Eliminate this class

@@ -1,7 +1,7 @@
 import SwiftUI
 import Persistence
-import AppInfo
 import Components
+import MixAddition
 
 public struct MixListView {
   @FetchRequest(entity: Mix.entity(),
@@ -43,7 +43,7 @@ extension MixListView: View {
         }
       }
       .sheet(isPresented: $isCreatingMix) {
-        NewMixView(isCreatingMix: $isCreatingMix)
+        NewMixView(isShowingSheet: $isCreatingMix)
       }
       #endif
     }

@@ -1,5 +1,6 @@
 import SwiftUI
 import Persistence
+import Components
 
 public struct NewMixView {
  @State private var ddt: Double
@@ -23,7 +24,14 @@ extension NewMixView { //initializers
     isFixed = true
     _isShowingSheet = isShowingSheet
   }
-  
+  public init(isShowingSheet: Binding<Bool>) {
+    self.ddt = Component.ddt.defaultTemp
+    self.friction = Component.friction.defaultTemp
+    self.hasPreferment = false
+    name = ""
+    isFixed = false
+    _isShowingSheet = isShowingSheet
+  }
 }
 
 extension NewMixView: View {
