@@ -9,6 +9,4 @@ struct ListButtonStyle: ButtonStyle {
       Spacer()
     }
   }
-  
-  
 }

@@ -3,7 +3,6 @@ import MixAddition
 import Components
 
 public struct SingleBakeView {
-//  @EnvironmentObject private var appStatus: AppStatus
   @State private var isAddingMix: Bool = false
   @State private var isShowingCorF: Bool = false
   @AppStorage("isCelsius") private var isCelsius: Bool = false
@@ -62,13 +61,10 @@ extension SingleBakeView: View {
   }
 }
 
-//import Components
 
 struct SingleBakeView_Previews: PreviewProvider {
   static var previews: some View {
     SingleBakeView()
-//      .environmentObject(AppStatus())
-    //      .environmentObject(ComponentValues())
   }
 }
 

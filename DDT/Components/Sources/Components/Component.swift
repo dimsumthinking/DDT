@@ -36,28 +36,9 @@ extension Component {
   public var defaultTemp: Double {
     switch self {
     case .friction:
-      return 24
+      return 2 // default for hand mixing 24F for machine
     default:
       return 76
     }
   }
 }
-
-//extension Component {
-//  public func setValue(_ value: Double, in componentValues: ComponentValues)  {
-//    switch self {
-//    case .ddt:
-//      componentValues.ddt = value
-//    case .flour:
-//      componentValues.flour = value
-//    case .ambient:
-//      componentValues.ambient = value
-//    case .preferment:
-//      componentValues.preferment = value
-//    case .friction:
-//      componentValues.friction = value
-//    case .water:
-//      return
-//    }
-//  }
-//}

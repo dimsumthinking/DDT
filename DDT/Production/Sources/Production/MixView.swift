@@ -5,15 +5,8 @@ import Components
 
 struct MixView {
   @ObservedObject var mix: Mix
-  @EnvironmentObject private var componentValues: ComponentValues
   @State private var finalDoughTemp: Double = Component.friction.defaultTemp
-  @State private var temperatures: ComponentTemperatures
-  
-  init(mix: Mix) {
-    self.mix = mix
-    temperatures = ComponentTemperatures(ddt: mix.desiredDoughTemperature,
-                                         friction: mix.frictionCoefficient)
-  }
+  @StateObject private var temperatures = ComponentTemperatures()
 }
 
 extension MixView: View {
@@ -35,22 +28,16 @@ extension MixView: View {
                         temperature: $temperatures.preferment)
         }
       }
-      
-      Section ("To update Friction Coefficient:") {
-        FinalDoughTempView(ddt: componentValues.ddt,
-                           friction: componentValues.friction,
-                           mix: mix,
-                           finalDoughTemp: $finalDoughTemp)
-      }
+      FinalDoughTempView(mix: mix,
+                         finalDoughTemp: $finalDoughTemp)
       
     }
 #if os(iOS)
     .listStyle(.insetGrouped)
 #endif
     .onAppear {
-      componentValues.ddt = mix.desiredDoughTemperature
-      componentValues.friction = mix.frictionCoefficient
-      componentValues.hasPreferment = mix.hasPreferment
+      temperatures.ddt = mix.desiredDoughTemperature
+      temperatures.friction = mix.frictionCoefficient
       mix.updateDate()
     }
     .navigationTitle(mix.name)

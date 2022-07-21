@@ -4,30 +4,24 @@ import Persistence
 
 
 struct FinalDoughTempView {
-  let ddt: Double
-  let friction: Double
   let mix: Mix
   @Binding var finalDoughTemp: Double
 }
 
-//TODO: Replace hard-coded final dough range 40 ...120 and hard coded temp
 extension FinalDoughTempView: View {
   var body: some View {
-    VStack {
+    Section ("To update Friction Coefficient:") {
       ComponentView(.final,
                     temperature: $finalDoughTemp)
-      .padding(.top)
-      Slider(value: $finalDoughTemp,
-             in: 40 ... 120){isActive in
-        if !isActive {
-          mix.update(frictionCoefficient: adjustedFriction)
-        }
-      }
-      .padding(.bottom)
-      
+      .padding(.vertical)
+      TemperatureDisplay(adjustedFriction,
+                         for: .friction)
     }
     .onAppear {
       finalDoughTemp = Component.ddt.defaultTemp
+    }
+    .onDisappear {
+      mix.update(frictionCoefficient: adjustedFriction)
     }
   }
 }
@@ -35,7 +29,7 @@ extension FinalDoughTempView: View {
 
 extension FinalDoughTempView {
   private var adjustedFriction: Double {
-    let frictionCandidate = friction + (finalDoughTemp - ddt)
+    let frictionCandidate = mix.frictionCoefficient + (finalDoughTemp - mix.desiredDoughTemperature)
     switch frictionCandidate {
     case ...0:
       return 0
@@ -49,9 +43,7 @@ extension FinalDoughTempView {
 
 struct FinalDoughTempView_Previews: PreviewProvider {
   static var previews: some View {
-    FinalDoughTempView(ddt: Component.ddt.defaultTemp,
-                       friction: 20,
-                       mix: Mix(name: "Test",
+    FinalDoughTempView(mix: Mix(name: "Test",
                                 desiredDoughTemperature: 80,
                                 frictionCoefficient: 24,
                                 hasPreferment: true,

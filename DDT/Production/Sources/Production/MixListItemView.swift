@@ -23,16 +23,6 @@ extension MixListItemView: View {
         }
       }
       .padding(.horizontal)
-//      HStack {
-//        Text("DDT: \(mix.desiredDoughTemperature.temperatureDisplay(appStatus.isCelsius))")
-//        Spacer()
-//        Text("Fr: \(mix.frictionCoefficient.affineTemperatureDisplay(appStatus.isCelsius))")
-//        Spacer()
-//        HStack {
-//          Text("PF:")
-//        Image(systemName: mix.hasPreferment ? "checkmark.circle" : "xmark.circle")
-//        }
-//      }
       .foregroundColor(.secondary)
     }
     .padding(.vertical)
@@ -42,8 +32,11 @@ extension MixListItemView: View {
   }
 }
 
-//struct MixListItemView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    MixListItemView()
-//  }
-//}
+struct MixListItemView_Previews: PreviewProvider {
+  static var previews: some View {
+    MixListItemView(mix: Mix(name: "Sample",
+                             desiredDoughTemperature: 74,
+                             frictionCoefficient: 12,
+                             hasPreferment: false, context: newBackgroundContext()))
+  }
+}

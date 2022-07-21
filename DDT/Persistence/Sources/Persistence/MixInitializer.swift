@@ -28,4 +28,9 @@ extension Mix {
     self.frictionCoefficient = frictionCoefficient
     updateDate()
   }
+  
+  public func update(name: String) {
+    self.name = name
+    updateDate()
+  }
 }
