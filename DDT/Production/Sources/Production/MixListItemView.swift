@@ -1,16 +1,36 @@
 import SwiftUI
 import Persistence
 import Components
+import MixAddition
 
 struct MixListItemView {
   @ObservedObject var mix: Mix
+  @State var canEdit = false
+  @State var nameIsInUse = false
 }
 
 extension MixListItemView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 20) {
-      Text(mix.name)
-        .font(.headline)
+      if canEdit {
+        VStack {
+          MixNameView(name: $mix.name,
+                      nameIsInUse: nameIsInUse)
+          SaveAndCancel(canNotSave: nameIsInUse,
+                        cancel: {canEdit = false},
+                        saveMix: {
+            mix.update(name: mix.name)
+            canEdit = false
+          })
+          .buttonStyle(.borderless)
+        }
+      } else {
+        Text(mix.name)
+          .font(.headline)
+          .onTapGesture {
+            canEdit = true
+          }
+      }
       VStack {
         TemperatureDisplay(mix.desiredDoughTemperature,
                            for: .ddt)
@@ -28,9 +48,11 @@ extension MixListItemView: View {
     .padding(.vertical)
 #if os(iOS)
     .listRowSeparatorTint(.cyan)
-    #endif
+#endif
   }
 }
+
+
 
 struct MixListItemView_Previews: PreviewProvider {
   static var previews: some View {

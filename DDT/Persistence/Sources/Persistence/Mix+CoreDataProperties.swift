@@ -21,9 +21,16 @@ extension Mix {
 extension Mix: Identifiable {}
 
 extension Mix {
-  public static func matches(_ name: String) -> Bool {
+  public func searchForExistingMixes(named: String) -> Bool {
     guard let mixes = try? newBackgroundContext()
-      .fetch(NSFetchRequest<Mix>(entityName: "Mix")) else {return false}
-    return mixes.map{mix in mix.name.lowercased()}.contains(name.lowercased())
+      .fetch(NSFetchRequest<Mix>(entityName: "Mix")),
+          !named.isEmpty else {return false}
+    return mixes
+      .filter{($0.name != self.name)
+        || ($0.hasPreferment != self.hasPreferment)
+        || ($0.desiredDoughTemperature != self.desiredDoughTemperature)
+        || ($0.frictionCoefficient != self.frictionCoefficient)
+      }
+      .map{mix in mix.name.lowercased()}.contains(named.lowercased())
   }
 }

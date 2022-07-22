@@ -7,6 +7,7 @@ public struct NewMixView {
   @State private var friction: Double
   @State private var hasPreferment: Bool
   @State private var name: String
+  @State private var nameIsInUse = false
   private let isFixed: Bool
   @Binding private var isShowingSheet: Bool
 }
@@ -36,9 +37,9 @@ extension NewMixView { //initializers
 
 extension NewMixView: View {
   public var body: some View {
-    List {
-      MixNameView(name: $name,
-                  nameIsNotUnique: nameIsNotUnique)
+   VStack  {
+     MixNameView(name: $name,
+                 nameIsInUse: nameIsInUse)
       if isFixed {
         FixedNewMixComponents(ddt: ddt,
                               friction: friction,
@@ -48,32 +49,33 @@ extension NewMixView: View {
                                    friction: $friction,
                                    hasPreferment: $hasPreferment)
       }
-      SaveAndCancel(nameIsNotUnique: nameIsNotUnique,
+      SaveAndCancel(canNotSave: canNotSave,
                     cancel: dismiss,
                     saveMix: save)
       
     }
+   .onChange(of: name){value in
+     nameIsInUse =  namelessMix.searchForExistingMixes(named: name)
+   }
   }
 }
 
-extension NewMixView {
-  private var nameIsNotUnique: Bool {
-    Mix.matches(name)
-  }
-}
 
 extension NewMixView {
+  private var canNotSave: Bool {
+    nameIsInUse || name.count < 5
+  }
   private func dismiss() {
     isShowingSheet = false
   }
   private func save() {
-    dismiss()
     _ = Mix(name: name,
             desiredDoughTemperature: ddt,
             frictionCoefficient: friction,
             hasPreferment: hasPreferment,
             context: newBackgroundContext()
     )
+    isShowingSheet = false
   }
 }
 

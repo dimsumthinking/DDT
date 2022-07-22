@@ -9,7 +9,6 @@ public struct MixListView {
                                                    ascending: false)])
   private var mixes: FetchedResults<Mix>
   @State private var isCreatingMix: Bool = false
-  
   public init(){}
 }
 
@@ -21,8 +20,8 @@ extension MixListView: View {
           NavigationLink {
             MixView(mix: mix)
           } label: {
-            MixListItemView(mix: mix)
-              .contentShape(Rectangle())
+              MixListItemView(mix: mix)
+                .contentShape(Rectangle())
           }
         }
         .onDelete { indexSet in
@@ -36,6 +35,9 @@ extension MixListView: View {
 #if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
+        ToolbarItem(placement: .navigationBarLeading) {
+          EditButton()
+        }
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {isCreatingMix = true}) {
             Image(systemName: "plus")
@@ -54,6 +56,7 @@ extension MixListView: View {
     }
   }
 }
+
 
 
 struct MixListView_Previews: PreviewProvider {
