@@ -3,20 +3,27 @@ import SwiftUI
 public struct TemperatureDisplay {
   let temperature: Temperature
   let component: Component
+  let spaced: Bool
   @AppStorage("isCelsius") private var isCelsius = false
   
   public init(_ temperature: Temperature,
-       for component: Component) {
+              for component: Component,
+              spaced: Bool = true) {
     self.temperature = temperature
     self.component = component
+    self.spaced = spaced
   }
 }
 
 extension TemperatureDisplay: View {
   public var body: some View {
     HStack {
-      Text(component.description)
-      Spacer()
+      if spaced {
+        Text(component.description)
+        Spacer()
+      } else {
+        Text(component.shortDescription)
+      }
       formattedTemperature
     }
   }

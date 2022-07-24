@@ -32,9 +32,6 @@ extension MixView: View {
                          finalDoughTemp: $finalDoughTemp)
       
     }
-#if os(iOS)
-    .listStyle(.insetGrouped)
-#endif
     .onAppear {
       temperatures.ddt = mix.desiredDoughTemperature
       temperatures.friction = mix.frictionCoefficient

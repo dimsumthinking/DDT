@@ -19,18 +19,38 @@ extension Mix {
 }
 
 extension Mix: Identifiable {}
+//
+//extension Mix {
+//  public func searchForExistingMixes(named: String) -> Bool {
+//    guard let mixes = try? newBackgroundContext()
+//      .fetch(NSFetchRequest<Mix>(entityName: "Mix")),
+//          !named.isEmpty else {return false}
+//    return mixes
+//      .filter{($0.name != self.name)
+//        || ($0.hasPreferment != self.hasPreferment)
+//        || ($0.desiredDoughTemperature != self.desiredDoughTemperature)
+//        || ($0.frictionCoefficient != self.frictionCoefficient)
+//      }
+//      .map{mix in mix.name.lowercased()}.contains(named.lowercased())
+//  }
+//}
 
 extension Mix {
-  public func searchForExistingMixes(named: String) -> Bool {
+  public static func existingNames(otherThanIn otherMix: Mix = namelessMix) -> [String] {
     guard let mixes = try? newBackgroundContext()
-      .fetch(NSFetchRequest<Mix>(entityName: "Mix")),
-          !named.isEmpty else {return false}
+      .fetch(NSFetchRequest<Mix>(entityName: "Mix")) else {return []}
     return mixes
-      .filter{($0.name != self.name)
-        || ($0.hasPreferment != self.hasPreferment)
-        || ($0.desiredDoughTemperature != self.desiredDoughTemperature)
-        || ($0.frictionCoefficient != self.frictionCoefficient)
+      .filter{($0.name != otherMix.name)
+      || ($0.hasPreferment != otherMix.hasPreferment)
+      || ($0.desiredDoughTemperature != otherMix.desiredDoughTemperature)
+      || ($0.frictionCoefficient != otherMix.frictionCoefficient)
       }
-      .map{mix in mix.name.lowercased()}.contains(named.lowercased())
+      .map(\.name)
+      .map{$0.lowercased()}
+  }
+  
+  public static func alreadyUsing(name: String, in names: [String]) -> Bool {
+    guard !(name.isEmpty) else {return false}
+    return names.contains(name.lowercased())
   }
 }

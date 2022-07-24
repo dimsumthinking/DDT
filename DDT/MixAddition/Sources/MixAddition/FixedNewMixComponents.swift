@@ -9,7 +9,7 @@ struct FixedNewMixComponents {
 
 extension FixedNewMixComponents: View {
   var body: some View {
-    Section {
+    VStack (spacing: 30) {
       TemperatureDisplay(ddt,
                          for: .ddt)
       TemperatureDisplay(friction,

@@ -42,9 +42,6 @@ extension SingleBakeView: View {
             isCelsius = false
             isShowingCorF = false
           }
-          Button("Cancel") {
-            isShowingCorF = false
-          }
         }
                .sheet(isPresented: $isAddingMix) {
                  NewMixView(ddt: temperatures.ddt,

@@ -18,7 +18,7 @@ extension SaveAndCancel: View {
   public var body: some View {
       HStack {
         Spacer()
-        Button("Dismiss", action: cancel)
+        Button("Cancel", action: cancel)
         Spacer()
         Button("Save", action: saveMix)
           .disabled(canNotSave)

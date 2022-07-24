@@ -5,50 +5,50 @@ import MixAddition
 
 struct MixListItemView {
   @ObservedObject var mix: Mix
-  @State var canEdit = false
-  @State var nameIsInUse = false
+  //  @State private var canEdit = false
+  @State private var nameIsInUse = false
+  @State private var name: String
+  private var existingNames: [String]
+  
+  init(mix: Mix) {
+    self.mix = mix
+    self.name = mix.name
+    existingNames = Mix.existingNames(otherThanIn: mix)
+  }
 }
 
 extension MixListItemView: View {
   var body: some View {
-    VStack(alignment: .leading, spacing: 20) {
-      if canEdit {
-        VStack {
-          MixNameView(name: $mix.name,
-                      nameIsInUse: nameIsInUse)
-          SaveAndCancel(canNotSave: nameIsInUse,
-                        cancel: {canEdit = false},
-                        saveMix: {
-            mix.update(name: mix.name)
-            canEdit = false
-          })
-          .buttonStyle(.borderless)
+    VStack(alignment: .leading) {
+      MixNameView(name: $name,
+                  nameIsInUse: nameIsInUse)
+      .onSubmit {
+        if nameIsInUse || name.count < 5 {
+          name = mix.name
+        } else {
+          mix.update(name: name)
         }
-      } else {
-        Text(mix.name)
-          .font(.headline)
-          .onTapGesture {
-            canEdit = true
-          }
       }
-      VStack {
+      HStack {
         TemperatureDisplay(mix.desiredDoughTemperature,
-                           for: .ddt)
+                           for: .ddt,
+                           spaced: false)
+        Spacer()
         TemperatureDisplay(mix.frictionCoefficient,
-                           for: .friction)
-        HStack {
-          Text("Preferment")
-          Spacer()
-          Image(systemName: mix.hasPreferment ? "checkmark.circle" : "xmark.circle")
-        }
+                           for: .friction,
+                           spaced: false)
+        Spacer()
+        Text("PF")
+          .foregroundColor(mix.hasPreferment ? .secondary : .clear)
+        Spacer()
       }
       .padding(.horizontal)
       .foregroundColor(.secondary)
     }
-    .padding(.vertical)
-#if os(iOS)
-    .listRowSeparatorTint(.cyan)
-#endif
+    .onChange(of: name) {value in
+      nameIsInUse =  Mix.alreadyUsing(name: name,
+                                      in: existingNames)
+    }
   }
 }
 

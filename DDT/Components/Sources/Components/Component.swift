@@ -11,8 +11,19 @@ public enum Component: String {
 extension Component: CustomStringConvertible {
   public var description: String {
     switch self {
-    case .ddt: return rawValue.uppercased()
+    case .ddt: return "Desired Dough Temp"//return rawValue.uppercased()
     case .final: return "Final Dough"
+    default: return rawValue.capitalized
+    }
+  }
+}
+
+extension Component {
+  public var shortDescription: String {
+    switch self {
+    case .ddt: return rawValue.uppercased()
+    case .final: return "Final"
+    case .friction: return "Fr"
     default: return rawValue.capitalized
     }
   }

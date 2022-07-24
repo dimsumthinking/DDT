@@ -20,8 +20,8 @@ extension MixListView: View {
           NavigationLink {
             MixView(mix: mix)
           } label: {
-              MixListItemView(mix: mix)
-                .contentShape(Rectangle())
+            MixListItemView(mix: mix)
+              .contentShape(Rectangle())
           }
         }
         .onDelete { indexSet in
@@ -44,15 +44,15 @@ extension MixListView: View {
           }
         }
       }
+#endif
       .sheet(isPresented: $isCreatingMix) {
         NewMixView(isShowingSheet: $isCreatingMix)
       }
-      #endif
     }
     .navigationViewStyle(.stack)
     .tabItem {
       Label("Production",
-      systemImage: "list.bullet.rectangle")
+            systemImage: "list.bullet.rectangle")
     }
   }
 }

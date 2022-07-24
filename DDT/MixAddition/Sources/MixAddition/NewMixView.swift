@@ -10,6 +10,7 @@ public struct NewMixView {
   @State private var nameIsInUse = false
   private let isFixed: Bool
   @Binding private var isShowingSheet: Bool
+  private var existingNames: [String]
 }
 
 extension NewMixView { //initializers
@@ -24,6 +25,7 @@ extension NewMixView { //initializers
     name = ""
     isFixed = true
     _isShowingSheet = isShowingSheet
+    existingNames = Mix.existingNames()
   }
   public init(isShowingSheet: Binding<Bool>) {
     self.ddt = Component.ddt.defaultTemp
@@ -32,14 +34,17 @@ extension NewMixView { //initializers
     name = ""
     isFixed = false
     _isShowingSheet = isShowingSheet
+    existingNames = Mix.existingNames()
   }
 }
 
 extension NewMixView: View {
   public var body: some View {
-   VStack  {
+    VStack(spacing: 60)  {
      MixNameView(name: $name,
                  nameIsInUse: nameIsInUse)
+     .multilineTextAlignment(.center)
+     .padding()
       if isFixed {
         FixedNewMixComponents(ddt: ddt,
                               friction: friction,
@@ -52,11 +57,13 @@ extension NewMixView: View {
       SaveAndCancel(canNotSave: canNotSave,
                     cancel: dismiss,
                     saveMix: save)
-      
+     Spacer()
     }
    .onChange(of: name){value in
-     nameIsInUse =  namelessMix.searchForExistingMixes(named: name)
+     nameIsInUse =  Mix.alreadyUsing(name: name,
+                                     in: existingNames)
    }
+   .padding()
   }
 }
 
