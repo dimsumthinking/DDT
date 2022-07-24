@@ -14,14 +14,11 @@ public struct MixListView {
 
 extension MixListView: View {
   public var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         ForEach(mixes) {mix in
-          NavigationLink {
-            MixView(mix: mix)
-          } label: {
+          NavigationLink(value: mix) {
             MixListItemView(mix: mix)
-              .contentShape(Rectangle())
           }
         }
         .onDelete { indexSet in
@@ -30,6 +27,9 @@ extension MixListView: View {
             try? sharedViewContext.save()
           }
         }
+      }
+      .navigationDestination(for: Mix.self) {mix in
+        MixView(mix: mix)
       }
       .navigationTitle("Production")
 #if os(iOS)

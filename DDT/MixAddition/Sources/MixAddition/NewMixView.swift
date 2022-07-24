@@ -43,7 +43,6 @@ extension NewMixView: View {
     VStack(spacing: 60)  {
      MixNameView(name: $name,
                  nameIsInUse: nameIsInUse)
-     .multilineTextAlignment(.center)
      .padding()
       if isFixed {
         FixedNewMixComponents(ddt: ddt,

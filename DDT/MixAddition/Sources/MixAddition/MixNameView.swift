@@ -16,16 +16,24 @@ public struct MixNameView {
 extension MixNameView: View {
   public var body: some View {
     VStack {
+        HStack {
+          Spacer()
+          if nameIsInUse {
+            Text("This mix name already exists")
+              .font(.caption)
+              .foregroundColor(.red)
+          } else {
+            Text("Unique name at least 4 letters long:")
+              .font(.caption)
+              .foregroundColor(.secondary)
+          }
+          Spacer()
+        }
       TextField("Name of Mix",
                 text: $name)
       .foregroundColor(nameIsInUse ? .red : .primary)
-        HStack {
-          Spacer()
-          Text("This mix name already exists")
-            .font(.caption)
-            .foregroundColor(nameIsInUse ? .secondary : .clear)
-          Spacer()
-        }
+      .multilineTextAlignment(.center)
+      .background(Color.secondary.opacity(0.1))
       }
   }
 }

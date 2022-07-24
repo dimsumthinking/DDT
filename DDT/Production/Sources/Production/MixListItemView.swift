@@ -5,11 +5,11 @@ import MixAddition
 
 struct MixListItemView {
   @ObservedObject var mix: Mix
-  //  @State private var canEdit = false
   @State private var nameIsInUse = false
   @State private var name: String
   private var existingNames: [String]
-  
+  @State private var notEditing = true
+
   init(mix: Mix) {
     self.mix = mix
     self.name = mix.name
@@ -20,13 +20,21 @@ struct MixListItemView {
 extension MixListItemView: View {
   var body: some View {
     VStack(alignment: .leading) {
-      MixNameView(name: $name,
-                  nameIsInUse: nameIsInUse)
-      .onSubmit {
-        if nameIsInUse || name.count < 5 {
-          name = mix.name
-        } else {
-          mix.update(name: name)
+      if notEditing {
+        Text(name)
+          .padding(.bottom)
+          .contentShape(Rectangle())
+          .onTapGesture { notEditing = false}
+      } else {
+        MixNameView(name: $name,
+                    nameIsInUse: nameIsInUse)
+        .onSubmit {
+          if nameIsInUse || name.count < 5 {
+            name = mix.name
+          } else {
+            mix.update(name: name)
+          }
+          notEditing = true
         }
       }
       HStack {
@@ -45,6 +53,7 @@ extension MixListItemView: View {
       .padding(.horizontal)
       .foregroundColor(.secondary)
     }
+    .animation(.default, value: notEditing)
     .onChange(of: name) {value in
       nameIsInUse =  Mix.alreadyUsing(name: name,
                                       in: existingNames)
