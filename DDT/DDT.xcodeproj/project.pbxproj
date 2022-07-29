@@ -38,6 +38,7 @@
 		621A67D1262C8569009FE5EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621A67D3262C8569009FE5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6244080D283C08A700C300D1 /* Production */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Production; sourceTree = "<group>"; };
+		626243A32892E5A900A441C8 /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		6277FD89283F9F3800523121 /* DDT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDT.entitlements; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 			children = (
 				620EDBDE283943DF00576ABF /* SingleBake */,
 				6244080D283C08A700C300D1 /* Production */,
+				626243A32892E5A900A441C8 /* Persistence */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

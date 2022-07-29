@@ -58,6 +58,7 @@ extension MixListItemView: View {
       nameIsInUse =  Mix.alreadyUsing(name: name,
                                       in: existingNames)
     }
+    .onDisappear {notEditing = true}
   }
 }
 

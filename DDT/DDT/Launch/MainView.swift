@@ -1,6 +1,7 @@
 import SwiftUI
 import SingleBake
 import Production
+import Persistence
 
 struct MainView {
 }
@@ -10,6 +11,9 @@ extension MainView: View {
     TabView {
       SingleBakeView()
       MixListView()
+    }
+    .onOpenURL {url in
+      _ = Mix(url: url)
     }
   }
 }

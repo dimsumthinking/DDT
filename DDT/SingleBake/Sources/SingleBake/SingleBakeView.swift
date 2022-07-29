@@ -8,7 +8,10 @@ public struct SingleBakeView {
   @AppStorage("isCelsius") private var isCelsius: Bool = false
   @StateObject private var temperatures = ComponentTemperatures()
   @State private var hasPreferment = false
-  public init(){}
+  let name: String
+  public init(name: String = ""){
+    self.name = name
+  }
 }
 
 extension SingleBakeView: View {
@@ -46,7 +49,9 @@ extension SingleBakeView: View {
                .sheet(isPresented: $isAddingMix) {
                  NewMixView(ddt: temperatures.ddt,
                             friction: temperatures.friction,
-                            hasPreferment: hasPreferment, isShowingSheet: $isAddingMix)
+                            hasPreferment: hasPreferment,
+                            name: name,
+                            isShowingSheet: $isAddingMix)
                }
 #endif
     }

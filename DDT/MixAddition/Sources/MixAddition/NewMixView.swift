@@ -10,7 +10,7 @@ public struct NewMixView {
   @State private var nameIsInUse = false
   private let isFixed: Bool
   @Binding private var isShowingSheet: Bool
-  private var existingNames: [String]
+  private var existingNames: [String] = Mix.existingNames()
 }
 
 extension NewMixView { //initializers
@@ -18,15 +18,16 @@ extension NewMixView { //initializers
   public init(ddt: Double,
        friction: Double,
        hasPreferment: Bool,
+              name: String = "",
        isShowingSheet: Binding<Bool>) {
     self.ddt = ddt
     self.friction = friction
     self.hasPreferment = hasPreferment
-    name = ""
+    self.name = name
     isFixed = true
     _isShowingSheet = isShowingSheet
-    existingNames = Mix.existingNames()
   }
+  /// Save new mix initializer
   public init(isShowingSheet: Binding<Bool>) {
     self.ddt = Component.ddt.defaultTemp
     self.friction = Component.friction.defaultTemp
@@ -34,7 +35,6 @@ extension NewMixView { //initializers
     name = ""
     isFixed = false
     _isShowingSheet = isShowingSheet
-    existingNames = Mix.existingNames()
   }
 }
 

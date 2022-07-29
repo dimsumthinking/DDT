@@ -15,6 +15,11 @@ public struct MixListView {
 extension MixListView: View {
   public var body: some View {
     NavigationStack {
+      if mixes.isEmpty {
+        Text("No saved mixes")
+          .foregroundColor(.secondary)
+          .padding()
+      }
       List {
         ForEach(mixes) {mix in
           NavigationLink(value: mix) {

@@ -38,6 +38,13 @@ extension MixView: View {
       mix.updateDate()
     }
     .navigationTitle(mix.name)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarTrailing) {
+        ShareLink(item: mix.url,
+        subject: Text("Formula shared from DDT app"),
+                  message: Text("Link to \(mix.name) DDT formula"))
+      }
+    }
   }
 }
 

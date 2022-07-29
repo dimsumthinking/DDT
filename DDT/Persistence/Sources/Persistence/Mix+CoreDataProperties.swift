@@ -54,3 +54,31 @@ extension Mix {
     return names.contains(name.lowercased())
   }
 }
+
+extension Mix {
+  public var url: URL {
+    var components = URLComponents()
+    components.scheme = "ddt"
+    components.host = name
+    components.queryItems = [
+      URLQueryItem(name: "d", value: desiredDoughTemperature.description),
+      URLQueryItem(name: "f", value: frictionCoefficient.description),
+      URLQueryItem(name: "pf", value: hasPreferment.description)
+    ]
+    return components.url ?? URL(string: "https://dimsumthinking.com")!
+  }
+}
+
+//extension Mix {
+//  public var url: URL {
+//    var components = URLComponents()
+//    components.scheme = "desiredDoughTemperature"
+//    components.host = name
+//    components.queryItems = [
+//      URLQueryItem(name: "ddt", value: desiredDoughTemperature.description),
+//      URLQueryItem(name: "friction", value: frictionCoefficient.description),
+//      URLQueryItem(name: "hasPreferment", value: hasPreferment.description)
+//    ]
+//    return components.url ?? URL(string: "https://dimsumthinking.com")!
+//  }
+//}
