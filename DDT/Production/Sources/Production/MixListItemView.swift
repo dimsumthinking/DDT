@@ -38,13 +38,11 @@ extension MixListItemView: View {
         }
       }
       HStack {
-        TemperatureDisplay(mix.desiredDoughTemperature,
-                           for: .ddt,
-                           spaced: false)
+        MiniTemperatureDisplay(mix.desiredDoughTemperature,
+                           for: .ddt)
         Spacer()
-        TemperatureDisplay(mix.frictionCoefficient,
-                           for: .friction,
-                           spaced: false)
+        MiniTemperatureDisplay(mix.frictionCoefficient,
+                           for: .friction)
         Spacer()
         Text("PF")
           .foregroundColor(mix.hasPreferment ? .secondary : .clear)
@@ -66,9 +64,11 @@ extension MixListItemView: View {
 
 struct MixListItemView_Previews: PreviewProvider {
   static var previews: some View {
-    MixListItemView(mix: Mix(name: "Sample",
-                             desiredDoughTemperature: 74,
-                             frictionCoefficient: 12,
-                             hasPreferment: false, context: newBackgroundContext()))
+    List {
+      MixListItemView(mix: Mix(name: "Sample",
+                               desiredDoughTemperature: 74,
+                               frictionCoefficient: 12,
+                               hasPreferment: false, context: newBackgroundContext()))
+    }
   }
 }

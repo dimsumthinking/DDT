@@ -12,6 +12,9 @@
 		621A67D2262C8569009FE5EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 621A67D1262C8569009FE5EC /* Preview Assets.xcassets */; };
 		62274E45283BD07C009F63AE /* SingleBake in Frameworks */ = {isa = PBXBuildFile; productRef = 62274E44283BD07C009F63AE /* SingleBake */; };
 		6244080F283C08C200C300D1 /* Production in Frameworks */ = {isa = PBXBuildFile; productRef = 6244080E283C08C200C300D1 /* Production */; };
+		624C8BDA2896C5790056ED46 /* MixAddition in Frameworks */ = {isa = PBXBuildFile; productRef = 624C8BD92896C5790056ED46 /* MixAddition */; };
+		624C8BDC2896C5820056ED46 /* Components in Frameworks */ = {isa = PBXBuildFile; productRef = 624C8BDB2896C5820056ED46 /* Components */; };
+		625718A42896C4F000285018 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = 625718A32896C4F000285018 /* Persistence */; };
 		6299ACA32831292C00379EC8 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA22831292C00379EC8 /* World.swift */; };
 		6299ACA9283136A400379EC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA8283136A400379EC8 /* MainView.swift */; };
 		62E48FF528316DB300136CF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FF428316DB300136CF2 /* Status.swift */; };
@@ -38,6 +41,8 @@
 		621A67D1262C8569009FE5EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621A67D3262C8569009FE5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6244080D283C08A700C300D1 /* Production */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Production; sourceTree = "<group>"; };
+		625718A52896C53400285018 /* Components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Components; sourceTree = "<group>"; };
+		625718A62896C53E00285018 /* MixAddition */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixAddition; sourceTree = "<group>"; };
 		626243A32892E5A900A441C8 /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		6277FD89283F9F3800523121 /* DDT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDT.entitlements; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
@@ -50,7 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625718A42896C4F000285018 /* Persistence in Frameworks */,
+				624C8BDA2896C5790056ED46 /* MixAddition in Frameworks */,
 				62274E45283BD07C009F63AE /* SingleBake in Frameworks */,
+				624C8BDC2896C5820056ED46 /* Components in Frameworks */,
 				6244080F283C08C200C300D1 /* Production in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +129,8 @@
 				620EDBDE283943DF00576ABF /* SingleBake */,
 				6244080D283C08A700C300D1 /* Production */,
 				626243A32892E5A900A441C8 /* Persistence */,
+				625718A52896C53400285018 /* Components */,
+				625718A62896C53E00285018 /* MixAddition */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -152,6 +162,9 @@
 			packageProductDependencies = (
 				62274E44283BD07C009F63AE /* SingleBake */,
 				6244080E283C08C200C300D1 /* Production */,
+				625718A32896C4F000285018 /* Persistence */,
+				624C8BD92896C5790056ED46 /* MixAddition */,
+				624C8BDB2896C5820056ED46 /* Components */,
 			);
 			productName = DDT;
 			productReference = 621A67C7262C8568009FE5EC /* DDT.app */;
@@ -351,7 +364,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -377,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -417,6 +430,18 @@
 		6244080E283C08C200C300D1 /* Production */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Production;
+		};
+		624C8BD92896C5790056ED46 /* MixAddition */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MixAddition;
+		};
+		624C8BDB2896C5820056ED46 /* Components */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Components;
+		};
+		625718A32896C4F000285018 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

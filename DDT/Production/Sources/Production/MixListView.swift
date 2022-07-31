@@ -9,6 +9,7 @@ public struct MixListView {
                                                    ascending: false)])
   private var mixes: FetchedResults<Mix>
   @State private var isCreatingMix: Bool = false
+  @State private var searchString: String = ""
   public init(){}
 }
 
@@ -21,7 +22,7 @@ extension MixListView: View {
           .padding()
       }
       List {
-        ForEach(mixes) {mix in
+        ForEach(filteredMixes) {mix in
           NavigationLink(value: mix) {
             MixListItemView(mix: mix)
           }
@@ -37,6 +38,8 @@ extension MixListView: View {
         MixView(mix: mix)
       }
       .navigationTitle("Production")
+      .searchable(text: $searchString,
+                  prompt: "Filter by name")
 #if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
@@ -58,6 +61,22 @@ extension MixListView: View {
     .tabItem {
       Label("Production",
             systemImage: "list.bullet.rectangle")
+    }
+    .onOpenURL {url in
+      _ = Mix(url: url)
+    }
+  }
+}
+
+extension MixListView {
+  private var filteredMixes: [Mix] {
+    if searchString.isEmpty {
+      return mixes.map{$0}
+    } else {
+      return mixes
+        .filter {mix in
+        mix.name.lowercased().contains(searchString.lowercased())
+      }
     }
   }
 }

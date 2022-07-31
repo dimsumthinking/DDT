@@ -5,7 +5,6 @@ import Components
 public struct SingleBakeView {
   @State private var isAddingMix: Bool = false
   @State private var isShowingCorF: Bool = false
-  @AppStorage("isCelsius") private var isCelsius: Bool = false
   @StateObject private var temperatures = ComponentTemperatures()
   @State private var hasPreferment = false
   let name: String
@@ -35,17 +34,7 @@ extension SingleBakeView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("DDT Calculator")
-        .alert("Temperature Scale",
-               isPresented: $isShowingCorF) {
-          Button("Celsius") {
-            isCelsius = true
-            isShowingCorF = false
-          }
-          Button("Fahrenheit") {
-            isCelsius = false
-            isShowingCorF = false
-          }
-        }
+        .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorF))
                .sheet(isPresented: $isAddingMix) {
                  NewMixView(ddt: temperatures.ddt,
                             friction: temperatures.friction,

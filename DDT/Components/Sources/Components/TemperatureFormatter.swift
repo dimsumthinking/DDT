@@ -2,15 +2,27 @@ import Foundation
 
 public typealias Temperature = Double
 
-/// public methods for formatting doubles as temps
+/// public method for formatting doubles given component
+extension Temperature {
+  public func displayTemperature(for component: Component) -> (Bool) -> String {
+    switch component {
+    case .friction:
+      return affineTemperatureDisplay
+    default:
+      return temperatureDisplay
+    }
+  }
+}
+
+///  methods for formatting doubles as temps
 extension Temperature {
   /// formats all components except friction which needs a different conversion rule
-  public func temperatureDisplay(_ isCelsius: Bool = false) -> String {
+  private func temperatureDisplay(_ isCelsius: Bool = false) -> String {
     (isCelsius ? self.toCelsius : self)
       .temperatureFormatted(isCelsius)
   }
   /// formats friction which uses a conversion that rescales without recentering
-  public func affineTemperatureDisplay(_ isCelsius: Bool = false) -> String {
+  private func affineTemperatureDisplay(_ isCelsius: Bool = false) -> String {
     (isCelsius ? self.affineToCelsius : self)
       .temperatureFormatted(isCelsius)
   }

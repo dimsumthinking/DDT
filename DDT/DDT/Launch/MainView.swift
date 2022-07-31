@@ -12,9 +12,9 @@ extension MainView: View {
       SingleBakeView()
       MixListView()
     }
-    .onOpenURL {url in
-      _ = Mix(url: url)
-    }
+//    .onOpenURL {url in
+//      _ = Mix(url: url)
+//    }
   }
 }
 

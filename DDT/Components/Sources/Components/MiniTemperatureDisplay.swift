@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct TemperatureDisplay {
+public struct MiniTemperatureDisplay {
   let temperature: Temperature
   let component: Component
   
@@ -11,20 +11,20 @@ public struct TemperatureDisplay {
   }
 }
 
-extension TemperatureDisplay: View {
+extension MiniTemperatureDisplay: View {
   public var body: some View {
     HStack {
-      Text(component.description)
-      Spacer()
+      Text(component.shortDescription)
       FormattedTemperatureDisplay(formattedTemp: temperature.displayTemperature(for: component))
     }
   }
 }
 
-struct TemperatureDisplay_Previews: PreviewProvider {
+struct MiniTemperatureDisplay_Previews: PreviewProvider {
   static var previews: some View {
-    TemperatureDisplay(27,
-                       for: Component.ddt)
-    .padding(.horizontal)
+    MiniTemperatureDisplay(76,
+                           for: .ddt)
   }
 }
+
+
