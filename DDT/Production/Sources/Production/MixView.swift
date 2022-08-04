@@ -13,8 +13,8 @@ extension MixView: View {
   var body: some View {
     List {
       Section {
-        TemperatureDisplay(temperatures.waterTemperature(hasPreferment: mix.hasPreferment),
-                           for: .water)
+        WaterDisplay(temperatures,
+                     hasPreferment: mix.hasPreferment)
       }
       Section {
         TemperatureDisplay(mix.desiredDoughTemperature,
@@ -48,8 +48,13 @@ extension MixView: View {
   }
 }
 
+//Preview doesn't render
 //struct MixView_Previews: PreviewProvider {
 //  static var previews: some View {
-//    MixView()
+//    MixView(mix: Mix(name: "Sample",
+//                     desiredDoughTemperature: 76,
+//                     frictionCoefficient: 2,
+//                     hasPreferment: false,
+//                     context: newBackgroundContext()))
 //  }
 //}

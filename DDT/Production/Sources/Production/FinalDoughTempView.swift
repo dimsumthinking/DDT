@@ -43,12 +43,14 @@ extension FinalDoughTempView {
 
 struct FinalDoughTempView_Previews: PreviewProvider {
   static var previews: some View {
-    FinalDoughTempView(mix: Mix(name: "Test",
-                                desiredDoughTemperature: 80,
-                                frictionCoefficient: 24,
-                                hasPreferment: true,
-                                context: sharedViewContext),
-                       finalDoughTemp: .constant(80))
+    List {
+      FinalDoughTempView(mix: Mix(name: "Test",
+                                  desiredDoughTemperature: 80,
+                                  frictionCoefficient: 24,
+                                  hasPreferment: true,
+                                  context: sharedViewContext),
+                         finalDoughTemp: .constant(80))
+    }
   }
 }
 

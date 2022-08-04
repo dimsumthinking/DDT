@@ -24,6 +24,7 @@ struct MiniTemperatureDisplay_Previews: PreviewProvider {
   static var previews: some View {
     MiniTemperatureDisplay(76,
                            for: .ddt)
+    .previewLayout(.sizeThatFits)
   }
 }
 

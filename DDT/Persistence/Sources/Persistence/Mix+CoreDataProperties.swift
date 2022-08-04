@@ -68,17 +68,3 @@ extension Mix {
     return components.url ?? URL(string: "https://dimsumthinking.com")!
   }
 }
-
-//extension Mix {
-//  public var url: URL {
-//    var components = URLComponents()
-//    components.scheme = "desiredDoughTemperature"
-//    components.host = name
-//    components.queryItems = [
-//      URLQueryItem(name: "ddt", value: desiredDoughTemperature.description),
-//      URLQueryItem(name: "friction", value: frictionCoefficient.description),
-//      URLQueryItem(name: "hasPreferment", value: hasPreferment.description)
-//    ]
-//    return components.url ?? URL(string: "https://dimsumthinking.com")!
-//  }
-//}

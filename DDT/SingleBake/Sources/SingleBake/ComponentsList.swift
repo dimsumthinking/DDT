@@ -11,8 +11,8 @@ extension ComponentsList: View {
   var body: some View {
     List {
       Section {
-        TemperatureDisplay(temperatures.waterTemperature(hasPreferment: hasPreferment),
-                           for: .water)
+        WaterDisplay(temperatures,
+                     hasPreferment: hasPreferment)
       }
       Section {
         if canAdjustFriction {
