@@ -4,7 +4,7 @@ import Components
 
 
 struct MixView {
-  @ObservedObject var mix: Mix
+  var mix: Mix
   @State private var finalDoughTemp: Double = Component.friction.defaultTemp
   @StateObject private var temperatures = ComponentTemperatures()
 }
@@ -35,16 +35,16 @@ extension MixView: View {
     .onAppear {
       temperatures.ddt = mix.desiredDoughTemperature
       temperatures.friction = mix.frictionCoefficient
-      mix.updateDate()
+//      mix.updateDate()
     }
     .navigationTitle(mix.name)
-    .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
-        ShareLink(item: mix.url,
-        subject: Text("Formula shared from DDT app"),
-                  message: Text("Link to \(mix.name) DDT formula"))
-      }
-    }
+//    .toolbar {  //TODO: bring back
+//      ToolbarItem(placement: .navigationBarTrailing) {
+//        ShareLink(item: mix.url,
+//        subject: Text("Formula shared from DDT app"),
+//                  message: Text("Link to \(mix.name) DDT formula"))
+//      }
+//    }
   }
 }
 

@@ -6,6 +6,7 @@ import Persistence
 struct FinalDoughTempView {
   let mix: Mix
   @Binding var finalDoughTemp: Double
+  @Environment(\.modelContext) private var modelContext
 }
 
 extension FinalDoughTempView: View {
@@ -21,7 +22,12 @@ extension FinalDoughTempView: View {
       finalDoughTemp = Component.ddt.defaultTemp
     }
     .onDisappear {
-      mix.update(frictionCoefficient: adjustedFriction)
+      mix.frictionCoefficient = adjustedFriction
+      do {
+        try modelContext.save()
+      } catch {
+        print("Unable to save friction coefficient")
+      }
     }
   }
 }
@@ -37,19 +43,6 @@ extension FinalDoughTempView {
       return 40
     default:
       return frictionCandidate
-    }
-  }
-}
-
-struct FinalDoughTempView_Previews: PreviewProvider {
-  static var previews: some View {
-    List {
-      FinalDoughTempView(mix: Mix(name: "Test",
-                                  desiredDoughTemperature: 80,
-                                  frictionCoefficient: 24,
-                                  hasPreferment: true,
-                                  context: sharedViewContext),
-                         finalDoughTemp: .constant(80))
     }
   }
 }

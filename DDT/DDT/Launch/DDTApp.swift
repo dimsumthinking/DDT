@@ -1,5 +1,6 @@
 import SwiftUI
 import Persistence
+import SwiftData
 
 @main
 struct DDTApp {
@@ -9,7 +10,7 @@ extension DDTApp: App {
   var body: some Scene {
     WindowGroup {
       MainView()
-        .environment(\.managedObjectContext, sharedViewContext)
+        .modelContainer(for: Mix.self)
     }
   }
 }

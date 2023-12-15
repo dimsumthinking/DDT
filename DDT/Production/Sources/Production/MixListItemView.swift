@@ -2,18 +2,19 @@ import SwiftUI
 import Persistence
 import Components
 import MixAddition
+import SwiftData
 
 struct MixListItemView {
-  @ObservedObject var mix: Mix
+  var mix: Mix
   @State private var nameIsInUse = false
-  @State private var name: String
-  private var existingNames: [String]
+  @State private var name: String = ""
   @State private var notEditing = true
+  @Query var mixes: [Mix]
+  @Environment(\.modelContext) private var modelContext
 
   init(mix: Mix) {
     self.mix = mix
     self.name = mix.name
-    existingNames = Mix.existingNames(otherThanIn: mix)
   }
 }
 
@@ -32,7 +33,12 @@ extension MixListItemView: View {
           if nameIsInUse || name.count < 5 {
             name = mix.name
           } else {
-            mix.update(name: name)
+            mix.name = name
+            do {
+              try modelContext.save()
+            } catch {
+              print("Could not save new name \(name)")
+            }
           }
           notEditing = true
         }
@@ -52,23 +58,11 @@ extension MixListItemView: View {
       .foregroundColor(.secondary)
     }
     .animation(.default, value: notEditing)
-    .onChange(of: name) {value in
-      nameIsInUse =  Mix.alreadyUsing(name: name,
-                                      in: existingNames)
+    .onChange(of: name) {oldValue, newValue in
+      nameIsInUse = mixes.filter{$0 != mix}.map(\.name).contains(newValue)
     }
     .onDisappear {notEditing = true}
   }
 }
 
 
-
-struct MixListItemView_Previews: PreviewProvider {
-  static var previews: some View {
-    List {
-      MixListItemView(mix: Mix(name: "Sample",
-                               desiredDoughTemperature: 74,
-                               frictionCoefficient: 12,
-                               hasPreferment: false, context: newBackgroundContext()))
-    }
-  }
-}

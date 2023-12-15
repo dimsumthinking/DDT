@@ -2,12 +2,11 @@ import SwiftUI
 import Persistence
 import Components
 import MixAddition
+import SwiftData
 
 public struct MixListView {
-  @FetchRequest(entity: Mix.entity(),
-                sortDescriptors: [NSSortDescriptor(key: "lastUsed",
-                                                   ascending: false)])
-  private var mixes: FetchedResults<Mix>
+  @Query(sort: \Mix.lastUsed, order: .forward) var mixes: [Mix]
+  @Environment(\.modelContext) private var modelContext
   @State private var isCreatingMix: Bool = false
   @State private var searchString: String = ""
   public init(){}
@@ -29,8 +28,7 @@ extension MixListView: View {
         }
         .onDelete { indexSet in
           if let index = indexSet.first {
-            sharedViewContext.delete(mixes[index])
-            try? sharedViewContext.save()
+            modelContext.delete(mixes[index])
           }
         }
       }
@@ -63,7 +61,7 @@ extension MixListView: View {
             systemImage: "list.bullet.rectangle")
     }
     .onOpenURL {url in
-      _ = Mix(url: url)
+//      _ = Mix(url: url) // TODO: Add back import
     }
   }
 }
