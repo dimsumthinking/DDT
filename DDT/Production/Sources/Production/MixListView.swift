@@ -61,7 +61,9 @@ extension MixListView: View {
             systemImage: "list.bullet.rectangle")
     }
     .onOpenURL {url in
-//      _ = Mix(url: url) // TODO: Add back import
+      Mix.createMix(from: url,
+                    existingMixes: mixes,
+                    context: modelContext)
     }
   }
 }

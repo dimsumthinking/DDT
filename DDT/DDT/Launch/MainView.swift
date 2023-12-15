@@ -2,8 +2,11 @@ import SwiftUI
 import SingleBake
 import Production
 import Persistence
+import SwiftData
 
 struct MainView {
+  @Environment(\.modelContext) private var modelContext
+  @Query private var mixes: [Mix]
 }
 
 extension MainView: View {
@@ -12,8 +15,10 @@ extension MainView: View {
       SingleBakeView()
       MixListView()
     }
-//    .onOpenURL {url in
-//      _ = Mix(url: url)
+//    .onOpenURL {url in  --> in MixListView
+//      Mix.createMix(from: url,
+//                    existingMixes: mixes,
+//                    context: modelContext)
 //    }
   }
 }

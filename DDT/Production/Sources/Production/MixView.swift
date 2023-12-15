@@ -38,23 +38,13 @@ extension MixView: View {
 //      mix.updateDate()
     }
     .navigationTitle(mix.name)
-//    .toolbar {  //TODO: bring back
-//      ToolbarItem(placement: .navigationBarTrailing) {
-//        ShareLink(item: mix.url,
-//        subject: Text("Formula shared from DDT app"),
-//                  message: Text("Link to \(mix.name) DDT formula"))
-//      }
-//    }
+    .toolbar {
+      ToolbarItem(placement: .navigationBarTrailing) {
+        ShareLink(item: mix.url,
+        subject: Text("Formula shared from DDT app"),
+                  message: Text("Link to \(mix.name) DDT formula"))
+      }
+    }
   }
 }
 
-//Preview doesn't render
-//struct MixView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    MixView(mix: Mix(name: "Sample",
-//                     desiredDoughTemperature: 76,
-//                     frictionCoefficient: 2,
-//                     hasPreferment: false,
-//                     context: newBackgroundContext()))
-//  }
-//}
