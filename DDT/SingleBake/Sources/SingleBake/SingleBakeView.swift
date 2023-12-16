@@ -5,8 +5,7 @@ import Components
 public struct SingleBakeView {
   @State private var isAddingMix: Bool = false
   @State private var isShowingCorF: Bool = false
-  @StateObject private var temperatures = ComponentTemperatures()
-  @State private var hasPreferment = false
+  @State private var temperatures = ComponentTemperatures()
   let name: String
   public init(name: String = ""){
     self.name = name
@@ -16,8 +15,7 @@ public struct SingleBakeView {
 extension SingleBakeView: View {
   public var body: some View {
     NavigationView {
-      ComponentsList(hasPreferment: $hasPreferment,
-                     temperatures: temperatures)
+      ComponentsList(temperatures: temperatures)
 #if os(iOS)
         .toolbar {
           ToolbarItem(placement: .navigationBarLeading) {
@@ -36,10 +34,7 @@ extension SingleBakeView: View {
         .navigationTitle("DDT Calculator")
         .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorF))
                .sheet(isPresented: $isAddingMix) {
-                 NewMixView(ddt: temperatures.ddt,
-                            friction: temperatures.friction,
-                            hasPreferment: hasPreferment,
-                            name: name,
+                 NewMixView(temperatures: temperatures,
                             isShowingSheet: $isAddingMix)
                }
 #endif

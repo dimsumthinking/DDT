@@ -4,12 +4,9 @@ import Components
 import SwiftData
 
 public struct NewMixView {
-  @State private var ddt: Double = Component.ddt.defaultTemp
-  @State private var friction: Double = Component.friction.defaultTemp
-  @State private var hasPreferment: Bool = false
+  @Bindable var temperatures: ComponentTemperatures
   @State private var name: String = ""
   @State private var nameIsInUse = false
-  private var isFixed: Bool = false
   @Binding private var isShowingSheet: Bool
   @Query private var mixes: [Mix]
   @Environment(\.modelContext) private var modelContext
@@ -18,21 +15,9 @@ public struct NewMixView {
 extension NewMixView {
   
   /// Save current mix initializer
-  public init(ddt: Double,
-              friction: Double,
-              hasPreferment: Bool,
-              name: String = "",
+  public init(temperatures: ComponentTemperatures = ComponentTemperatures(),
               isShowingSheet: Binding<Bool>) {
-    _isShowingSheet = isShowingSheet
-
-    self.ddt = ddt
-    self.friction = friction
-    self.hasPreferment = hasPreferment
-    self.name = name
-    isFixed = true
-  }
-  /// Save new mix initializer
-  public init(isShowingSheet: Binding<Bool>) {
+    self.temperatures = temperatures
     _isShowingSheet = isShowingSheet
   }
 }
@@ -43,15 +28,7 @@ extension NewMixView: View {
       MixNameView(name: $name,
                   nameIsInUse: nameIsInUse)
       .padding()
-      if isFixed {
-        FixedNewMixComponents(ddt: ddt,
-                              friction: friction,
-                              hasPreferment: hasPreferment)
-      } else {
-        AdjustableNewMixComponents(ddt: $ddt,
-                                   friction: $friction,
-                                   hasPreferment: $hasPreferment)
-      }
+      AdjustableNewMixComponents(temperatures: temperatures)
       SaveAndCancel(canNotSave: canNotSave,
                     cancel: dismiss,
                     saveMix: save)
@@ -74,9 +51,9 @@ extension NewMixView {
   }
   private func save() {
     modelContext.insert( Mix(name: name,
-                             desiredDoughTemperature: ddt,
-                             frictionCoefficient: friction,
-                             hasPreferment: hasPreferment))
+                             desiredDoughTemperature: temperatures.ddt,
+                             frictionCoefficient: temperatures.friction,
+                             hasPreferment: temperatures.hasPreferment))
     isShowingSheet = false
   }
 }

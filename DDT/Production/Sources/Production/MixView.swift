@@ -6,26 +6,23 @@ import Components
 struct MixView {
   var mix: Mix
   @State private var finalDoughTemp: Double = Component.friction.defaultTemp
-  @StateObject private var temperatures = ComponentTemperatures()
+  @State private var temperatures = ComponentTemperatures()
+  @Environment(\.modelContext) private var modelContext
 }
 
 extension MixView: View {
   var body: some View {
     List {
       Section {
-        WaterDisplay(temperatures,
-                     hasPreferment: mix.hasPreferment)
+        WaterDisplay(temperatures)
       }
       Section {
         TemperatureDisplay(mix.desiredDoughTemperature,
                            for: .ddt)
-        ComponentView(.ambient,
-                      temperature: $temperatures.ambient)
-        ComponentView(.flour,
-                      temperature: $temperatures.flour)
+        AmbientView(temperatures: temperatures)
+        FlourView(temperatures: temperatures)
         if mix.hasPreferment {
-          ComponentView(.preferment,
-                        temperature: $temperatures.preferment)
+          PrefermentView(temperatures: temperatures)
         }
       }
       FinalDoughTempView(mix: mix,
@@ -35,7 +32,13 @@ extension MixView: View {
     .onAppear {
       temperatures.ddt = mix.desiredDoughTemperature
       temperatures.friction = mix.frictionCoefficient
-//      mix.updateDate()
+      mix.lastUsed = Date()
+      do {
+        try modelContext.save()
+      } catch {
+        print("couldn't save date update")
+      }
+      
     }
     .navigationTitle(mix.name)
     .toolbar {

@@ -12,8 +12,12 @@ struct FinalDoughTempView {
 extension FinalDoughTempView: View {
   var body: some View {
     Section ("To update Friction Coefficient:") {
-      ComponentView(.final,
-                    temperature: $finalDoughTemp)
+      VStack {
+        TemperatureDisplay(finalDoughTemp,
+                           for: Component.final)
+        Slider(value: $finalDoughTemp,
+               in: Component.final.range)
+      }
       .padding(.vertical)
       TemperatureDisplay(adjustedFriction,
                          for: .friction)

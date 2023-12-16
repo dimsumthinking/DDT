@@ -14,7 +14,6 @@ struct MixListItemView {
 
   init(mix: Mix) {
     self.mix = mix
-    self.name = mix.name
   }
 }
 
@@ -62,6 +61,9 @@ extension MixListItemView: View {
       nameIsInUse = mixes.filter{$0 != mix}.map(\.name).contains(newValue)
     }
     .onDisappear {notEditing = true}
+    .onAppear {
+      name = mix.name
+    }
   }
 }
 

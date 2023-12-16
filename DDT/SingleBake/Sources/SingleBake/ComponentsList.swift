@@ -2,22 +2,19 @@ import SwiftUI
 import Components
 
 struct ComponentsList {
-  @Binding var hasPreferment: Bool
   @State private var canAdjustFriction = false
-  @ObservedObject var temperatures: ComponentTemperatures
+  @Bindable var temperatures: ComponentTemperatures
 }
 
 extension ComponentsList: View {
   var body: some View {
     List {
       Section {
-        WaterDisplay(temperatures,
-                     hasPreferment: hasPreferment)
+        WaterDisplay(temperatures)
       }
       Section {
         if canAdjustFriction {
-          ComponentView(.friction,
-                        temperature: $temperatures.friction)
+          FrictionView(temperatures: temperatures)
           .listRowSeparator(.hidden)
         } else {
           TemperatureDisplay(temperatures.friction,
@@ -29,24 +26,20 @@ extension ComponentsList: View {
         }
       }
       Section {
-        ComponentView(.ddt,
-                      temperature: $temperatures.ddt)
-        ComponentView(.ambient,
-                      temperature: $temperatures.ambient)
-        ComponentView(.flour,
-                      temperature: $temperatures.flour)
-        if hasPreferment {
-          ComponentView(.preferment,
-                        temperature: $temperatures.preferment)
+        DDTView(temperatures: temperatures)
+        AmbientView(temperatures: temperatures)
+        FlourView(temperatures: temperatures)
+        if temperatures.hasPreferment {
+          PrefermentView(temperatures: temperatures)
         }
-        Button(hasPreferment ? "Remove Preferment" : "Include Preferment") {
-          self.hasPreferment.toggle()
+        Button(temperatures.hasPreferment ? "Remove Preferment" : "Include Preferment") {
+          self.temperatures.hasPreferment.toggle()
         }
       }
 
     }
     .animation(.default,
-               value: hasPreferment)
+               value: temperatures.hasPreferment)
     .animation(.default,
                value: canAdjustFriction)
     .buttonStyle(ListButtonStyle())
@@ -55,7 +48,6 @@ extension ComponentsList: View {
 
 struct ComponentsList_Previews: PreviewProvider {
   static var previews: some View {
-    ComponentsList(hasPreferment: .constant(false),
-                   temperatures: ComponentTemperatures())
+    ComponentsList(temperatures: ComponentTemperatures())
   }
 }

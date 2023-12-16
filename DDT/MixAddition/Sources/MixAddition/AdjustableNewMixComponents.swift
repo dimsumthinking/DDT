@@ -2,27 +2,42 @@ import SwiftUI
 import Components
 
 struct AdjustableNewMixComponents {
-  @Binding var ddt: Double
-  @Binding var friction: Double
-  @Binding var hasPreferment: Bool
+  @Bindable var temperatures: ComponentTemperatures
 }
 
 extension AdjustableNewMixComponents: View {
   var body: some View {
     VStack(spacing: 30) {
-      ComponentView(.ddt,
-                    temperature: $ddt)
-      ComponentView(.friction,
-                    temperature: $friction)
-      Toggle("Preferment", isOn: $hasPreferment)
+      DDTView(temperatures: temperatures)
+      FrictionView(temperatures: temperatures)
+//      ComponentView(.ddt,
+//                    temperature: $ddt)
+//      ComponentView(.friction,
+//                    temperature: $friction)
+      Toggle("Preferment", isOn: $temperatures.hasPreferment)
     }
   }
 }
 
-struct AdjustableNewMixComponents_Previews: PreviewProvider {
-  static var previews: some View {
-    AdjustableNewMixComponents(ddt: .constant(76),
-                               friction: .constant(24),
-                               hasPreferment: .constant(false))
-  }
-}
+//import SwiftUI
+//import Components
+//
+//struct AdjustableNewMixComponents {
+//  @Binding var ddt: Double
+//  @Binding var friction: Double
+//  @Binding var hasPreferment: Bool
+//}
+//
+//extension AdjustableNewMixComponents: View {
+//  var body: some View {
+//    VStack(spacing: 30) {
+//      ComponentView(.ddt,
+//                    temperature: $ddt)
+//      ComponentView(.friction,
+//                    temperature: $friction)
+//      Toggle("Preferment", isOn: $hasPreferment)
+//    }
+//  }
+//}
+
+
