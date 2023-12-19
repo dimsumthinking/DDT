@@ -40,14 +40,15 @@
 		621A67CE262C8569009FE5EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		621A67D1262C8569009FE5EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621A67D3262C8569009FE5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6222924E2B2E0A5E00AD0581 /* DDT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDT.entitlements; sourceTree = "<group>"; };
 		6244080D283C08A700C300D1 /* Production */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Production; sourceTree = "<group>"; };
 		625718A52896C53400285018 /* Components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Components; sourceTree = "<group>"; };
 		625718A62896C53E00285018 /* MixAddition */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixAddition; sourceTree = "<group>"; };
 		626243A32892E5A900A441C8 /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
-		6277FD89283F9F3800523121 /* DDT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDT.entitlements; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		62E48FF428316DB300136CF2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		62E579142B2E00870048D1F0 /* DDTRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDTRelease.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +88,8 @@
 		621A67C9262C8568009FE5EC /* DDT */ = {
 			isa = PBXGroup;
 			children = (
-				6277FD89283F9F3800523121 /* DDT.entitlements */,
+				6222924E2B2E0A5E00AD0581 /* DDT.entitlements */,
+				62E579142B2E00870048D1F0 /* DDTRelease.entitlements */,
 				6299ACAA283136AD00379EC8 /* Launch */,
 				621A67D9262C8576009FE5EC /* Support */,
 			);
@@ -176,8 +178,9 @@
 		621A67BF262C8568009FE5EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					621A67C6262C8568009FE5EC = {
 						CreatedOnToolsVersion = 12.5;
@@ -268,6 +271,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -329,6 +333,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -378,7 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DDT/DDT.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DDT/DDTRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDT/Support/Preview Content\"";
