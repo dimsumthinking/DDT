@@ -3,7 +3,7 @@ import Persistence
 import Components
 import SwiftData
 
-public struct NewMixView {
+public struct NewMixView: View {
   @Bindable var temperatures: ComponentTemperatures
   @State private var name: String = ""
   @State private var nameIsInUse = false
@@ -12,9 +12,8 @@ public struct NewMixView {
   @Environment(\.modelContext) private var modelContext
 }
 
+// MARK: - init() that preserves default init()
 extension NewMixView {
-  
-  /// Save current mix initializer
   public init(temperatures: ComponentTemperatures = ComponentTemperatures(),
               isShowingSheet: Binding<Bool>) {
     self.temperatures = temperatures
@@ -22,7 +21,8 @@ extension NewMixView {
   }
 }
 
-extension NewMixView: View {
+// MARK: - Appearance
+extension NewMixView {
   public var body: some View {
     VStack(spacing: 60)  {
       MixNameView(name: $name,
@@ -41,7 +41,7 @@ extension NewMixView: View {
   }
 }
 
-
+// MARK: - Utilities
 extension NewMixView {
   private var canNotSave: Bool {
     nameIsInUse || name.count < 5

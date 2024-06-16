@@ -4,6 +4,7 @@ import Production
 import Persistence
 import SwiftData
 
+@MainActor
 struct MainView {
   @Environment(\.modelContext) private var modelContext
   @Query private var mixes: [Mix]

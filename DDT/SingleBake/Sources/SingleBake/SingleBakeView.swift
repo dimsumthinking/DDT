@@ -39,7 +39,9 @@ extension SingleBakeView: View {
                }
 #endif
     }
+#if os(iOS)
     .navigationViewStyle(.stack)
+#endif
     .tabItem {
       Label("Single Bake",
             systemImage: "slider.horizontal.3")

@@ -4,7 +4,7 @@ import Components
 import MixAddition
 import SwiftData
 
-public struct MixListView {
+public struct MixListView: View {
   @Query(sort: \Mix.lastUsed, order: .forward) var mixes: [Mix]
   @Environment(\.modelContext) private var modelContext
   @State private var isCreatingMix: Bool = false
@@ -12,7 +12,7 @@ public struct MixListView {
   public init(){}
 }
 
-extension MixListView: View {
+extension MixListView {
   public var body: some View {
     NavigationStack {
       if mixes.isEmpty {
@@ -55,7 +55,9 @@ extension MixListView: View {
         NewMixView(isShowingSheet: $isCreatingMix)
       }
     }
+#if os(iOS)
     .navigationViewStyle(.stack)
+#endif
     .tabItem {
       Label("Production",
             systemImage: "list.bullet.rectangle")

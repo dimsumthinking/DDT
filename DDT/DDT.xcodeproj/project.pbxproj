@@ -364,7 +364,7 @@
 				DEVELOPMENT_TEAM = MG5SW9CY8D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -390,7 +390,7 @@
 				DEVELOPMENT_TEAM = MG5SW9CY8D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = DDT/Support/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

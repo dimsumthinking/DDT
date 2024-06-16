@@ -1,11 +1,11 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 
 import PackageDescription
 
 let package = Package(
   name: "Components",
   platforms: [
-    .iOS("17.2"), .macOS("14.2")
+    .iOS("18.0"), .macOS("15.0")
   ],
   products: [
     .library(

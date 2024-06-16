@@ -4,7 +4,7 @@ import Components
 import MixAddition
 import SwiftData
 
-struct MixListItemView {
+struct MixListItemView: View {
   var mix: Mix
   @State private var nameIsInUse = false
   @State private var name: String = ""
@@ -17,7 +17,7 @@ struct MixListItemView {
   }
 }
 
-extension MixListItemView: View {
+extension MixListItemView {
   var body: some View {
     VStack(alignment: .leading) {
       if notEditing {

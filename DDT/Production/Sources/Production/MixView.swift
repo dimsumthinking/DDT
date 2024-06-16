@@ -41,13 +41,15 @@ extension MixView: View {
       
     }
     .navigationTitle(mix.name)
+#if os(iOS)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         ShareLink(item: mix.url,
         subject: Text("Formula shared from DDT app"),
                   message: Text("Link to \(mix.name) DDT formula"))
       }
     }
+#endif
   }
 }
 
