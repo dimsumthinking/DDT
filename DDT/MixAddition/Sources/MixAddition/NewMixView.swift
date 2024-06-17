@@ -4,7 +4,7 @@ import Components
 import SwiftData
 
 public struct NewMixView: View {
-  @Bindable var temperatures: ComponentTemperatures
+  @Bindable var temperatures: IngredientTemperature
   @State private var name: String = ""
   @State private var nameIsInUse = false
   @Binding private var isShowingSheet: Bool
@@ -14,7 +14,7 @@ public struct NewMixView: View {
 
 // MARK: - init() that preserves default init()
 extension NewMixView {
-  public init(temperatures: ComponentTemperatures = ComponentTemperatures(),
+  public init(temperatures: IngredientTemperature = IngredientTemperature(),
               isShowingSheet: Binding<Bool>) {
     self.temperatures = temperatures
     _isShowingSheet = isShowingSheet

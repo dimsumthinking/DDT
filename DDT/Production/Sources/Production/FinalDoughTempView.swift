@@ -14,16 +14,16 @@ extension FinalDoughTempView: View {
     Section ("To update Friction Coefficient:") {
       VStack {
         TemperatureDisplay(finalDoughTemp,
-                           for: Component.final)
+                           for: Ingredient.final)
         Slider(value: $finalDoughTemp,
-               in: Component.final.range)
+               in: Ingredient.final.range)
       }
       .padding(.vertical)
       TemperatureDisplay(adjustedFriction,
                          for: .friction)
     }
     .onAppear {
-      finalDoughTemp = Component.ddt.defaultTemp
+      finalDoughTemp = Ingredient.ddt.defaultTemp
     }
     .onDisappear {
       mix.frictionCoefficient = adjustedFriction

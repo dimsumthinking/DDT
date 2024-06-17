@@ -2,7 +2,7 @@ import SwiftUI
 import Components
 
 struct AdjustableNewMixComponents {
-  @Bindable var temperatures: ComponentTemperatures
+  @Bindable var temperatures: IngredientTemperature
 }
 
 extension AdjustableNewMixComponents: View {

@@ -4,7 +4,7 @@ public typealias Temperature = Double
 
 /// public method for formatting doubles given component
 extension Temperature {
-  public func displayTemperature(for component: Component) -> (Bool) -> String {
+  public func displayTemperature(for component: Ingredient) -> (Bool) -> String {
     switch component {
     case .friction:
       return affineTemperatureDisplay
@@ -22,7 +22,7 @@ extension Temperature {
       .temperatureFormatted(isCelsius)
   }
   /// formats friction which uses a conversion that rescales without recentering
-  private func affineTemperatureDisplay(_ isCelsius: Bool = false) -> String {
+   private func affineTemperatureDisplay(_ isCelsius: Bool = false) -> String {
     (isCelsius ? self.affineToCelsius : self)
       .temperatureFormatted(isCelsius)
   }

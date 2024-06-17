@@ -1,3 +1,3 @@
 # Components
 
-A description of this package.
+These are the building blocks for the app

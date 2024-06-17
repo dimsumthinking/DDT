@@ -5,7 +5,7 @@ import Components
 public struct SingleBakeView {
   @State private var isAddingMix: Bool = false
   @State private var isShowingCorF: Bool = false
-  @State private var temperatures = ComponentTemperatures()
+  @State private var temperatures = IngredientTemperature()
   let name: String
   public init(name: String = ""){
     self.name = name

@@ -5,8 +5,8 @@ import Components
 
 struct MixView {
   var mix: Mix
-  @State private var finalDoughTemp: Double = Component.friction.defaultTemp
-  @State private var temperatures = ComponentTemperatures()
+  @State private var finalDoughTemp: Double = Ingredient.friction.defaultTemp
+  @State private var temperatures = IngredientTemperature()
   @Environment(\.modelContext) private var modelContext
 }
 

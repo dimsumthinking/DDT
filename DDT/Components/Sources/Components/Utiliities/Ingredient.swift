@@ -1,4 +1,4 @@
-public enum Component: String {
+public enum Ingredient: String {
   case ddt
   case flour
   case ambient
@@ -8,7 +8,7 @@ public enum Component: String {
   case final
 }
 
-extension Component: CustomStringConvertible {
+extension Ingredient: CustomStringConvertible {
   public var description: String {
     switch self {
     case .ddt: return "Desired Dough Temp"//return rawValue.uppercased()
@@ -18,7 +18,7 @@ extension Component: CustomStringConvertible {
   }
 }
 
-extension Component {
+extension Ingredient {
   public var shortDescription: String {
     switch self {
     case .ddt: return rawValue.uppercased()
@@ -30,7 +30,7 @@ extension Component {
 }
 
 
-extension Component {
+extension Ingredient {
   public var range: ClosedRange<Double> {
     switch self {
     case .ddt:
@@ -43,13 +43,13 @@ extension Component {
   }
 }
 
-extension Component {
+extension Ingredient {
   public var defaultTemp: Double {
     switch self {
-    case .friction:
-      return 2 // default for hand mixing 24F for machine
-    default:
-      return 76
+    case .friction: 2 // default for hand mixing 24F for machine
+    default: 76
     }
   }
 }
+
+

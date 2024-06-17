@@ -1,12 +1,12 @@
 import Observation
 
 @Observable
-public class ComponentTemperatures {
-  public var ddt: Double = Component.ddt.defaultTemp
-  public var flour: Double = Component.flour.defaultTemp
-  public var preferment: Double = Component.preferment.defaultTemp
-  public var ambient: Double = Component.ambient.defaultTemp
-  public var friction: Double = Component.friction.defaultTemp
+public class IngredientTemperature {
+  public var ddt: Double = Ingredient.ddt.defaultTemp
+  public var flour: Double = Ingredient.flour.defaultTemp
+  public var preferment: Double = Ingredient.preferment.defaultTemp
+  public var ambient: Double = Ingredient.ambient.defaultTemp
+  public var friction: Double = Ingredient.friction.defaultTemp
   public var hasPreferment: Bool = false
   
   public init() {}
@@ -19,7 +19,7 @@ public class ComponentTemperatures {
   }
 }
 
-extension ComponentTemperatures {
+extension IngredientTemperature {
   public func waterTemperature() -> Double {
       if hasPreferment {
         return ddt * 4 - flour - ambient - friction - preferment
@@ -28,3 +28,4 @@ extension ComponentTemperatures {
       }
     }
 }
+

@@ -3,7 +3,7 @@ import Components
 
 struct ComponentsList {
   @State private var canAdjustFriction = false
-  @Bindable var temperatures: ComponentTemperatures
+  @Bindable var temperatures: IngredientTemperature
 }
 
 extension ComponentsList: View {
@@ -48,6 +48,6 @@ extension ComponentsList: View {
 
 struct ComponentsList_Previews: PreviewProvider {
   static var previews: some View {
-    ComponentsList(temperatures: ComponentTemperatures())
+    ComponentsList(temperatures: IngredientTemperature())
   }
 }
