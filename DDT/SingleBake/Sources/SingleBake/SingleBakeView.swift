@@ -4,11 +4,8 @@ import Components
 
 public struct SingleBakeView: View {
   @State private var temperatures = IngredientTemperature()
-  let name: String
   
-  public init(name: String = ""){
-    self.name = name
-  }
+  public init(){}
 }
 
 extension SingleBakeView {
