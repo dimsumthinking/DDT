@@ -59,3 +59,8 @@ extension NewMixView {
 }
 
 
+#Preview {
+  @Previewable
+  @State var isShowingSheet = false
+  NewMixView(temperatures: IngredientTemperature(), isShowingSheet: $isShowingSheet)
+}

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct SaveAndCancel {
+public struct SaveAndCancel: View {
   let canNotSave: Bool
   let cancel: () -> Void
   let saveMix: () -> Void
@@ -14,7 +14,7 @@ public struct SaveAndCancel {
   }
 }
 
-extension SaveAndCancel: View {
+extension SaveAndCancel  {
   public var body: some View {
       HStack {
         Spacer()
@@ -28,10 +28,8 @@ extension SaveAndCancel: View {
 }
 
 
-struct SaveAndCancel_Previews: PreviewProvider {
-  static var previews: some View {
-    SaveAndCancel(canNotSave: false,
-                  cancel: {},
-                  saveMix: {})
-  }
+#Preview {
+  SaveAndCancel(canNotSave: false,
+                cancel: {},
+                saveMix: {})
 }

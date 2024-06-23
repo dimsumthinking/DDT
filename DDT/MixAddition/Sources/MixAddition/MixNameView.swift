@@ -1,7 +1,7 @@
 import SwiftUI
 import Persistence
 
-public struct MixNameView {
+public struct MixNameView: View {
   @Binding var name: String
   let nameIsInUse: Bool
   
@@ -13,7 +13,7 @@ public struct MixNameView {
   }
 }
 
-extension MixNameView: View {
+extension MixNameView {
   public var body: some View {
     VStack {
         HStack {
@@ -38,9 +38,10 @@ extension MixNameView: View {
   }
 }
 
-struct MixNameView_Previews: PreviewProvider {
-  static var previews: some View {
-    MixNameView(name: .constant("Sample"),
-                nameIsInUse: false)
-  }
+#Preview {
+  @Previewable
+  @State var name = "Sample"
+  MixNameView(name: $name,
+              nameIsInUse: false)
 }
+

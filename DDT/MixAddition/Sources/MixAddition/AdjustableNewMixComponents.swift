@@ -1,11 +1,11 @@
 import SwiftUI
 import Components
 
-struct AdjustableNewMixComponents {
+struct AdjustableNewMixComponents: View {
   @Bindable var temperatures: IngredientTemperature
 }
 
-extension AdjustableNewMixComponents: View {
+extension AdjustableNewMixComponents  {
   var body: some View {
     VStack(spacing: 30) {
       DDTView(temperatures: temperatures)
@@ -13,4 +13,8 @@ extension AdjustableNewMixComponents: View {
       Toggle("Preferment", isOn: $temperatures.hasPreferment)
     }
   }
+}
+
+#Preview {
+  AdjustableNewMixComponents(temperatures: IngredientTemperature())
 }
