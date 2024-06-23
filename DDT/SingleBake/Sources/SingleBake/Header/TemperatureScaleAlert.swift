@@ -20,7 +20,12 @@ extension TemperatureScaleAlert: ViewModifier {
         }
       }
   }
-  
-  
+}
+
+#Preview {
+  @Previewable
+  @State var isShowingCorFAlert = true
+  Text("Sample")
+    .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorFAlert))
 }
 

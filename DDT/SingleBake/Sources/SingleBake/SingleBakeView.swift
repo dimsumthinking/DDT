@@ -2,46 +2,21 @@ import SwiftUI
 import MixAddition
 import Components
 
-public struct SingleBakeView {
-  @State private var isAddingMix: Bool = false
-  @State private var isShowingCorF: Bool = false
+public struct SingleBakeView: View {
   @State private var temperatures = IngredientTemperature()
   let name: String
+  
   public init(name: String = ""){
     self.name = name
   }
 }
 
-extension SingleBakeView: View {
+extension SingleBakeView {
   public var body: some View {
-    NavigationView {
+    VStack {
+      SingleBakeHeaderView()
       ComponentsList(temperatures: temperatures)
-#if os(iOS)
-        .toolbar {
-          ToolbarItem(placement: .navigationBarLeading) {
-            Button("ºC / ºF") {
-              isShowingCorF = true
-            }
-          }
-          ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-              isAddingMix = true
-            }
-          label: {Image(systemName: "plus")}
-          }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("DDT Calculator")
-        .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorF))
-               .sheet(isPresented: $isAddingMix) {
-                 NewMixView(temperatures: temperatures,
-                            isShowingSheet: $isAddingMix)
-               }
-#endif
     }
-#if os(iOS)
-    .navigationViewStyle(.stack)
-#endif
     .tabItem {
       Label("Single Bake",
             systemImage: "slider.horizontal.3")

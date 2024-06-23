@@ -10,3 +10,8 @@ struct ListButtonStyle: ButtonStyle {
     }
   }
 }
+
+#Preview {
+  Button("Sample", action: {})
+    .buttonStyle(ListButtonStyle())
+}
