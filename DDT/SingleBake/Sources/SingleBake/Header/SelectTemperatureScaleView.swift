@@ -6,14 +6,11 @@ struct SelectTemperatureScaleView: View {
 
 extension SelectTemperatureScaleView {
   var body: some View {
-    HStack {
-      Button("ºC / ºF") {
-        isShowingCorF = true
-      }
-      Spacer()
+    Button("ºC / ºF") {
+      isShowingCorF = true
     }
     .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorF))
-
+    
   }
 }
 

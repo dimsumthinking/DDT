@@ -9,17 +9,14 @@ struct AddMixView: View {
 
 extension AddMixView {
   var body: some View {
-    HStack {
-      Spacer()
-      Button {
-        isAddingMix = true
+    Button {
+      isAddingMix = true
+    }
+    label: {Image(systemName: "plus")}
+      .sheet(isPresented: $isAddingMix) {
+        NewMixView(temperatures: temperatures,
+                   isShowingSheet: $isAddingMix)
       }
-      label: {Image(systemName: "plus")}
-    }
-    .sheet(isPresented: $isAddingMix) {
-      NewMixView(temperatures: temperatures,
-                 isShowingSheet: $isAddingMix)
-    }
   }
 }
 

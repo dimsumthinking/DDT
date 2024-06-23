@@ -10,9 +10,18 @@ public struct SingleBakeView: View {
 
 extension SingleBakeView {
   public var body: some View {
-    VStack {
-      SingleBakeHeaderView()
+    NavigationStack {
       ComponentsList(temperatures: temperatures)
+        .toolbar {
+          ToolbarItem (placement: .topBarLeading){
+            SelectTemperatureScaleView()
+          }
+          ToolbarItem (placement: .topBarTrailing){
+            AddMixView(temperatures: temperatures)
+          }
+        }
+        .navigationTitle("DDT Calculator")
+        .navigationBarTitleDisplayMode(.inline)
     }
     .tabItem {
       Label("Single Bake",
