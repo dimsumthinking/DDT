@@ -1,18 +1,12 @@
 import SwiftUI
 
-public struct MiniTemperatureDisplay {
+struct MiniTemperatureDisplay: View {
   let temperature: Temperature
   let ingredient: Ingredient
-  
-  public init(_ temperature: Temperature,
-              for ingredient: Ingredient) {
-    self.temperature = temperature
-    self.ingredient = ingredient
-  }
 }
 
-extension MiniTemperatureDisplay: View {
-  public var body: some View {
+extension MiniTemperatureDisplay  {
+  var body: some View {
     HStack {
       MiniIngredientNameView(ingredient: ingredient)
       FormattedTemperatureDisplay(formattedTemp: temperature.displayTemperature(for: ingredient))
@@ -21,8 +15,8 @@ extension MiniTemperatureDisplay: View {
 }
 
 #Preview {
-  MiniTemperatureDisplay(27,
-                         for: .ddt)
+  MiniTemperatureDisplay(temperature: 27,
+                         ingredient: .ddt)
 }
 
 

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct TemperatureDisplay {
+public struct TemperatureDisplay: View {
   let temperature: Temperature
   let ingredient: Ingredient
   
@@ -11,7 +11,7 @@ public struct TemperatureDisplay {
   }
 }
 
-extension TemperatureDisplay: View {
+extension TemperatureDisplay  {
   public var body: some View {
     HStack {
       IngredientNameView(ingredient: ingredient)

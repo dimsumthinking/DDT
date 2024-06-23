@@ -6,10 +6,8 @@ public typealias Temperature = Double
 extension Temperature {
   public func displayTemperature(for component: Ingredient) -> (Bool) -> String {
     switch component {
-    case .friction:
-      return affineTemperatureDisplay
-    default:
-      return temperatureDisplay
+    case .friction: affineTemperatureDisplay
+    default: temperatureDisplay
     }
   }
 }

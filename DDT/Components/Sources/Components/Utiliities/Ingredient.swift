@@ -11,9 +11,9 @@ public enum Ingredient: String {
 extension Ingredient: CustomStringConvertible {
   public var description: String {
     switch self {
-    case .ddt: return "Desired Dough Temp"//return rawValue.uppercased()
-    case .final: return "Final Dough"
-    default: return rawValue.capitalized
+    case .ddt:  "Desired Dough Temp"//return rawValue.uppercased()
+    case .final:  "Final Dough"
+    default:  rawValue.capitalized
     }
   }
 }
@@ -21,10 +21,10 @@ extension Ingredient: CustomStringConvertible {
 extension Ingredient {
   public var shortDescription: String {
     switch self {
-    case .ddt: return rawValue.uppercased()
-    case .final: return "Final"
-    case .friction: return "Fr"
-    default: return rawValue.capitalized
+    case .ddt:  rawValue.uppercased()
+    case .final:  "Final"
+    case .friction:  "Fr"
+    default:  rawValue.capitalized
     }
   }
 }
@@ -33,12 +33,9 @@ extension Ingredient {
 extension Ingredient {
   public var range: ClosedRange<Double> {
     switch self {
-    case .ddt:
-      return 70 ... 90
-    case .friction:
-      return 0 ... 40
-    default:
-      return 40 ... 120
+    case .ddt: 70 ... 90
+    case .friction: 0 ... 40
+    default: 40 ... 120
     }
   }
 }

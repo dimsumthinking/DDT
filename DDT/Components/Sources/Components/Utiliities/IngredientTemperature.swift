@@ -22,9 +22,9 @@ public class IngredientTemperature {
 extension IngredientTemperature {
   public func waterTemperature() -> Double {
       if hasPreferment {
-        return ddt * 4 - flour - ambient - friction - preferment
+         ddt * 4 - flour - ambient - friction - preferment
       } else {
-        return ddt * 3 - flour - ambient - friction
+         ddt * 3 - flour - ambient - friction
       }
     }
 }

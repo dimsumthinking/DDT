@@ -22,3 +22,10 @@ extension TemperatureAdjusterView {
   }
 }
 
+#Preview {
+  @Previewable
+  @State var temp = 77.0
+  TemperatureAdjusterView(for: .ddt,
+                          temperature: $temp)
+}
+

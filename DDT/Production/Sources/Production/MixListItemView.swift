@@ -42,17 +42,9 @@ extension MixListItemView {
           notEditing = true
         }
       }
-      HStack {
-        MiniTemperatureDisplay(mix.desiredDoughTemperature,
-                           for: .ddt)
-        Spacer()
-        MiniTemperatureDisplay(mix.frictionCoefficient,
-                           for: .friction)
-        Spacer()
-        Text("PF")
-          .foregroundColor(mix.hasPreferment ? .secondary : .clear)
-        Spacer()
-      }
+      MixSummaryView(ddt: mix.desiredDoughTemperature,
+                     frictionCoefficient: mix.frictionCoefficient,
+                     hasPreferment: mix.hasPreferment)
       .padding(.horizontal)
       .foregroundColor(.secondary)
     }
