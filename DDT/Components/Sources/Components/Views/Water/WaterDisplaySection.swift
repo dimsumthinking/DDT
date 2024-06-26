@@ -1,12 +1,15 @@
 import SwiftUI
-import Components
 
-struct WaterDisplaySection: View {
+public struct WaterDisplaySection: View {
   @Bindable var temperatures: IngredientTemperature
+  
+  public init(temperatures: IngredientTemperature) {
+    self.temperatures = temperatures
+  }
 }
 
 extension WaterDisplaySection {
-  var body: some View {
+  public var body: some View {
     Section {
       WaterDisplay(temperatures)
     }

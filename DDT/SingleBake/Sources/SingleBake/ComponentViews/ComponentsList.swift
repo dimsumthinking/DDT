@@ -9,8 +9,8 @@ extension ComponentsList {
   var body: some View {
     List {
       WaterDisplaySection(temperatures: temperatures)
-      FrictionSection(temperatures: temperatures)
       CoreComponentsSection(temperatures: temperatures)
+      FrictionSection(temperatures: temperatures)
     }
     .buttonStyle(ListButtonStyle())
   }

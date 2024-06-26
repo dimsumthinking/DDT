@@ -5,7 +5,7 @@ import MixAddition
 import SwiftData
 
 public struct MixListView: View {
-  @Query(sort: \Mix.lastUsed, order: .forward) var mixes: [Mix]
+  @Query(sort: \Mix.lastUsed, order: .reverse) var mixes: [Mix]
   @Environment(\.modelContext) private var modelContext
   @State private var isCreatingMix: Bool = false
   @State private var searchString: String = ""

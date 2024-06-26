@@ -9,7 +9,7 @@ extension AdjustableNewMixComponents  {
   var body: some View {
     VStack(spacing: 30) {
       DDTView(temperatures: temperatures)
-      FrictionView(temperatures: temperatures)
+      FrictionAdjustmentView(temperatures: temperatures)
       Toggle("Preferment", isOn: $temperatures.hasPreferment)
     }
   }

@@ -17,7 +17,8 @@ let package = Package(
   targets: [
     .target(
       name: "Components",
-      dependencies: []),
+      dependencies: [],
+      swiftSettings: [.swiftLanguageVersion(.v6)]),
     .testTarget(
       name: "ComponentsTests",
       dependencies: ["Components"]),

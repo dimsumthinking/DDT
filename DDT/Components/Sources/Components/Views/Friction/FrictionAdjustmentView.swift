@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct FrictionView: View {
+public struct FrictionAdjustmentView: View {
   @Bindable var temperatures: IngredientTemperature
   
   public init(temperatures: IngredientTemperature) {
@@ -8,7 +8,7 @@ public struct FrictionView: View {
   }
 }
 
-extension FrictionView {
+extension FrictionAdjustmentView {
   public var body: some View {
     TemperatureAdjusterView(for: .friction,
                             temperature: $temperatures.friction)
@@ -16,5 +16,5 @@ extension FrictionView {
 }
 
 #Preview {
-  FrictionView(temperatures: IngredientTemperature())
+  FrictionAdjustmentView(temperatures: IngredientTemperature())
 }

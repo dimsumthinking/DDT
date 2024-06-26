@@ -25,9 +25,7 @@ extension MixView: View {
           PrefermentView(temperatures: temperatures)
         }
       }
-      FinalDoughTempView(mix: mix,
-                         finalDoughTemp: $finalDoughTemp)
-      
+      FrictionSection(temperatures: temperatures)
     }
     .onAppear {
       temperatures.ddt = mix.desiredDoughTemperature
@@ -40,7 +38,11 @@ extension MixView: View {
       }
       
     }
+    .onDisappear {
+      mix.frictionCoefficient = temperatures.friction
+    }
     .navigationTitle(mix.name)
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
         ShareLink(item: mix.url,
