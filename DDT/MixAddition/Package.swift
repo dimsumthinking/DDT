@@ -19,7 +19,8 @@ let package = Package(
     targets: [
         .target(
             name: "MixAddition",
-            dependencies: ["Persistence", "Components"]),
+            dependencies: ["Persistence", "Components"],
+            swiftSettings: [.swiftLanguageVersion(.v6)]),
         .testTarget(
             name: "MixAdditionTests",
             dependencies: ["MixAddition"]),

@@ -20,7 +20,8 @@ let package = Package(
     targets: [
         .target(
             name: "SingleBake",
-            dependencies: ["Components", "Persistence", "MixAddition"]),
+            dependencies: ["Components", "Persistence", "MixAddition"],
+            swiftSettings: [.swiftLanguageVersion(.v6)]),
         .testTarget(
             name: "SingleBakeTests",
             dependencies: ["SingleBake"]),

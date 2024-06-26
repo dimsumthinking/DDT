@@ -17,7 +17,8 @@ let package = Package(
     targets: [
         .target(
             name: "Persistence",
-            dependencies: []),
+            dependencies: [],
+            swiftSettings: [.swiftLanguageVersion(.v6)]),
         .testTarget(
             name: "PersistenceTests",
             dependencies: ["Persistence"]),
