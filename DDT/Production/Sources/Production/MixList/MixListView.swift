@@ -15,31 +15,11 @@ public struct MixListView: View {
 extension MixListView {
   public var body: some View {
     NavigationStack {
-      if mixes.isEmpty {
-        Text("No saved mixes")
-          .foregroundColor(.secondary)
-          .padding()
-      }
-      List {
-        ForEach(filteredMixes) {mix in
-          NavigationLink(value: mix) {
-            MixListItemView(mix: mix)
-          }
-        }
-        .onDelete { indexSet in
-          if let index = indexSet.first {
-            modelContext.delete(mixes[index])
-          }
-        }
-      }
-      .navigationDestination(for: Mix.self) {mix in
-        MixView(mix: mix)
-      }
+      if mixes.isEmpty {NoMixesView()}
+      MixesView(mixes: filteredMixes)
       .navigationTitle("Production")
       .searchable(text: $searchString,
                   prompt: "Filter by name")
-#if os(iOS)
-      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
           EditButton()
@@ -50,14 +30,11 @@ extension MixListView {
           }
         }
       }
-#endif
       .sheet(isPresented: $isCreatingMix) {
         NewMixView(isShowingSheet: $isCreatingMix)
       }
     }
-#if os(iOS)
     .navigationViewStyle(.stack)
-#endif
     .tabItem {
       Label("Production",
             systemImage: "list.bullet.rectangle")
@@ -72,21 +49,18 @@ extension MixListView {
 
 extension MixListView {
   private var filteredMixes: [Mix] {
-    if searchString.isEmpty {
-      return mixes.map{$0}
-    } else {
-      return mixes
+    if searchString.isEmpty { mixes }
+    else {
+      mixes
         .filter {mix in
-        mix.name.lowercased().contains(searchString.lowercased())
-      }
+          mix.name.lowercased().contains(searchString.lowercased())
+        }
     }
   }
 }
 
-
-
-struct MixListView_Previews: PreviewProvider {
-  static var previews: some View {
-    MixListView()
-  }
+#Preview(traits: .mixPreviewData) {
+  MixListView()
 }
+
+

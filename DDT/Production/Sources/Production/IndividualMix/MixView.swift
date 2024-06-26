@@ -41,7 +41,6 @@ extension MixView: View {
       
     }
     .navigationTitle(mix.name)
-#if os(iOS)
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
         ShareLink(item: mix.url,
@@ -49,7 +48,10 @@ extension MixView: View {
                   message: Text("Link to \(mix.name) DDT formula"))
       }
     }
-#endif
   }
+}
+
+#Preview(traits: .mixPreviewData) {
+  MixView(mix: Mix.sampleMix)
 }
 

@@ -3,13 +3,13 @@ import Components
 import Persistence
 
 
-struct FinalDoughTempView {
+struct FinalDoughTempView: View {
   let mix: Mix
   @Binding var finalDoughTemp: Double
   @Environment(\.modelContext) private var modelContext
 }
 
-extension FinalDoughTempView: View {
+extension FinalDoughTempView {
   var body: some View {
     Section ("To update Friction Coefficient:") {
       VStack {
@@ -49,5 +49,12 @@ extension FinalDoughTempView {
       return frictionCandidate
     }
   }
+}
+
+#Preview(traits: .mixPreviewData) {
+  @Previewable
+  @State var finalDoughTemp = 82.0
+  FinalDoughTempView(mix: Mix.sampleMix,
+                     finalDoughTemp: $finalDoughTemp)
 }
 
