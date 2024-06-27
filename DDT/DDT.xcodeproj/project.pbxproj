@@ -17,6 +17,7 @@
 		625718A42896C4F000285018 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = 625718A32896C4F000285018 /* Persistence */; };
 		6299ACA32831292C00379EC8 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA22831292C00379EC8 /* World.swift */; };
 		6299ACA9283136A400379EC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299ACA8283136A400379EC8 /* MainView.swift */; };
+		62A49BD52C2CB68100F1C134 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 62A49BD42C2CB68100F1C134 /* PrivacyInfo.xcprivacy */; };
 		62E48FF528316DB300136CF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E48FF428316DB300136CF2 /* Status.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		626243A32892E5A900A441C8 /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		6299ACA22831292C00379EC8 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		6299ACA8283136A400379EC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		62A49BD42C2CB68100F1C134 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		62E48FF428316DB300136CF2 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		62E579142B2E00870048D1F0 /* DDTRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDTRelease.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				62E579142B2E00870048D1F0 /* DDTRelease.entitlements */,
 				6299ACAA283136AD00379EC8 /* Launch */,
 				621A67D9262C8576009FE5EC /* Support */,
+				62A49BD42C2CB68100F1C134 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DDT;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A49BD52C2CB68100F1C134 /* PrivacyInfo.xcprivacy in Resources */,
 				621A67D2262C8569009FE5EC /* Preview Assets.xcassets in Resources */,
 				621A67CF262C8569009FE5EC /* Assets.xcassets in Resources */,
 			);
@@ -369,7 +373,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 5.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -395,7 +399,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 5.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimsumthinking.DDTCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
