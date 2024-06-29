@@ -32,3 +32,4 @@ extension FrictionSection {
 #Preview {
   FrictionSection(temperatures: IngredientTemperature())
 }
+

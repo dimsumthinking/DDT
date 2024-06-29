@@ -1,14 +1,21 @@
 import SwiftUI
 import SwiftData
 
-struct MixPreviewData: PreviewModifier {
-  static func makeSharedContext() throws -> ModelContainer {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try ModelContainer(for: Mix.self, configurations: config)
-    let context = ModelContext(container)
+struct MixPreviewData {
+  static func addData(context: ModelContext) {
     for mix in Mix.sampleMixes {
       context.insert( mix)
     }
+  }
+}
+
+extension MixPreviewData: PreviewModifier {
+  static func makeSharedContext() throws -> ModelContainer {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try ModelContainer(for: Mix.self, // type in container
+                                       configurations: config)
+    let context = ModelContext(container)
+    addData(context: context)
     try context.save()
     return container
   }
