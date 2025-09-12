@@ -20,8 +20,7 @@ let package = Package(
   targets: [
     .target(
       name: "Production",
-      dependencies: ["Persistence", "Components", "MixAddition"],
-      swiftSettings: [.swiftLanguageVersion(.v6)]),
+      dependencies: ["Persistence", "Components", "MixAddition"],),
     .testTarget(
       name: "ProductionTests",
       dependencies: ["Production"]),
