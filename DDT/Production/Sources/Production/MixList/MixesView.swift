@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import Persistence
 
 struct MixesView: View {
@@ -29,5 +30,3 @@ extension MixesView {
 #Preview() {
   MixesView(mixes: Mix.sampleMixes)
 }
-
-

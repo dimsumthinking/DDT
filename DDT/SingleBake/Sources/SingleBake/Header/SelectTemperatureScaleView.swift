@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct SelectTemperatureScaleView: View {
-  @State private var isShowingCorF: Bool = false
+  @AppStorage("isCelsius") private var isCelsius: Bool = false
 }
 
 extension SelectTemperatureScaleView {
   var body: some View {
-    Button("ºC / ºF") {
-      isShowingCorF = true
+    Button {
+      isCelsius.toggle()
+    } label: {
+      isCelsius ? Text("ºF") : Text("ºC")
     }
-    .modifier(TemperatureScaleAlert(isShowingCorFAlert: $isShowingCorF))
-    
   }
 }
 

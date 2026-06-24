@@ -1,11 +1,11 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.3
 
 import PackageDescription
 
 let package = Package(
     name: "MixAddition",
     platforms: [
-      .iOS("18.0"), .macOS("15.0")
+      .iOS("27.0"), .macOS("27.0")
     ],
     products: [
         .library(
@@ -19,8 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "MixAddition",
-            dependencies: ["Persistence", "Components"],
-            swiftSettings: [.swiftLanguageVersion(.v6)]),
+            dependencies: ["Persistence", "Components"]),
         .testTarget(
             name: "MixAdditionTests",
             dependencies: ["MixAddition"]),
